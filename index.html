@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Language" content="zh-TW">
+    
+    <!-- 基本 SEO -->
+    <title>ENMY 官方網站 | 靜謐時光 · 精緻童話 | 手工創意品牌</title>
+    <meta name="description" content="ENMY 是一個專注於靜謐時光與精緻童話的創意品牌。探索我們的手工藝術、動畫展示與品牌理念。追蹤全球 ENMY 社群媒體。">
+    <meta name="keywords" content="ENMY, 手工藝術, 創意品牌, 靜謐時光, 精緻童話, 動畫, 藝術作品">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.enmy.com">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="ENMY - 靜謐時光 · 精緻童話">
+    <meta property="og:description" content="探索 ENMY 的創意世界：手工藝術、動畫展示、品牌理念與全球社群。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.enmy.com">
+    <meta property="og:image" content="https://www.enmy.com/og-image.jpg">
+    <meta property="og:site_name" content="ENMY Official">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ENMY - 靜謐時光">
+    <meta name="twitter:description" content="探索 ENMY 的創意世界：手工藝術、動畫展示、品牌理念與全球社群。">
+    <meta name="twitter:image" content="https://www.enmy.com/twitter-image.jpg">
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Fonts with Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;500;700&family=Klee+One&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <style>
+        /* 字體設定 */
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .serif-font {
+            font-family: 'Noto Serif TC', serif;
+        }
+        
+        /* 手寫詩歌樣式 */
+        .handwritten-poetry {
+            font-family: 'Klee One', cursive;
+            line-height: 2;
+            white-space: pre-line;
+        }
+        
+        /* 影片容器與聲音控制 */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            background-color: #000;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .sound-toggle-btn {
+            position: absolute;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .sound-toggle-btn:hover {
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* 按鈕初始位置：影片中央 */
+        .sound-toggle-btn.center {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        /* 按鈕激活位置：影片右上角 */
+        .sound-toggle-btn.active {
+            top: 12px;
+            right: 12px;
+            left: auto;
+            width: 44px;
+            height: 44px;
+            font-size: 18px;
+            transform: none;
+        }
+        
+        /* Footer 樣式 */
+        footer {
+            background-color: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .ig-link {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 8px 8px;
+            background-color: #fff;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            color: #111827;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .ig-link:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* 全域懸浮 LINE 按鈕 */
+        .line-chat-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #00b900;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 185, 0, 0.4);
+            text-decoration: none;
+        }
+        
+        .line-chat-btn:hover {
+            width: 70px;
+            height: 70px;
+            background-color: #00a800;
+            box-shadow: 0 6px 20px rgba(0, 185, 0, 0.6);
+        }
+        
+        .line-chat-btn svg {
+            width: 32px;
+            height: 32px;
+            fill: #fff;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    
+    <!-- Section 1: 主視覺區 -->
+    <section id="section-1" class="w-full h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center">
+        <div class="text-center px-6">
+            <h1 class="text-6xl font-bold mb-4 serif-font text-gray-900">ENMY - 靜謐時光 · 精緻童話</h1>
+            <p class="text-2xl text-gray-600 mb-8">手工創意品牌</p>
+            <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                ENMY 是一個專注於靜謐時光與精緻童話的創意品牌。每一個平凡的午後，都值得被微光與色彩輕輕點綴。在 ENMY 的世界裡，尋找屬於自己的安靜與踏實。
+            </p>
+        </div>
+    </section>
+    
+    <!-- Section 2: 品牌理念區 -->
+    <section id="section-2" class="w-full py-20 bg-white px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center serif-font text-gray-900">品牌理念</h2>
+            
+            <div class="bg-gray-50 p-12 rounded-lg shadow-sm">
+                <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                    ENMY 相信每一個平凡的午後都值得被微光與色彩輕輕點綴。我們致力於創造靜謐、溫柔的藝術體驗，幫助人們在快節奏的生活中找到屬於自己的安靜與踏實。
+                </p>
+                
+                <div class="handwritten-poetry text-lg text-gray-700 leading-relaxed text-center mb-8">
+每一次指尖與溫潤紙張的輕觸沙沙聲，
+都是一場與內心安靜的對話；
+妳把喧囂的世界細細揉進，
+成掌心裡最精緻、純粹的童話。
+
+耳邊傳來 鳥寶貝輕輕的拍翅聲，
+這是我日常裡最治癒的背景音。
+把紛擾關在門外，躲進自己一手打造的世界裡，
+讓那些平時無法輕易安放的情緒，
+都在 ENMY 時光裡我們被這份靜謐溫柔地接住。
+
+生活的美好就在這方寸之間的安靜與踏實。
+將每一個平凡的午後，蘸上微光與色彩。
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 2.5: 自創動畫展示區 -->
+    <section id="section-2-5" class="w-full py-20 bg-gray-100 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center serif-font text-gray-900">自創動畫展示</h2>
+            
+            <!-- 2 欄式 Grid 網格 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 左欄：午間女孩影片 -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 serif-font text-gray-800">午間女孩</h3>
+                    <p class="text-gray-600 mb-4">這部動畫作品捕捉了午間時光的寧靜與美好，通過細膩的筆觸與色彩運用，呈現出 ENMY 獨特的藝術風格。</p>
+                    <div class="video-container">
+                        <video autoplay loop muted playsinline preload="metadata">
+                            <source src="afternoon_girl.mp4" type="video/mp4">
+                            你的瀏覽器不支援 HTML5 視頻標籤。
+                        </video>
+                    </div>
+                </div>
+                
+                <!-- 右欄：丙烯筆動畫（帶重低音）+ 聲音控制按鈕 -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 serif-font text-gray-800">丙烯筆動畫（帶重低音）</h3>
+                    <p class="text-gray-600 mb-4">感受丙烯筆在紙張上舞動的魔力，搭配重低音的背景音樂，創造出沉浸式的藝術體驗。點擊按鈕開啟聲音。</p>
+                    <div class="video-container" id="acrylic-video-container">
+                        <!-- 聲音控制按鈕 -->
+                        <button class="sound-toggle-btn center" id="sound-toggle-btn" title="點擊開啟聲音">
+                            🔇
+                        </button>
+                        
+                        <video id="acrylic-video" muted playsinline preload="metadata">
+                            <source src="acrylic_pen_with_bass.mp4" type="video/mp4">
+                            你的瀏覽器不支援 HTML5 視頻標籤。
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer 區塊 -->
+    <footer class="w-full py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold serif-font text-gray-900 mb-8">關注全球 ENMY 官方 IG</h2>
+                <p class="text-gray-600 mb-8">追蹤我們的社群媒體，獲得最新的 ENMY 動態與靈感分享</p>
+                
+                <!-- IG 連結清單 -->
+                <div class="flex flex-wrap justify-center">
+                    <a href="https://www.instagram.com/enmy_official?igsh=NXU5cjM5bjd5ZjZj" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="ig-link"
+                       title="訪問 ENMY Global Instagram">
+                        🌍 ENMY Global
+                    </a>
+                    <a href="https://www.instagram.com/enmy_official_jp?igsh=ZHo1dHpmcXg3NWt5" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="ig-link"
+                       title="訪問 ENMY Japan Instagram">
+                        🇯🇵 ENMY Japan
+                    </a>
+                    <a href="https://www.instagram.com/enmy_kids_jp?igsh=YzR0eXp2MndtZGN3" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="ig-link"
+                       title="訪問 ENMY Kids Japan Instagram">
+                        👶 ENMY Kids Japan
+                    </a>
+                    <a href="https://www.instagram.com/enmy_official_mx?igsh=MTFkcndjZHVzdnR5aQ==" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="ig-link"
+                       title="訪問 ENMY Mexico Instagram">
+                        🇲🇽 ENMY Mexico
+                    </a>
+                    <a href="https://www.instagram.com/enmyart?igsh=MXFtdTFmOG51MDJ4Yw==" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="ig-link"
+                       title="訪問 ENMY Art Instagram">
+                        🎨 ENMY Art
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Footer 底部資訊 -->
+            <div class="border-t border-gray-200 pt-8 text-center text-gray-600">
+                <p>&copy; 2024 ENMY. All rights reserved. | 靜謐時光 · 精緻童話</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 全域懸浮 LINE 客服按鈕 -->
+    <a href="https://line.me/R/ti/p/@yourlineid" target="_blank" rel="noopener noreferrer" class="line-chat-btn" title="與我們聯絡">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 5.58 2 10c0 2.54 1.19 4.85 3.15 6.37.18 1.36.72 2.64 1.55 3.71.2.28.02.65-.28.72-.3.07-.6-.08-.7-.36-.85-1.56-1.42-3.36-1.42-5.44 0-3.59 3.13-6.5 7-6.5s7 2.91 7 6.5-3.13 6.5-7 6.5c-.55 0-1.08-.05-1.6-.15-.5.41-1.21.65-1.97.65-.76 0-1.47-.24-1.97-.65.52.1 1.05.15 1.6.15 3.87 0 7-2.91 7-6.5S15.87 2 12 2zm-2 9h4v-1h-4v1zm-3 0h4v-1H7v1z"/>
+        </svg>
+    </a>
+    
+    <!-- 結構化數據 - Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ENMY",
+      "url": "https://www.enmy.com",
+      "logo": "https://www.enmy.com/logo.png",
+      "description": "ENMY 是一個專注於靜謐時光與精緻童話的創意品牌",
+      "sameAs": [
+        "https://www.instagram.com/enmy_official",
+        "https://www.instagram.com/enmy_official_jp",
+        "https://www.instagram.com/enmy_kids_jp",
+        "https://www.instagram.com/enmy_official_mx",
+        "https://www.instagram.com/enmyart"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "url": "https://line.me/R/ti/p/@yourlineid"
+      }
+    }
+    </script>
+    
+    <!-- 結構化數據 - WebPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "ENMY - 靜謐時光 · 精緻童話",
+      "description": "探索 ENMY 的創意世界：手工藝術、動畫展示、品牌理念與全球社群",
+      "url": "https://www.enmy.com",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "ENMY"
+      }
+    }
+    </script>
+    
+    <!-- 結構化數據 - Video Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "午間女孩 - ENMY 動畫展示",
+      "description": "ENMY 的創意動畫作品，展現靜謐時光的美好",
+      "thumbnailUrl": "https://www.enmy.com/afternoon-girl-thumbnail.jpg",
+      "uploadDate": "2024-05-18",
+      "duration": "PT2M30S",
+      "contentUrl": "https://www.enmy.com/afternoon_girl.mp4"
+    }
+    </script>
+    
+    <script>
+        // 聲音控制按鈕功能
+        const soundToggleBtn = document.getElementById('sound-toggle-btn');
+        const acrylicVideo = document.getElementById('acrylic-video');
+        let isAudioOn = false;
+        
+        soundToggleBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            if (!isAudioOn) {
+                // 開啟聲音
+                acrylicVideo.muted = false;
+                acrylicVideo.currentTime = 0;
+                acrylicVideo.play();
+                isAudioOn = true;
+                
+                // 按鈕位置變更為右上角，縮小
+                soundToggleBtn.classList.remove('center');
+                soundToggleBtn.classList.add('active');
+                soundToggleBtn.textContent = '🔊';
+                soundToggleBtn.title = '點擊關閉聲音';
+            } else {
+                // 關閉聲音
+                acrylicVideo.muted = true;
+                isAudioOn = false;
+                
+                // 按鈕位置變回中央
+                soundToggleBtn.classList.remove('active');
+                soundToggleBtn.classList.add('center');
+                soundToggleBtn.textContent = '🔇';
+                soundToggleBtn.title = '點擊開啟聲音';
+            }
+        });
+        
+        // 影片自動播放（預設靜音）
+        acrylicVideo.autoplay = true;
+        acrylicVideo.loop = true;
+    </script>
+    
+</body>
+</html>
