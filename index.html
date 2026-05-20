@@ -232,37 +232,21 @@
     <!-- Section 2.5: 自創動畫展示區 -->
     <section id="section-2-5" class="w-full py-20 bg-gray-100 px-6">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold mb-12 text-center serif-font text-gray-900">自創動畫展示</h2>
+            <h2 class="text-4xl font-bold mb-12 text-center serif-font text-gray-900">丙烯筆動畫展示</h2>
             
-            <!-- 2 欄式 Grid 網格 -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- 左欄：午間女孩影片 -->
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4 serif-font text-gray-800">午間女孩</h3>
-                    <p class="text-gray-600 mb-4">這部動畫作品捕捉了午間時光的寧靜與美好，通過細膩的筆觸與色彩運用，呈現出 ENMY 獨特的藝術風格。</p>
-                    <div class="video-container">
-                        <video autoplay loop muted playsinline preload="metadata">
-                            <source src="afternoon_girl.mp4" type="video/mp4">
-                            你的瀏覽器不支援 HTML5 視頻標籤。
-                        </video>
-                    </div>
-                </div>
-                
-                <!-- 右欄：丙烯筆動畫（帶重低音）+ 聲音控制按鈕 -->
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4 serif-font text-gray-800">丙烯筆動畫（帶重低音）</h3>
-                    <p class="text-gray-600 mb-4">感受丙烯筆在紙張上舞動的魔力，搭配重低音的背景音樂，創造出沉浸式的藝術體驗。點擊按鈕開啟聲音。</p>
-                    <div class="video-container" id="acrylic-video-container">
-                        <!-- 聲音控制按鈕 -->
-                        <button class="sound-toggle-btn center" id="sound-toggle-btn" title="點擊開啟聲音">
-                            🔇
-                        </button>
-                        
-                        <video id="acrylic-video" muted playsinline preload="metadata">
-                            <source src="acrylic_pen_with_bass.mp4" type="video/mp4">
-                            你的瀏覽器不支援 HTML5 視頻標籤。
-                        </video>
-                    </div>
+            <!-- 全寬影片展示 -->
+            <div class="w-full">
+                <p class="text-center text-gray-600 mb-8 text-lg">感受丙烯筆在紙張上舞動的魔力，搭配重低音的背景音樂，創造出沉浸式的藝術體驗。點擊按鈕開啟聲音。</p>
+                <div class="video-container-large" id="acrylic-video-container">
+                    <!-- 聲音控制按鈕 -->
+                    <button class="sound-toggle-btn center" id="sound-toggle-btn" title="點擊開啟聲音">
+                        🔇
+                    </button>
+                    
+                    <video id="acrylic-video" autoplay loop muted playsinline preload="metadata" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);">
+                        <source src="acrylic_pen_with_bass.mp4" type="video/mp4">
+                        你的瀏覽器不支援 HTML5 視頻標籤。
+                    </video>
                 </div>
             </div>
         </div>
