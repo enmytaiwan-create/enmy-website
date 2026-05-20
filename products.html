@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENMY 產品系列 | 小黑盒壓克力麥克筆 · 爆閃筆 · 按壓式丙烯筆 · 專用畫紙</title>
+    <meta name="description" content="探索 ENMY 完整產品系列：小黑盒壓克力麥克筆、Outshiner 爆閃筆、按壓式丙烯筆、專用畫紙。可畫在任何地方，讓每一筆都閃耀價值。">
+    <meta name="keywords" content="ENMY,壓克力麥克筆,爆閃筆,丙烯筆,小黑盒,按壓式丙烯筆,畫紙,文具,藝術用品">
+    <meta property="og:title" content="ENMY 產品系列 | 讓每一筆閃耀價值">
+    <meta property="og:description" content="探索 ENMY 完整產品系列，可畫在任何地方。">
+    <meta property="og:image" content="https://enmy-taiwan.netlify.app/og-image.jpg">
+    <meta property="og:url" content="https://enmy-taiwan.netlify.app/products.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --cream: #fdf8f3;
+            --gold: #c9a96e;
+            --gold-light: #e8d5a3;
+            --dark-brown: #3a3028;
+            --deep-dark: #1a1208;
+            --warm-gray: #8a7a6a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark-brown);
+            overflow-x: hidden;
+        }
+
+        /* 進度條 */
+        #progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px;
+            background: linear-gradient(90deg, var(--gold), #e8c97a, var(--gold));
+            z-index: 9999; width: 0%; transition: width 0.1s;
+        }
+
+        /* 導航 */
+        nav {
+            position: fixed; top: 3px; left: 0; right: 0;
+            z-index: 1000; padding: 20px 40px;
+            transition: all 0.4s ease;
+        }
+        nav.scrolled {
+            background: rgba(253, 248, 243, 0.92);
+            backdrop-filter: blur(12px);
+            padding: 14px 40px;
+            box-shadow: 0 2px 20px rgba(58, 48, 40, 0.08);
+        }
+        .nav-logo {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.6rem; font-weight: 700;
+            color: white; letter-spacing: 0.1em;
+            transition: color 0.4s;
+        }
+        nav.scrolled .nav-logo { color: var(--dark-brown); }
+        .nav-links a {
+            font-size: 0.85rem; letter-spacing: 0.08em;
+            color: rgba(255,255,255,0.85); text-decoration: none;
+            margin-left: 32px; transition: color 0.3s;
+        }
+        nav.scrolled .nav-links a { color: var(--warm-gray); }
+        .nav-links a:hover { color: var(--gold) !important; }
+
+        /* Hero */
+        .products-hero {
+            height: 70vh; min-height: 500px;
+            background: linear-gradient(135deg, #1a1208 0%, #2d2018 40%, #3a2a1a 70%, #1a1208 100%);
+            position: relative; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .products-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(201,169,110,0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 50%, rgba(201,169,110,0.08) 0%, transparent 50%);
+        }
+        .hero-particles span {
+            position: absolute; width: 4px; height: 4px;
+            background: var(--gold); border-radius: 50%;
+            animation: float-particle 6s infinite ease-in-out;
+            opacity: 0.6;
+        }
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-20px) scale(1.5); opacity: 1; }
+        }
+        .hero-content { position: relative; z-index: 2; text-align: center; }
+        .hero-eyebrow {
+            font-size: 0.75rem; letter-spacing: 0.3em;
+            color: var(--gold); text-transform: uppercase;
+            margin-bottom: 16px; opacity: 0.9;
+        }
+        .hero-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700; color: white;
+            line-height: 1.2; margin-bottom: 20px;
+        }
+        .hero-title span { color: var(--gold); }
+        .hero-subtitle {
+            font-size: 1rem; color: rgba(255,255,255,0.65);
+            letter-spacing: 0.1em; margin-bottom: 40px;
+        }
+        .hero-cta {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--gold);
+            color: var(--deep-dark); padding: 14px 36px;
+            border-radius: 50px; font-size: 0.9rem;
+            font-weight: 700; letter-spacing: 0.1em;
+            text-decoration: none; transition: all 0.3s;
+        }
+        .hero-cta:hover { background: #e8c97a; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,169,110,0.4); }
+
+        /* 產品系列導覽 */
+        .series-nav {
+            background: white; padding: 0;
+            position: sticky; top: 56px; z-index: 100;
+            border-bottom: 1px solid rgba(201,169,110,0.2);
+            box-shadow: 0 2px 12px rgba(58,48,40,0.06);
+        }
+        .series-nav-inner {
+            display: flex; overflow-x: auto;
+            scrollbar-width: none; -ms-overflow-style: none;
+        }
+        .series-nav-inner::-webkit-scrollbar { display: none; }
+        .series-tab {
+            flex-shrink: 0; padding: 18px 32px;
+            font-size: 0.85rem; letter-spacing: 0.08em;
+            color: var(--warm-gray); cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s; white-space: nowrap;
+            text-decoration: none; display: block;
+        }
+        .series-tab:hover, .series-tab.active {
+            color: var(--dark-brown);
+            border-bottom-color: var(--gold);
+        }
+
+        /* 通用 Section */
+        .product-section {
+            padding: 100px 0;
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .product-section.visible { opacity: 1; transform: translateY(0); }
+        .section-label {
+            font-size: 0.7rem; letter-spacing: 0.4em;
+            color: var(--gold); text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 700; color: var(--dark-brown);
+            line-height: 1.3; margin-bottom: 20px;
+        }
+        .section-desc {
+            font-size: 1rem; color: var(--warm-gray);
+            line-height: 1.9; max-width: 500px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+        /* 產品圖片 */
+        .product-img {
+            width: 100%; border-radius: 16px;
+            overflow: hidden; position: relative;
+        }
+        .product-img img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .product-img:hover img { transform: scale(1.03); }
+
+        /* 產品特色標籤 */
+        .feature-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(201,169,110,0.12);
+            border: 1px solid rgba(201,169,110,0.3);
+            color: var(--dark-brown); padding: 8px 16px;
+            border-radius: 50px; font-size: 0.8rem;
+            margin: 4px; letter-spacing: 0.05em;
+        }
+        .feature-tag::before {
+            content: '✦'; color: var(--gold); font-size: 0.6rem;
+        }
+
+        /* 色彩展示 */
+        .color-palette {
+            display: flex; flex-wrap: wrap; gap: 8px;
+            margin: 24px 0;
+        }
+        .color-dot {
+            width: 32px; height: 32px; border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.8);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .color-dot:hover { transform: scale(1.3); }
+
+        /* 購買按鈕 */
+        .buy-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--dark-brown); color: white;
+            padding: 16px 40px; border-radius: 50px;
+            font-size: 0.9rem; font-weight: 700;
+            letter-spacing: 0.1em; text-decoration: none;
+            transition: all 0.3s; margin-top: 32px;
+        }
+        .buy-btn:hover {
+            background: var(--gold); color: var(--deep-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(201,169,110,0.4);
+        }
+        .buy-btn svg { width: 18px; height: 18px; }
+
+        /* 交替佈局 */
+        .product-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 80px; align-items: center;
+        }
+        .product-grid.reverse { direction: rtl; }
+        .product-grid.reverse > * { direction: ltr; }
+
+        /* 深色區塊 */
+        .dark-section {
+            background: var(--deep-dark);
+            padding: 100px 0;
+        }
+        .dark-section .section-title { color: white; }
+        .dark-section .section-desc { color: rgba(255,255,255,0.6); }
+        .dark-section .section-label { color: var(--gold); }
+
+        /* 應用場景卡片 */
+        .surface-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 24px; margin-top: 60px;
+        }
+        .surface-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(201,169,110,0.2);
+            border-radius: 16px; padding: 32px 24px;
+            text-align: center; transition: all 0.3s;
+        }
+        .surface-card:hover {
+            background: rgba(201,169,110,0.1);
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+        .surface-icon {
+            font-size: 2.5rem; margin-bottom: 16px; display: block;
+        }
+        .surface-name {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.1rem; color: white;
+            margin-bottom: 8px;
+        }
+        .surface-desc {
+            font-size: 0.82rem; color: rgba(255,255,255,0.5);
+            line-height: 1.6;
+        }
+
+        /* 專業規格表 */
+        .spec-table {
+            width: 100%; border-collapse: collapse;
+            margin-top: 32px;
+        }
+        .spec-table tr {
+            border-bottom: 1px solid rgba(201,169,110,0.15);
+        }
+        .spec-table td {
+            padding: 14px 0; font-size: 0.88rem;
+        }
+        .spec-table td:first-child {
+            color: var(--warm-gray); width: 40%;
+            letter-spacing: 0.05em;
+        }
+        .spec-table td:last-child {
+            color: var(--dark-brown); font-weight: 500;
+        }
+
+        /* 筆的專業區塊 */
+        .pen-pro-section {
+            background: linear-gradient(135deg, #f5ede0 0%, #fdf8f3 50%, #f0e8d8 100%);
+            padding: 100px 0;
+        }
+        .pen-comparison {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 40px; margin-top: 60px;
+        }
+        .pen-card {
+            background: white; border-radius: 20px;
+            padding: 40px; box-shadow: 0 4px 30px rgba(58,48,40,0.08);
+            transition: all 0.3s; position: relative; overflow: hidden;
+        }
+        .pen-card::before {
+            content: ''; position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--gold), #e8c97a);
+        }
+        .pen-card:hover { transform: translateY(-6px); box-shadow: 0 12px 50px rgba(58,48,40,0.15); }
+        .pen-card-img {
+            width: 100%; height: 220px; object-fit: cover;
+            border-radius: 12px; margin-bottom: 28px;
+        }
+        .pen-card-name {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.3rem; font-weight: 700;
+            color: var(--dark-brown); margin-bottom: 8px;
+        }
+        .pen-card-sub {
+            font-size: 0.8rem; color: var(--gold);
+            letter-spacing: 0.15em; text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .pen-card-desc {
+            font-size: 0.88rem; color: var(--warm-gray);
+            line-height: 1.8; margin-bottom: 24px;
+        }
+        .pen-feature-list {
+            list-style: none; padding: 0;
+        }
+        .pen-feature-list li {
+            font-size: 0.85rem; color: var(--dark-brown);
+            padding: 8px 0; border-bottom: 1px solid rgba(201,169,110,0.1);
+            display: flex; align-items: center; gap: 10px;
+        }
+        .pen-feature-list li::before {
+            content: '✦'; color: var(--gold); font-size: 0.55rem; flex-shrink: 0;
+        }
+
+        /* 畫紙區塊 */
+        .paper-section { padding: 100px 0; background: white; }
+        .paper-showcase {
+            display: grid; grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px; margin-top: 60px;
+        }
+        .paper-card {
+            border-radius: 16px; overflow: hidden;
+            position: relative; aspect-ratio: 3/4;
+            cursor: pointer;
+        }
+        .paper-card img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .paper-card:hover img { transform: scale(1.05); }
+        .paper-card-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(26,18,8,0.85) 0%, transparent 50%);
+            display: flex; flex-direction: column;
+            justify-content: flex-end; padding: 24px;
+        }
+        .paper-card-name {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.1rem; color: white; font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .paper-card-desc {
+            font-size: 0.78rem; color: rgba(255,255,255,0.7);
+        }
+
+        /* CTA 區塊 */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-brown) 0%, #2a2018 50%, var(--dark-brown) 100%);
+            padding: 100px 0; text-align: center;
+        }
+        .cta-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: white; font-weight: 700;
+            margin-bottom: 20px; line-height: 1.3;
+        }
+        .cta-title span { color: var(--gold); }
+        .cta-desc {
+            font-size: 1rem; color: rgba(255,255,255,0.6);
+            margin-bottom: 48px; letter-spacing: 0.05em;
+        }
+        .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .cta-btn-primary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--gold); color: var(--deep-dark);
+            padding: 18px 48px; border-radius: 50px;
+            font-size: 1rem; font-weight: 700;
+            letter-spacing: 0.1em; text-decoration: none;
+            transition: all 0.3s;
+        }
+        .cta-btn-primary:hover { background: #e8c97a; transform: translateY(-3px); box-shadow: 0 10px 40px rgba(201,169,110,0.5); }
+        .cta-btn-secondary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: transparent; color: white;
+            padding: 18px 48px; border-radius: 50px;
+            font-size: 1rem; font-weight: 500;
+            letter-spacing: 0.1em; text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s;
+        }
+        .cta-btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* Footer */
+        footer {
+            background: var(--deep-dark); padding: 60px 0 40px;
+            text-align: center;
+        }
+        .footer-logo {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 2rem; color: var(--gold);
+            letter-spacing: 0.2em; margin-bottom: 32px;
+        }
+        .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+        .footer-ig-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border-radius: 50px;
+            border: 1px solid rgba(201,169,110,0.25);
+            color: rgba(255,255,255,0.7); text-decoration: none;
+            font-size: 0.8rem; letter-spacing: 0.05em;
+            transition: all 0.3s;
+        }
+        .footer-ig-link:hover {
+            background: linear-gradient(135deg, rgba(201,169,110,0.2), rgba(232,201,122,0.1));
+            border-color: var(--gold); color: var(--gold);
+            transform: translateY(-2px);
+        }
+        .footer-bottom {
+            font-size: 0.75rem; color: rgba(255,255,255,0.25);
+            padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* LINE 按鈕 */
+        .line-float-btn {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: #00b900; display: flex;
+            align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,185,0,0.4);
+            z-index: 999; text-decoration: none;
+            transition: all 0.3s;
+        }
+        .line-float-btn:hover { background: #00a000; transform: scale(1.1); box-shadow: 0 6px 30px rgba(0,185,0,0.5); }
+
+        /* 響應式 */
+        @media (max-width: 768px) {
+            .product-grid { grid-template-columns: 1fr; gap: 40px; }
+            .product-grid.reverse { direction: ltr; }
+            .surface-grid { grid-template-columns: 1fr 1fr; }
+            .pen-comparison { grid-template-columns: 1fr; }
+            .paper-showcase { grid-template-columns: 1fr 1fr; }
+            .container { padding: 0 20px; }
+            nav { padding: 16px 20px; }
+            nav.scrolled { padding: 12px 20px; }
+            .nav-links { display: none; }
+        }
+        @media (max-width: 480px) {
+            .surface-grid { grid-template-columns: 1fr; }
+            .paper-showcase { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- 導航 -->
+<nav id="navbar">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+        <a href="index.html" class="nav-logo">ENMY.</a>
+        <div class="nav-links">
+            <a href="index.html">首頁</a>
+            <a href="story.html">品牌故事</a>
+            <a href="products.html" style="color: var(--gold) !important;">產品系列</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="products-hero">
+    <div class="hero-particles">
+        <span style="top:20%; left:10%; animation-delay:0s;"></span>
+        <span style="top:60%; left:20%; animation-delay:1s;"></span>
+        <span style="top:30%; right:15%; animation-delay:2s;"></span>
+        <span style="top:70%; right:25%; animation-delay:0.5s;"></span>
+        <span style="top:45%; left:50%; animation-delay:1.5s;"></span>
+    </div>
+    <div class="hero-content">
+        <p class="hero-eyebrow">ENMY Product Series</p>
+        <h1 class="hero-title">用色彩，<span>征服每一個</span><br>創作的瞬間</h1>
+        <p class="hero-subtitle">可畫在任何地方 · 讓每一筆都閃耀價值</p>
+        <a href="https://shopee.tw/search?keyword=%E6%81%A9%E7%B1%B3" target="_blank" rel="noopener noreferrer" class="hero-cta">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4V2H17V4H20C20.5523 4 21 4.44772 21 5V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V5C3 4.44772 3.44772 4 4 4H7ZM7 6H5V20H19V6H17V8H7V6ZM9 6V4H15V6H9Z"/></svg>
+            前往蝦皮選購
+        </a>
+    </div>
+</section>
+
+<!-- 系列導覽 -->
+<nav class="series-nav">
+    <div class="container">
+        <div class="series-nav-inner">
+            <a href="#blackbox" class="series-tab">小黑盒壓克力麥克筆</a>
+            <a href="#glitter" class="series-tab">Outshiner 爆閃筆</a>
+            <a href="#press-pen" class="series-tab">按壓式丙烯筆</a>
+            <a href="#paper" class="series-tab">ENMY 專用畫紙</a>
+            <a href="#anywhere" class="series-tab">畫在任何地方</a>
+            <a href="#pen-pro" class="series-tab">筆的專業</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Section 1: 小黑盒壓克力麥克筆 -->
+<section id="blackbox" class="product-section">
+    <div class="container">
+        <div class="product-grid">
+            <div>
+                <p class="section-label">Series 01 · Acrylic Marker</p>
+                <h2 class="section-title">小黑盒<br>壓克力麥克筆</h2>
+                <p class="section-desc">
+                    ENMY 小黑盒，藝術家的隨身武器。透明掀蓋塑膠盒設計，一目了然的色彩管理，讓你隨時找到心中那一抹完美色彩。軟頭筆尖兼顧細線勾勒與大面積上色，顏料附著力強，可畫在紙張、布料、木頭、陶瓷、玻璃等各種材質上。
+                </p>
+                <div style="margin-top: 24px;">
+                    <span class="feature-tag">透明掀蓋收納盒</span>
+                    <span class="feature-tag">軟頭筆尖</span>
+                    <span class="feature-tag">24 / 36 / 48 色</span>
+                    <span class="feature-tag">防水耐光</span>
+                    <span class="feature-tag">可畫任何材質</span>
+                </div>
+                <div class="color-palette">
+                    <div class="color-dot" style="background:#e74c3c;" title="紅"></div>
+                    <div class="color-dot" style="background:#e67e22;" title="橘"></div>
+                    <div class="color-dot" style="background:#f1c40f;" title="黃"></div>
+                    <div class="color-dot" style="background:#2ecc71;" title="綠"></div>
+                    <div class="color-dot" style="background:#1abc9c;" title="青綠"></div>
+                    <div class="color-dot" style="background:#3498db;" title="藍"></div>
+                    <div class="color-dot" style="background:#9b59b6;" title="紫"></div>
+                    <div class="color-dot" style="background:#e91e8c;" title="粉紅"></div>
+                    <div class="color-dot" style="background:#ffffff; border-color:#ddd;" title="白"></div>
+                    <div class="color-dot" style="background:#2c3e50;" title="深藍"></div>
+                    <div class="color-dot" style="background:#795548;" title="棕"></div>
+                    <div class="color-dot" style="background:#607d8b;" title="灰藍"></div>
+                </div>
+                <a href="https://shopee.tw/search?keyword=%E6%81%A9%E7%B1%B3%E5%B0%8F%E9%BB%91%E7%9B%92" target="_blank" rel="noopener noreferrer" class="buy-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4V2H17V4H20C20.5523 4 21 4.44772 21 5V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V5C3 4.44772 3.44772 4 4 4H7ZM7 6H5V20H19V6H17V8H7V6ZM9 6V4H15V6H9Z"/></svg>
+                    立即選購
+                </a>
+            </div>
+            <div>
+                <div class="product-img" style="height: 480px;">
+                    <img src="enmy_blackbox_marker_v4.jpg" alt="ENMY 小黑盒壓克力麥克筆" loading="lazy">
+                </div>
+                <div class="product-img" style="height: 220px; margin-top: 20px;">
+                    <img src="enmy_blackbox_lifestyle_v4.jpg" alt="ENMY 小黑盒生活場景" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 2: 爆閃筆 -->
+<section id="glitter" class="product-section" style="background: linear-gradient(180deg, #fdf8f3 0%, #f5ede0 100%);">
+    <div class="container">
+        <div class="product-grid reverse">
+            <div>
+                <p class="section-label">Series 02 · Glitter Marker</p>
+                <h2 class="section-title">Outshiner<br>爆閃筆</h2>
+                <p class="section-desc">
+                    每一筆都是一場閃耀的魔法。ENMY Outshiner 爆閃筆，內含高濃度閃粉顏料，筆觸乾燥後呈現璀璨的閃亮效果。無論是手帳裝飾、賀卡設計、藝術創作，都能讓你的作品在人群中脫穎而出，閃耀每一個平凡的瞬間。
+                </p>
+                <div style="margin-top: 24px;">
+                    <span class="feature-tag">高濃度閃粉顏料</span>
+                    <span class="feature-tag">12 色閃亮組合</span>
+                    <span class="feature-tag">乾燥後不掉粉</span>
+                    <span class="feature-tag">適合手帳裝飾</span>
+                    <span class="feature-tag">禮盒包裝</span>
+                </div>
+                <div class="color-palette">
+                    <div class="color-dot" style="background: linear-gradient(135deg, #ffd700, #ffec6e);" title="金"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #c0c0c0, #e8e8e8);" title="銀"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #ff6b9d, #ffb3d1);" title="粉閃"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #7b2ff7, #c77dff);" title="紫閃"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #00b4d8, #90e0ef);" title="藍閃"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #06d6a0, #80ffdb);" title="綠閃"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #ff4d6d, #ff8fa3);" title="紅閃"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #ff9f1c, #ffbf69);" title="橘閃"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #e9c46a, #f4d35e);" title="黃閃"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #4cc9f0, #a8dadc);" title="青閃"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #f72585, #b5179e);" title="桃閃"></div>
+                    <div class="color-dot" style="background: linear-gradient(135deg, #ffffff, #f0f0f0); border-color:#ddd;" title="白閃"></div>
+                </div>
+                <a href="https://shopee.tw/search?keyword=%E6%81%A9%E7%B1%B3%E7%88%86%E9%96%83%E7%AD%86" target="_blank" rel="noopener noreferrer" class="buy-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4V2H17V4H20C20.5523 4 21 4.44772 21 5V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V5C3 4.44772 3.44772 4 4 4H7ZM7 6H5V20H19V6H17V8H7V6ZM9 6V4H15V6H9Z"/></svg>
+                    立即選購
+                </a>
+            </div>
+            <div>
+                <div class="product-img" style="height: 500px;">
+                    <img src="enmy_glitter_v2.jpg" alt="ENMY Outshiner 爆閃筆" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: 按壓式丙烯筆 -->
+<section id="press-pen" class="product-section">
+    <div class="container">
+        <div class="product-grid">
+            <div>
+                <p class="section-label">Series 03 · Press-Type Acrylic Pen</p>
+                <h2 class="section-title">按壓式<br>丙烯筆</h2>
+                <p class="section-desc">
+                    精工設計的按壓式出墨系統，讓顏料供給更穩定、更精準。白色流線型筆身搭配透明按壓頭，優雅而專業。細尖筆頭適合精細線條勾勒，是插畫師、手帳愛好者的最佳夥伴。多色選擇，讓你的每一個細節都完美呈現。
+                </p>
+                <div style="margin-top: 24px;">
+                    <span class="feature-tag">按壓式出墨系統</span>
+                    <span class="feature-tag">細尖精準筆頭</span>
+                    <span class="feature-tag">白色流線型筆身</span>
+                    <span class="feature-tag">多色選擇</span>
+                    <span class="feature-tag">適合精細插畫</span>
+                </div>
+                <table class="spec-table">
+                    <tr><td>筆頭類型</td><td>細尖軟頭（精準型）</td></tr>
+                    <tr><td>出墨方式</td><td>頂端按壓控制</td></tr>
+                    <tr><td>筆身材質</td><td>白色霧面塑膠</td></tr>
+                    <tr><td>顏料類型</td><td>水性丙烯顏料</td></tr>
+                    <tr><td>適用材質</td><td>紙張、布料、木頭等</td></tr>
+                </table>
+                <a href="https://shopee.tw/search?keyword=%E6%81%A9%E7%B1%B3%E6%8C%89%E5%A3%93%E5%BC%8F%E4%B8%99%E7%83%AF%E7%AD%86" target="_blank" rel="noopener noreferrer" class="buy-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4V2H17V4H20C20.5523 4 21 4.44772 21 5V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V5C3 4.44772 3.44772 4 4 4H7ZM7 6H5V20H19V6H17V8H7V6ZM9 6V4H15V6H9Z"/></svg>
+                    立即選購
+                </a>
+            </div>
+            <div>
+                <div class="product-img" style="height: 520px;">
+                    <img src="enmy_press_pen_v4.jpg" alt="ENMY 按壓式丙烯筆" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 4: 畫在任何地方 -->
+<section id="anywhere" class="dark-section product-section">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <p class="section-label">Paint on Any Surface</p>
+            <h2 class="section-title" style="font-size: clamp(2rem, 5vw, 3.5rem);">畫在任何地方，<br>讓世界成為你的畫布</h2>
+            <p class="section-desc" style="max-width: 600px; margin: 0 auto; text-align: center;">
+                ENMY 壓克力顏料的強附著力，讓你突破紙張的限制，在各種材質上自由創作。
+            </p>
+        </div>
+        <div class="surface-grid">
+            <div class="surface-card">
+                <span class="surface-icon">📄</span>
+                <div class="surface-name">紙張 · 黑卡紙</div>
+                <div class="surface-desc">白紙、黑卡紙、水彩紙，顏色飽和鮮豔，層疊效果出色</div>
+            </div>
+            <div class="surface-card">
+                <span class="surface-icon">☕</span>
+                <div class="surface-name">陶瓷 · 馬克杯</div>
+                <div class="surface-desc">在馬克杯、花瓶、陶盤上作畫，打造獨一無二的生活器物</div>
+            </div>
+            <div class="surface-card">
+                <span class="surface-icon">🪵</span>
+                <div class="surface-name">木頭 · 木製品</div>
+                <div class="surface-desc">木盒、木板、木製裝飾品，自然紋理與色彩的完美結合</div>
+            </div>
+            <div class="surface-card">
+                <span class="surface-icon">🎨</span>
+                <div class="surface-name">畫布 · 布料</div>
+                <div class="surface-desc">帆布袋、T-shirt、帆布畫，創作可穿戴的藝術</div>
+            </div>
+            <div class="surface-card">
+                <span class="surface-icon">🪟</span>
+                <div class="surface-name">玻璃 · 壓克力板</div>
+                <div class="surface-desc">玻璃窗、壓克力板、鏡面，透明材質上的彩色奇蹟</div>
+            </div>
+            <div class="surface-card">
+                <span class="surface-icon">🪨</span>
+                <div class="surface-name">石頭 · 其他材質</div>
+                <div class="surface-desc">鵝卵石、金屬、皮革，任何你能想到的材質都可以嘗試</div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 60px;">
+            <div class="product-img" style="max-width: 900px; margin: 0 auto; height: 400px;">
+                <img src="enmy_anywhere_application.jpg" alt="ENMY 壓克力筆應用場景" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 5: 筆的專業 -->
+<section id="pen-pro" class="pen-pro-section product-section">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <p class="section-label">Professional Pen Technology</p>
+            <h2 class="section-title">筆的專業</h2>
+            <p class="section-desc" style="max-width: 600px; margin: 0 auto; text-align: center;">
+                每一支 ENMY 筆都經過精心設計，從筆尖到顏料，每個細節都追求極致的書寫與繪畫體驗。
+            </p>
+        </div>
+        <div class="pen-comparison">
+            <!-- 小黑盒丙烯筆 -->
+            <div class="pen-card">
+                <img src="enmy_blackbox_marker_v4.jpg" alt="小黑盒壓克力麥克筆" class="pen-card-img">
+                <div class="pen-card-sub">ENMY. Acrylic Marker</div>
+                <div class="pen-card-name">小黑盒壓克力麥克筆</div>
+                <div class="pen-card-desc">
+                    軟頭筆尖設計，兼顧細線勾勒與大面積塗色。黑色筆桿搭配彩色 ENMY. 字樣，視覺辨識度高。
+                </div>
+                <ul class="pen-feature-list">
+                    <li>軟頭筆尖：細線 / 寬線 雙用途</li>
+                    <li>顏料：高濃度水性壓克力</li>
+                    <li>乾燥後防水、耐刮</li>
+                    <li>透明塑膠掀蓋收納盒</li>
+                    <li>24 / 36 / 48 色可選</li>
+                </ul>
+            </div>
+            <!-- 按壓式丙烯筆 -->
+            <div class="pen-card">
+                <img src="enmy_press_pen_v4.jpg" alt="按壓式丙烯筆" class="pen-card-img">
+                <div class="pen-card-sub">ENMY. Press-Type Acrylic Pen</div>
+                <div class="pen-card-name">按壓式丙烯筆</div>
+                <div class="pen-card-desc">
+                    頂端按壓出墨，精準控制顏料流量。細尖筆頭適合插畫、手帳、精細線條創作。
+                </div>
+                <ul class="pen-feature-list">
+                    <li>按壓式出墨：穩定精準不滴墨</li>
+                    <li>細尖筆頭：適合精細插畫</li>
+                    <li>白色流線型筆身設計</li>
+                    <li>透明彩色握位顯示顏色</li>
+                    <li>多色選擇，彩虹色系齊全</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 6: 專用畫紙 -->
+<section id="paper" class="paper-section product-section">
+    <div class="container">
+        <div class="product-grid">
+            <div>
+                <p class="section-label">Series 04 · Premium Paper</p>
+                <h2 class="section-title">ENMY<br>專用畫紙</h2>
+                <p class="section-desc">
+                    好的畫紙，是創作的最佳舞台。ENMY 專用畫紙針對壓克力顏料特性特別設計，紙張厚度與表面紋理完美搭配 ENMY 系列筆款，讓顏色更飽和、層疊更自然，每一筆都能完美呈現。
+                </p>
+                <div style="margin-top: 24px;">
+                    <span class="feature-tag">專為壓克力設計</span>
+                    <span class="feature-tag">高克重厚紙</span>
+                    <span class="feature-tag">不易透色</span>
+                    <span class="feature-tag">黑色 / 白色可選</span>
+                    <span class="feature-tag">A4 / A5 規格</span>
+                </div>
+                <table class="spec-table">
+                    <tr><td>紙張克重</td><td>200g / m²</td></tr>
+                    <tr><td>表面處理</td><td>細紋壓紋</td></tr>
+                    <tr><td>顏色</td><td>純白 / 深黑</td></tr>
+                    <tr><td>規格</td><td>A4 / A5</td></tr>
+                    <tr><td>數量</td><td>每包 20 張</td></tr>
+                </table>
+                <a href="https://shopee.tw/search?keyword=%E6%81%A9%E7%B1%B3%E7%95%AB%E7%B4%99" target="_blank" rel="noopener noreferrer" class="buy-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4V2H17V4H20C20.5523 4 21 4.44772 21 5V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V5C3 4.44772 3.44772 4 4 4H7ZM7 6H5V20H19V6H17V8H7V6ZM9 6V4H15V6H9Z"/></svg>
+                    立即選購
+                </a>
+            </div>
+            <div>
+                <div class="product-img" style="height: 560px;">
+                    <img src="enmy_blackbox_lifestyle_v4.jpg" alt="ENMY 專用畫紙與壓克力筆" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <h2 class="cta-title">準備好開始<span>你的創作</span>了嗎？</h2>
+        <p class="cta-desc">探索 ENMY 完整產品系列，讓每一個平凡的午後，都蘸上微光與色彩。</p>
+        <div class="cta-buttons">
+            <a href="https://shopee.tw/search?keyword=%E6%81%A9%E7%B1%B3" target="_blank" rel="noopener noreferrer" class="cta-btn-primary">
+                前往蝦皮選購
+            </a>
+            <a href="story.html" class="cta-btn-secondary">
+                閱讀品牌故事
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-logo">ENMY.</div>
+        <div class="footer-links">
+            <a href="https://www.instagram.com/enmy_official_jp?igsh=ZHo1dHpmcXg3NWt5" target="_blank" rel="noopener noreferrer" class="footer-ig-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                ENMY Japan
+            </a>
+            <a href="https://www.instagram.com/enmy_kids_jp?igsh=YzR0eXp2MndtZGN3" target="_blank" rel="noopener noreferrer" class="footer-ig-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                ENMY Kids Japan
+            </a>
+            <a href="https://www.instagram.com/enmy_official_mx?igsh=MTFkcndjZHVzdnR5aQ==" target="_blank" rel="noopener noreferrer" class="footer-ig-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                ENMY Mexico
+            </a>
+            <a href="https://www.instagram.com/enmyart?igsh=MXFtdTFmOG51MDJ4Yw=" target="_blank" rel="noopener noreferrer" class="footer-ig-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                ENMY Art
+            </a>
+        </div>
+        <div class="footer-bottom">
+            © 2025 ENMY Taiwan. All rights reserved. | 台灣恩米旗艦店
+        </div>
+    </div>
+</footer>
+
+<!-- LINE 懸浮按鈕 -->
+<a href="https://lin.ee/WJ6EUMs" target="_blank" rel="noopener noreferrer" class="line-float-btn" title="LINE 客服">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+        <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+    </svg>
+</a>
+
+<script>
+    // 進度條
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        document.getElementById('progress-bar').style.width = progress + '%';
+    });
+
+    // 導航滾動效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // 滾動淡入動畫
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.product-section').forEach(el => observer.observe(el));
+
+    // 系列導覽高亮
+    const sections = document.querySelectorAll('[id]');
+    const tabs = document.querySelectorAll('.series-tab');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 150;
+            if (window.scrollY >= sectionTop) current = section.getAttribute('id');
+        });
+        tabs.forEach(tab => {
+            tab.classList.remove('active');
+            if (tab.getAttribute('href') === '#' + current) tab.classList.add('active');
+        });
+    });
+
+    // 平滑滾動
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+</script>
+</body>
+</html>
