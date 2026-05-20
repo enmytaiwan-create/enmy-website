@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENMY 品牌故事 | 靜謐時光 · 精緻童話</title>
+    <meta name="description" content="探索 ENMY 的品牌起源——一個關於靜謐午後、閃亮筆觸與鳥寶貝的溫柔故事。每一支筆，都是一場與內心的對話。">
+    <meta property="og:title" content="ENMY 品牌故事 | 靜謐時光 · 精緻童話">
+    <meta property="og:description" content="探索 ENMY 的品牌起源——一個關於靜謐午後、閃亮筆觸與鳥寶貝的溫柔故事。">
+    <meta property="og:image" content="https://enmy-taiwan.netlify.app/enmy_story_hero.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://enmy-taiwan.netlify.app/story.html">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;700&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* 字體設定 */
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #fdf8f3;
+            color: #3a3028;
+        }
+        .serif-font { font-family: 'Noto Serif TC', serif; }
+        .handwritten { font-family: 'Klee One', cursive; }
+
+        /* 頁面滾動動畫 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero 區塊 */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('enmy_story_hero.jpg');
+            background-size: cover;
+            background-position: center top;
+            filter: brightness(0.75);
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                rgba(30, 20, 15, 0.75) 0%,
+                rgba(30, 20, 15, 0.4) 50%,
+                rgba(30, 20, 15, 0.1) 100%
+            );
+        }
+
+        /* 章節分隔線 */
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(to right, #c9a96e, #e8d5a3);
+            margin: 1.5rem auto;
+        }
+        .divider-left {
+            margin: 1.5rem 0;
+        }
+
+        /* 引言樣式 */
+        .quote-block {
+            border-left: 3px solid #c9a96e;
+            padding-left: 1.5rem;
+            font-family: 'Klee One', cursive;
+            line-height: 2.2;
+            color: #5a4a3a;
+            font-size: 1.1rem;
+            white-space: pre-line;
+        }
+
+        /* 故事卡片 */
+        .story-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 169, 110, 0.25);
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .story-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(90, 60, 30, 0.12);
+        }
+
+        /* 圖片圓角 */
+        .story-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(90, 60, 30, 0.15);
+        }
+        .story-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .story-img:hover img {
+            transform: scale(1.04);
+        }
+
+        /* 時間軸 */
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #c9a96e;
+            box-shadow: 0 0 0 4px rgba(201, 169, 110, 0.2);
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 24px;
+            width: 2px;
+            height: calc(100% + 1.5rem);
+            background: linear-gradient(to bottom, #c9a96e, transparent);
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        /* 金色文字 */
+        .gold-text {
+            background: linear-gradient(135deg, #c9a96e, #e8d5a3, #b8935a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* 導航列 */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            transition: background 0.3s ease;
+        }
+        .nav-bar.scrolled {
+            background: rgba(253, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(90, 60, 30, 0.08);
+        }
+
+        /* 裝飾星星 */
+        .star-deco {
+            position: absolute;
+            font-size: 1.2rem;
+            opacity: 0.4;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        /* 值觀卡片 */
+        .value-card {
+            background: linear-gradient(135deg, #fff9f0, #fdf3e7);
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(201, 169, 110, 0.2);
+        }
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* 全域 LINE 按鈕 */
+        .line-float-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            width: 60px;
+            height: 60px;
+            background-color: #00b900;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 185, 0, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .line-float-btn:hover {
+            background-color: #009900;
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(0, 185, 0, 0.5);
+        }
+
+        /* 返回首頁按鈕 */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.85);
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .back-btn:hover { color: #e8d5a3; }
+
+        /* 背景紋理 */
+        .texture-bg {
+            background-color: #fdf8f3;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(201,169,110,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(201,169,110,0.05) 0%, transparent 50%);
+        }
+
+        /* 滾動進度條 */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(to right, #c9a96e, #e8d5a3);
+            z-index: 200;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body class="texture-bg">
+
+    <!-- 滾動進度條 -->
+    <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+
+    <!-- 導航列 -->
+    <nav class="nav-bar" id="nav-bar">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="back-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                返回首頁
+            </a>
+            <span class="serif-font text-white text-lg font-semibold tracking-widest" id="nav-title" style="opacity:0; transition: opacity 0.3s;">ENMY 品牌故事</span>
+            <div style="width: 80px;"></div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- Hero 主視覺區 -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+
+        <!-- 裝飾星星 -->
+        <span class="star-deco" style="top: 15%; right: 15%; animation-delay: 0s;">✦</span>
+        <span class="star-deco" style="top: 25%; right: 25%; animation-delay: 1s;">✧</span>
+        <span class="star-deco" style="top: 60%; right: 10%; animation-delay: 2s;">✦</span>
+        <span class="star-deco" style="top: 75%; right: 30%; animation-delay: 0.5s;">✧</span>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 w-full">
+            <div class="max-w-xl">
+                <p class="handwritten text-amber-200 text-lg mb-4 tracking-widest fade-in" style="transition-delay: 0.1s;">Brand Story</p>
+                <h1 class="serif-font text-white font-bold leading-tight mb-6 fade-in" style="font-size: clamp(2.5rem, 6vw, 4.5rem); transition-delay: 0.2s;">
+                    每一支筆，<br>
+                    都是一場<br>
+                    <span class="gold-text">與自己的對話</span>
+                </h1>
+                <div class="divider-left fade-in" style="transition-delay: 0.3s;"></div>
+                <p class="text-amber-50 text-lg leading-relaxed mb-8 fade-in" style="transition-delay: 0.4s; font-weight: 300;">
+                    ENMY 誕生於一個靜謐的午後，<br>
+                    一雙手、一張紙、一支閃亮的筆，<br>
+                    以及窗邊那隻輕輕拍翅的鳥寶貝。
+                </p>
+                <a href="#chapter-1" class="inline-flex items-center gap-3 text-amber-200 hover:text-white transition-colors duration-300 fade-in" style="transition-delay: 0.5s;">
+                    <span class="handwritten text-base">閱讀我們的故事</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 5v14M5 12l7 7 7-7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- 向下滾動提示 -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- 章節一：起源 -->
+    <!-- ═══════════════════════════════════════ -->
+    <section id="chapter-1" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- 章節標題 -->
+            <div class="text-center mb-16 fade-in">
+                <p class="handwritten text-amber-600 text-base tracking-widest mb-2">Chapter 01</p>
+                <h2 class="serif-font text-4xl font-bold text-stone-800 mb-4">靜謐午後的誕生</h2>
+                <div class="divider"></div>
+                <p class="text-stone-500 max-w-xl mx-auto leading-relaxed">
+                    一切，從那個陽光灑落的下午開始。
+                </p>
+            </div>
+
+            <!-- 內容：左文右圖 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <p class="text-stone-600 text-lg leading-relaxed mb-6">
+                        ENMY 的故事，始於一個再平凡不過的午後。
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-6">
+                        創辦人坐在窗邊，陽光透過薄薄的窗簾，將整個房間染成溫暖的金黃色。桌上散落著各式各樣的筆、紙張、色卡，還有一個翻開的素描本。
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8">
+                        就在那個瞬間，指尖輕觸紙張，沙沙的聲音在寂靜中顯得格外清晰。那是一種與世界隔絕的美好——不需要解釋、不需要表演，只是純粹地，讓色彩在紙上自由流動。
+                    </p>
+
+                    <div class="quote-block fade-in">每一次指尖與溫潤紙張的輕觸沙沙聲，
+都是一場與內心安靜的對話；
+妳把喧囂的世界細細揉進，
+成掌心裡最精緻、純粹的童話。</div>
+                </div>
+
+                <div class="story-img h-96 lg:h-[500px] fade-in">
+                    <img src="enmy_story_origin.jpg" alt="ENMY 品牌起源 - 手繪創作" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- 章節二：鳥寶貝 -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-24 px-6" style="background: linear-gradient(135deg, #fef9f0 0%, #fdf4e3 50%, #fef9f0 100%);">
+        <div class="max-w-6xl mx-auto">
+
+            <div class="text-center mb-16 fade-in">
+                <p class="handwritten text-amber-600 text-base tracking-widest mb-2">Chapter 02</p>
+                <h2 class="serif-font text-4xl font-bold text-stone-800 mb-4">鳥寶貝的拍翅聲</h2>
+                <div class="divider"></div>
+                <p class="text-stone-500 max-w-xl mx-auto leading-relaxed">
+                    那是日常裡最治癒的背景音。
+                </p>
+            </div>
+
+            <!-- 內容：左圖右文 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="story-img h-96 lg:h-[480px] fade-in order-2 lg:order-1">
+                    <img src="enmy_story_bird.jpg" alt="ENMY 鳥寶貝 - 治癒的日常" loading="lazy">
+                </div>
+
+                <div class="fade-in order-1 lg:order-2">
+                    <p class="text-stone-600 text-lg leading-relaxed mb-6">
+                        在 ENMY 的世界裡，有一位特別的夥伴——鳥寶貝。
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-6">
+                        牠不會說話，卻總是在最需要陪伴的時候，輕輕地拍動翅膀。那個細微的聲音，像是一首只屬於這個空間的輕柔樂曲，讓人的心慢慢沉靜下來。
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8">
+                        我們相信，生活中的美好往往藏在這些微小的瞬間裡。一隻鳥的拍翅、一支筆在紙上滑過的聲音、窗外飄進來的微風——這些，都是 ENMY 想要守護的日常詩意。
+                    </p>
+
+                    <div class="quote-block fade-in">耳邊傳來 鳥寶貝輕輕的拍翅聲，
+這是我日常裡最治癒的背景音。
+把紛擾關在門外，躲進自己一手打造的世界裡，
+讓那些平時無法輕易安放的情緒，
+都在 ENMY 時光裡我們被這份靜謐溫柔地接住。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- 章節三：品牌世界 -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+
+            <div class="text-center mb-16 fade-in">
+                <p class="handwritten text-amber-600 text-base tracking-widest mb-2">Chapter 03</p>
+                <h2 class="serif-font text-4xl font-bold text-stone-800 mb-4">用色彩打造的童話</h2>
+                <div class="divider"></div>
+                <p class="text-stone-500 max-w-xl mx-auto leading-relaxed">
+                    每一支筆，都是通往那個世界的鑰匙。
+                </p>
+            </div>
+
+            <!-- 內容：左文右圖 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+                <div class="fade-in">
+                    <p class="text-stone-600 text-lg leading-relaxed mb-6">
+                        ENMY 的每一款產品，都承載著一個簡單而深刻的信念：
+                        <strong class="text-amber-700">讓平凡的午後，蘸上微光與色彩。</strong>
+                    </p>
+                    <p class="text-stone-600 leading-readable mb-6">
+                        從 ENMY Glitter Markers 的閃亮筆觸，到每一個精心設計的色號，我們希望每一位拿起這支筆的人，都能感受到那份「被允許做自己」的自由。
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8">
+                        不需要是藝術家，不需要有完美的技巧。只需要一個安靜的角落、一張白紙，還有一支屬於你的 ENMY 筆——然後，讓故事自己流淌出來。
+                    </p>
+
+                    <div class="quote-block fade-in">生活的美好就在這方寸之間的安靜與踏實。
+將每一個平凡的午後，蘸上微光與色彩。</div>
+                </div>
+
+                <div class="story-img h-96 lg:h-[480px] fade-in">
+                    <img src="enmy_story_world.jpg" alt="ENMY 品牌世界 - 彩色童話" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- 品牌核心價值 -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-24 px-6" style="background: linear-gradient(135deg, #1a1208 0%, #2d1f0e 50%, #1a1208 100%);">
+        <div class="max-w-6xl mx-auto">
+
+            <div class="text-center mb-16 fade-in">
+                <p class="handwritten text-amber-400 text-base tracking-widest mb-2">Our Values</p>
+                <h2 class="serif-font text-4xl font-bold text-white mb-4">ENMY 的核心信念</h2>
+                <div class="divider"></div>
+                <p class="text-amber-100 opacity-70 max-w-xl mx-auto leading-relaxed">
+                    我們相信，每一個人都值得擁有屬於自己的靜謐時光。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 價值 1 -->
+                <div class="fade-in" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(201,169,110,0.3); border-radius: 16px; padding: 2.5rem; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">✦</div>
+                    <h3 class="serif-font text-xl font-semibold text-amber-200 mb-4">靜謐</h3>
+                    <p class="text-amber-100 opacity-70 leading-relaxed text-sm">
+                        在喧囂的世界裡，我們守護那一方安靜的角落。讓每一個創作的瞬間，都成為與自己對話的珍貴時光。
+                    </p>
+                </div>
+
+                <!-- 價值 2 -->
+                <div class="fade-in" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(201,169,110,0.3); border-radius: 16px; padding: 2.5rem; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; transition-delay: 0.1s;">
+                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">✧</div>
+                    <h3 class="serif-font text-xl font-semibold text-amber-200 mb-4">閃耀</h3>
+                    <p class="text-amber-100 opacity-70 leading-relaxed text-sm">
+                        每一支 ENMY 筆，都帶著閃亮的魔法。我們相信，讓色彩閃耀，就是讓生命閃耀。
+                    </p>
+                </div>
+
+                <!-- 價值 3 -->
+                <div class="fade-in" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(201,169,110,0.3); border-radius: 16px; padding: 2.5rem; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; transition-delay: 0.2s;">
+                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">❋</div>
+                    <h3 class="serif-font text-xl font-semibold text-amber-200 mb-4">純粹</h3>
+                    <p class="text-amber-100 opacity-70 leading-relaxed text-sm">
+                        不需要完美，只需要真實。ENMY 陪伴每一個勇敢做自己的靈魂，在紙上留下最純粹的印記。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- 品牌時間軸 -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+
+            <div class="text-center mb-16 fade-in">
+                <p class="handwritten text-amber-600 text-base tracking-widest mb-2">Our Journey</p>
+                <h2 class="serif-font text-4xl font-bold text-stone-800 mb-4">ENMY 的成長足跡</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="space-y-10">
+                <div class="timeline-item fade-in">
+                    <p class="handwritten text-amber-600 text-sm mb-1">起點</p>
+                    <h3 class="serif-font text-xl font-semibold text-stone-800 mb-2">靜謐午後的第一筆</h3>
+                    <p class="text-stone-500 leading-relaxed">
+                        一個陽光午後，創辦人在窗邊拿起一支閃亮的筆，在素描本上畫下第一條閃光線條。ENMY 的種子，就此種下。
+                    </p>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <p class="handwritten text-amber-600 text-sm mb-1">成長</p>
+                    <h3 class="serif-font text-xl font-semibold text-stone-800 mb-2">ENMY Global 的誕生</h3>
+                    <p class="text-stone-500 leading-relaxed">
+                        從台灣出發，ENMY 的故事開始在全球各地流傳。日本、墨西哥、全球各地的創作者，都在 ENMY 的陪伴下，找到了屬於自己的靜謐時光。
+                    </p>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <p class="handwritten text-amber-600 text-sm mb-1">擴展</p>
+                    <h3 class="serif-font text-xl font-semibold text-stone-800 mb-2">ENMY Kids 與 ENMY Art</h3>
+                    <p class="text-stone-500 leading-relaxed">
+                        我們相信，創作的喜悅沒有年齡限制。ENMY Kids 為孩子們打開色彩的大門；ENMY Art 則為每一位藝術探索者，提供更深邃的創作工具。
+                    </p>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <p class="handwritten text-amber-600 text-sm mb-1">現在</p>
+                    <h3 class="serif-font text-xl font-semibold text-stone-800 mb-2">與你一起，繼續閃耀</h3>
+                    <p class="text-stone-500 leading-relaxed">
+                        ENMY 的故事還在繼續。每一位拿起我們筆的人，都是這個故事的共同作者。謝謝你，讓我們的世界更加閃亮。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- 結語 CTA -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-32 px-6 relative overflow-hidden" style="background: linear-gradient(135deg, #fef3e2 0%, #fde8c8 50%, #fef3e2 100%);">
+        <!-- 裝飾 -->
+        <div style="position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(201,169,110,0.15), transparent); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -50px; left: -50px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(201,169,110,0.1), transparent); border-radius: 50%;"></div>
+
+        <div class="max-w-3xl mx-auto text-center relative z-10">
+            <div class="fade-in">
+                <p class="handwritten text-amber-600 text-lg tracking-widest mb-4">The End is Just the Beginning</p>
+                <h2 class="serif-font text-4xl md:text-5xl font-bold text-stone-800 mb-6 leading-tight">
+                    你的故事，<br>
+                    從第一筆開始
+                </h2>
+                <div class="divider"></div>
+                <p class="text-stone-600 text-lg leading-relaxed mb-12 max-w-xl mx-auto">
+                    每一個平凡的午後，都可以成為你的 ENMY 時光。
+                    拿起一支筆，讓色彩說話，讓靜謐治癒你。
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html"
+                       style="display: inline-flex; align-items: center; gap: 0.75rem; background: linear-gradient(135deg, #c9a96e, #b8935a); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-family: 'Noto Sans TC', sans-serif; font-weight: 500; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(201,169,110,0.4);">
+                        探索 ENMY 世界
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/enmy_official?igsh=NXU5cjM5bjd5ZjZj" target="_blank" rel="noopener noreferrer"
+                       style="display: inline-flex; align-items: center; gap: 0.75rem; background: transparent; color: #8a6a3a; padding: 1rem 2.5rem; border-radius: 50px; border: 2px solid #c9a96e; font-family: 'Noto Sans TC', sans-serif; font-weight: 500; text-decoration: none; transition: all 0.3s ease;">
+                        追蹤 IG
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- Footer -->
+    <!-- ═══════════════════════════════════════ -->
+    <footer style="background: #1a1208; padding: 3rem 1.5rem; text-align: center;">
+        <p class="serif-font text-amber-200 text-xl font-semibold mb-2">ENMY.</p>
+        <p class="handwritten text-amber-400 text-sm mb-4">靜謐時光 · 精緻童話</p>
+        <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem; font-family: 'Noto Sans TC', sans-serif;">
+            © 2024 ENMY. All rights reserved. &nbsp;|&nbsp;
+            <a href="index.html" style="color: rgba(201,169,110,0.6); text-decoration: none;">返回首頁</a>
+        </p>
+    </footer>
+
+    <!-- 全域懸浮 LINE 客服按鈕 -->
+    <a href="https://line.me/R/ti/p/@yourlineid" target="_blank" rel="noopener noreferrer" class="line-float-btn" title="LINE 客服">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+            <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+        </svg>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // 滾動進度條
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        });
+
+        // 導航列滾動效果
+        const navBar = document.getElementById('nav-bar');
+        const navTitle = document.getElementById('nav-title');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navBar.classList.add('scrolled');
+                navTitle.style.opacity = '1';
+                navTitle.style.color = '#3a3028';
+                document.querySelector('.back-btn').style.color = '#5a4a3a';
+            } else {
+                navBar.classList.remove('scrolled');
+                navTitle.style.opacity = '0';
+                document.querySelector('.back-btn').style.color = 'rgba(255,255,255,0.85)';
+            }
+        });
+
+        // 滾動動畫觀察器
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // 初始化 Hero 動畫
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.hero-section .fade-in').forEach(el => {
+                    el.classList.add('visible');
+                });
+            }, 200);
+        });
+
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // 卡片 hover 效果
+        document.querySelectorAll('[style*="transition: transform"]').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+                card.style.boxShadow = '0 15px 40px rgba(201, 169, 110, 0.2)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
