@@ -5,213 +5,447 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Language" content="zh-TW">
-    
+
     <!-- 基本 SEO -->
-    <title>ENMY 官方網站 | 靜謐時光 · 精緻童話 | 手工創意品牌</title>
-    <meta name="description" content="ENMY 是一個專注於靜謐時光與精緻童話的創意品牌。探索我們的手工藝術、動畫展示與品牌理念。追蹤全球 ENMY 社群媒體。">
-    <meta name="keywords" content="ENMY, 手工藝術, 創意品牌, 靜謐時光, 精緻童話, 動畫, 藝術作品">
+    <title>ENMY 官方網站 | 靜謐時光 · 精緻童話 | 爆閃筆 · 小黑盒壓克力麥克筆</title>
+    <meta name="description" content="ENMY 是一個專注於靜謐時光與精緻童話的創意品牌。探索 ENMY 爆閃筆、小黑盒壓克力麥克筆，讓每一個平凡的午後蘸上微光與色彩。">
+    <meta name="keywords" content="ENMY, 爆閃筆, 壓克力麥克筆, 小黑盒, Glitter Markers, 創意品牌, 靜謐時光, 精緻童話">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    
-    <!-- Canonical -->
-    <link rel="canonical" href="https://www.enmy.com">
-    
+    <link rel="canonical" href="https://enmy-taiwan.netlify.app">
+
     <!-- Open Graph -->
     <meta property="og:title" content="ENMY - 靜謐時光 · 精緻童話">
-    <meta property="og:description" content="探索 ENMY 的創意世界：手工藝術、動畫展示、品牌理念與全球社群。">
+    <meta property="og:description" content="探索 ENMY 的創意世界：爆閃筆、小黑盒壓克力麥克筆、品牌理念與全球社群。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.enmy.com">
+    <meta property="og:url" content="https://enmy-taiwan.netlify.app">
     <meta property="og:image" content="https://enmy-taiwan.netlify.app/og-image.jpg">
     <meta property="og:site_name" content="ENMY Official">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ENMY - 靜謐時光">
-    <meta name="twitter:description" content="探索 ENMY 的創意世界：手工藝術、動畫展示、品牌理念與全球社群。">
+    <meta name="twitter:title" content="ENMY - 靜謐時光 · 精緻童話">
+    <meta name="twitter:description" content="探索 ENMY 的創意世界：爆閃筆、小黑盒壓克力麥克筆、品牌理念與全球社群。">
     <meta name="twitter:image" content="https://enmy-taiwan.netlify.app/og-image.jpg">
-    
-    <!-- Favicon & Icons -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    
-    <!-- Fonts with Preconnect -->
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;500;700&family=Klee+One&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;700&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
-    
+
     <style>
-        /* 字體設定 */
+        /* ── 全域基礎 ── */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Noto Sans TC', sans-serif;
+            background-color: #fdf8f3;
+            color: #3a3028;
+            overflow-x: hidden;
         }
-        
-        .serif-font {
-            font-family: 'Noto Serif TC', serif;
-        }
-        
-        /* 手寫詩歌樣式 */
+        .serif-font  { font-family: 'Noto Serif TC', serif; }
+        .handwritten { font-family: 'Klee One', cursive; }
         .handwritten-poetry {
             font-family: 'Klee One', cursive;
-            line-height: 2;
+            line-height: 2.2;
             white-space: pre-line;
         }
-        
-        /* 影片容器與聲音控制 */
-        .video-container {
+
+        /* ── 滾動進度條 ── */
+        .progress-bar {
+            position: fixed; top: 0; left: 0;
+            height: 3px;
+            background: linear-gradient(to right, #c9a96e, #e8d5a3, #c9a96e);
+            z-index: 300;
+            transition: width 0.1s ease;
+        }
+
+        /* ── 導航列 ── */
+        .nav-bar {
+            position: fixed; top: 3px; left: 0; right: 0;
+            z-index: 200;
+            padding: 1.25rem 2rem;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+        .nav-bar.scrolled {
+            background: rgba(253, 248, 243, 0.92);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 20px rgba(58, 48, 40, 0.08);
+        }
+        .nav-logo {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            transition: color 0.4s;
+        }
+        .nav-bar.scrolled .nav-logo { color: #3a3028; }
+        .nav-links a {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+        .nav-bar.scrolled .nav-links a { color: #6b5744; }
+        .nav-links a:hover { color: #c9a96e !important; }
+
+        /* ── Hero 全屏區 ── */
+        .hero-section {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            background-color: #000;
-            border-radius: 0.5rem;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
             overflow: hidden;
         }
-        
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .hero-bg {
+            position: absolute; inset: 0;
+            background-image: url('enmy_home_hero.jpg');
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.05);
+            animation: heroZoom 20s ease-in-out infinite alternate;
         }
-        
-        .sound-toggle-btn {
+        @keyframes heroZoom {
+            from { transform: scale(1.05); }
+            to   { transform: scale(1.12); }
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(30, 18, 8, 0.68) 0%,
+                rgba(58, 35, 15, 0.45) 50%,
+                rgba(20, 12, 5, 0.60) 100%
+            );
+        }
+        .hero-overlay-bottom {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 200px;
+            background: linear-gradient(to bottom, transparent, #fdf8f3);
+        }
+        .gold-text {
+            background: linear-gradient(135deg, #e8d5a3, #c9a96e, #f0e0b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .star-deco {
+            position: absolute;
+            color: rgba(201, 169, 110, 0.6);
+            font-size: 1.2rem;
+            animation: starPulse 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes starPulse {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50%       { opacity: 0.9; transform: scale(1.3); }
+        }
+        .divider-left {
+            width: 60px; height: 2px;
+            background: linear-gradient(to right, #c9a96e, transparent);
+            margin-bottom: 1.5rem;
+        }
+        .divider {
+            width: 60px; height: 2px;
+            background: linear-gradient(to right, transparent, #c9a96e, transparent);
+            margin: 1.5rem auto;
+        }
+        .scroll-hint {
+            position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+            z-index: 10;
+            display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+        }
+        .scroll-hint span {
+            font-family: 'Klee One', cursive;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.15em;
+        }
+        .scroll-arrow {
+            width: 24px; height: 24px;
+            border-right: 1.5px solid rgba(255,255,255,0.4);
+            border-bottom: 1.5px solid rgba(255,255,255,0.4);
+            transform: rotate(45deg);
+            animation: scrollBounce 1.8s ease-in-out infinite;
+        }
+        @keyframes scrollBounce {
+            0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.4; }
+            50%       { transform: rotate(45deg) translateY(6px); opacity: 1; }
+        }
+
+        /* ── 淡入動畫 ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── 品牌理念區 ── */
+        .quote-block {
+            border-left: 3px solid #c9a96e;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, rgba(201,169,110,0.06), rgba(201,169,110,0.02));
+            border-radius: 0 12px 12px 0;
+            font-family: 'Klee One', cursive;
+            font-size: 1rem;
+            line-height: 2.2;
+            white-space: pre-line;
+            color: #5a4535;
+        }
+
+        /* ── 影片區 ── */
+        .video-wrapper {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(58, 48, 40, 0.25);
+        }
+        .sound-btn {
             position: absolute;
             z-index: 10;
-            background-color: rgba(255, 255, 255, 0.9);
-            border: none;
+            background: rgba(30, 18, 8, 0.75);
+            border: 1.5px solid rgba(201, 169, 110, 0.6);
+            color: #e8d5a3;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             cursor: pointer;
-            font-size: 24px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            font-size: 1.4rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(8px);
         }
-        
-        .sound-toggle-btn:hover {
-            background-color: rgba(255, 255, 255, 1);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* 按鈕初始位置：影片中央 */
-        .sound-toggle-btn.center {
-            top: 50%;
-            left: 50%;
+        .sound-btn.center {
+            width: 64px; height: 64px;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
         }
-        
-        /* 按鈕激活位置：影片右上角 */
-        .sound-toggle-btn.active {
-            top: 12px;
-            right: 12px;
-            left: auto;
-            width: 44px;
-            height: 44px;
-            font-size: 18px;
+        .sound-btn.active {
+            width: 40px; height: 40px;
+            top: 12px; right: 12px;
             transform: none;
+            font-size: 1rem;
         }
-        
-        /* Footer 樣式 */
-        footer {
-            background-color: #f9fafb;
-            border-top: 1px solid #e5e7eb;
-        }
-        
+
+        /* ── IG 連結 ── */
         .ig-link {
-            display: inline-block;
-            padding: 12px 20px;
-            margin: 8px 8px;
-            background-color: #fff;
-            border: 2px solid #e5e7eb;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            color: #111827;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .ig-link:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
-            border-color: #667eea;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-        }
-        
-        /* 全域懸浮 LINE 按鈕 */
-        .line-chat-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: #00b900;
-            border: none;
-            border-radius: 50%;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 999;
+            gap: 0.5rem;
+            margin: 0.4rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            background: rgba(201, 169, 110, 0.08);
+            border: 1.5px solid rgba(201, 169, 110, 0.3);
+            color: #6b5744;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 185, 0, 0.4);
+        }
+        .ig-link:hover {
+            background: linear-gradient(135deg, #c9a96e, #b8935a);
+            border-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(201, 169, 110, 0.4);
+        }
+
+        /* ── LINE 懸浮按鈕 ── */
+        .line-chat-btn {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 60px; height: 60px;
+            background-color: #00b900;
+            border: none; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 999;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 185, 0, 0.4);
             text-decoration: none;
         }
-        
         .line-chat-btn:hover {
-            width: 70px;
-            height: 70px;
+            transform: scale(1.12);
             background-color: #00a800;
-            box-shadow: 0 6px 20px rgba(0, 185, 0, 0.6);
+            box-shadow: 0 6px 28px rgba(0, 185, 0, 0.55);
         }
-        
-        .line-chat-btn svg {
-            width: 32px;
-            height: 32px;
-            fill: #fff;
+        .line-chat-btn svg { width: 32px; height: 32px; }
+
+        /* ── 產品卡片 ── */
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(58, 48, 40, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(58, 48, 40, 0.15);
+        }
+        .product-card img {
+            width: 100%; height: 280px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .product-card:hover img { transform: scale(1.05); }
     </style>
 </head>
-<body class="bg-white text-gray-800">
-    
-    <!-- Section 1: 主視覺區 -->
-    <section id="section-1" class="w-full h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center">
-        <div class="text-center px-6">
-            <h1 class="text-6xl font-bold mb-4 serif-font text-gray-900">ENMY - 靜謐時光 · 精緻童話</h1>
-            <p class="text-2xl text-gray-600 mb-8">手工創意品牌</p>
-            <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                ENMY 是一個專注於靜謐時光與精緻童話的創意品牌。每一個平凡的午後，都值得被微光與色彩輕輕點綴。在 ENMY 的世界裡，尋找屬於自己的安靜與踏實。
-            </p>
+<body>
+
+    <!-- 滾動進度條 -->
+    <div class="progress-bar" id="progress-bar" style="width:0%"></div>
+
+    <!-- ── 導航列 ── -->
+    <nav class="nav-bar" id="nav-bar">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="nav-logo">ENMY.</a>
+            <div class="nav-links hidden md:flex">
+                <a href="#section-2">品牌理念</a>
+                <a href="#section-video">動畫展示</a>
+                <a href="story.html">品牌故事</a>
+                <a href="#footer">關注我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- Hero 主視覺區                                  -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section class="hero-section" aria-label="ENMY 主視覺">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-overlay-bottom"></div>
+
+        <!-- 裝飾星星 -->
+        <span class="star-deco" style="top:14%; right:18%; animation-delay:0s;">✦</span>
+        <span class="star-deco" style="top:22%; right:28%; animation-delay:1.2s;">✧</span>
+        <span class="star-deco" style="top:65%; right:12%; animation-delay:2.1s;">✦</span>
+        <span class="star-deco" style="top:78%; right:35%; animation-delay:0.6s;">✧</span>
+        <span class="star-deco" style="top:40%; left:8%;  animation-delay:1.8s;">✦</span>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-6 w-full">
+            <div class="max-w-2xl">
+                <p class="handwritten text-amber-200 text-lg mb-4 tracking-widest fade-in" style="transition-delay:0.1s;">
+                    Outshine with Every Stroke
+                </p>
+                <h1 class="serif-font text-white font-bold leading-tight mb-6 fade-in"
+                    style="font-size: clamp(2.8rem, 6vw, 5rem); transition-delay:0.2s;">
+                    每一筆，<br>
+                    都是一場<br>
+                    <span class="gold-text">與自己的對話</span>
+                </h1>
+                <div class="divider-left fade-in" style="transition-delay:0.3s;"></div>
+                <p class="text-amber-50 text-lg leading-relaxed mb-10 fade-in"
+                   style="transition-delay:0.4s; font-weight:300; max-width:480px;">
+                    ENMY 爆閃筆 · 小黑盒壓克力麥克筆<br>
+                    讓每一個平凡的午後，蘸上微光與色彩。
+                </p>
+                <div class="flex flex-wrap gap-4 fade-in" style="transition-delay:0.5s;">
+                    <a href="story.html"
+                       style="display:inline-flex; align-items:center; gap:0.6rem; background:linear-gradient(135deg,#c9a96e,#b8935a); color:white; padding:0.9rem 2rem; border-radius:50px; font-family:'Noto Sans TC',sans-serif; font-weight:500; text-decoration:none; transition:all 0.3s ease; box-shadow:0 4px 20px rgba(201,169,110,0.45);"
+                       onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 30px rgba(201,169,110,0.6)';"
+                       onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(201,169,110,0.45)';">
+                        閱讀品牌故事
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#section-2"
+                       style="display:inline-flex; align-items:center; gap:0.6rem; background:transparent; color:rgba(255,255,255,0.85); padding:0.9rem 2rem; border-radius:50px; border:1.5px solid rgba(255,255,255,0.4); font-family:'Noto Sans TC',sans-serif; font-weight:400; text-decoration:none; transition:all 0.3s ease;"
+                       onmouseover="this.style.borderColor='#c9a96e'; this.style.color='#e8d5a3';"
+                       onmouseout="this.style.borderColor='rgba(255,255,255,0.4)'; this.style.color='rgba(255,255,255,0.85)';">
+                        探索品牌理念
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 向下滾動提示 -->
+        <div class="scroll-hint">
+            <span>scroll</span>
+            <div class="scroll-arrow"></div>
         </div>
     </section>
-    
-    <!-- Section 2: 品牌理念區 -->
-    <section id="section-2" class="w-full py-20 bg-white px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold mb-12 text-center serif-font text-gray-900">品牌理念</h2>
-            
-            <div class="bg-gray-50 p-12 rounded-lg shadow-sm">
-                <p class="text-lg text-gray-700 mb-8 leading-relaxed">
-                    ENMY 相信每一個平凡的午後都值得被微光與色彩輕輕點綴。我們致力於創造靜謐、溫柔的藝術體驗，幫助人們在快節奏的生活中找到屬於自己的安靜與踏實。
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- 產品亮點區                                     -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section class="py-24 px-6" style="background:#fdf8f3;">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <p class="handwritten text-amber-600 text-base tracking-widest mb-2">Our Products</p>
+                <h2 class="serif-font text-4xl font-bold text-stone-800 mb-4">ENMY 明星產品</h2>
+                <div class="divider"></div>
+                <p class="text-stone-500 max-w-lg mx-auto leading-relaxed">
+                    每一款產品，都承載著讓平凡時光閃耀的心意。
                 </p>
-                
-                <div class="handwritten-poetry text-lg text-gray-700 leading-relaxed text-center mb-8">
-每一次指尖與溫潤紙張的輕觸沙沙聲，
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- 爆閃筆 -->
+                <div class="product-card fade-in">
+                    <img src="enmy_glitter_product.jpg" alt="ENMY 爆閃筆 Outshiner Glitter Markers" loading="lazy"
+                         onerror="this.style.background='linear-gradient(135deg,#fef3e2,#fde8c8)'; this.style.height='280px'; this.alt='ENMY 爆閃筆';">
+                    <div class="p-8">
+                        <p class="handwritten text-amber-600 text-sm tracking-widest mb-2">Glitter Markers</p>
+                        <h3 class="serif-font text-2xl font-bold text-stone-800 mb-3">ENMY 爆閃筆</h3>
+                        <p class="text-stone-500 leading-relaxed text-sm mb-5">
+                            閃亮的筆觸，讓每一條線都成為光的軌跡。12 色經典配色，白色筆桿設計，爆閃墨水讓作品在光線下熠熠生輝。
+                        </p>
+                        <a href="https://www.instagram.com/enmy_official?igsh=NXU5cjM5bjd5ZjZj" target="_blank" rel="noopener noreferrer"
+                           style="display:inline-flex; align-items:center; gap:0.5rem; color:#b8935a; font-size:0.875rem; font-weight:500; text-decoration:none; transition:color 0.3s;"
+                           onmouseover="this.style.color='#8a6a3a';" onmouseout="this.style.color='#b8935a';">
+                            了解更多 →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 小黑盒 -->
+                <div class="product-card fade-in" style="transition-delay:0.15s;">
+                    <img src="enmy_blackbox_product.jpg" alt="ENMY 小黑盒壓克力麥克筆 Acrylic Marker" loading="lazy"
+                         onerror="this.style.background='linear-gradient(135deg,#1a1208,#2d1f0e)'; this.style.height='280px';">
+                    <div class="p-8">
+                        <p class="handwritten text-amber-600 text-sm tracking-widest mb-2">Acrylic Marker</p>
+                        <h3 class="serif-font text-2xl font-bold text-stone-800 mb-3">小黑盒壓克力麥克筆</h3>
+                        <p class="text-stone-500 leading-relaxed text-sm mb-5">
+                            專業壓克力顏料，雙頭設計，24 / 36 / 48 色可選。黑色精品收納盒，適合各種創作媒材，是藝術家與創作愛好者的首選。
+                        </p>
+                        <a href="https://www.instagram.com/enmy_official?igsh=NXU5cjM5bjd5ZjZj" target="_blank" rel="noopener noreferrer"
+                           style="display:inline-flex; align-items:center; gap:0.5rem; color:#b8935a; font-size:0.875rem; font-weight:500; text-decoration:none; transition:color 0.3s;"
+                           onmouseover="this.style.color='#8a6a3a';" onmouseout="this.style.color='#b8935a';">
+                            了解更多 →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- Section 2：品牌理念區                          -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section id="section-2" class="py-24 px-6" style="background:linear-gradient(135deg,#fef9f0 0%,#fdf4e3 50%,#fef9f0 100%);">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <p class="handwritten text-amber-600 text-base tracking-widest mb-2">Brand Philosophy</p>
+                <h2 class="serif-font text-4xl font-bold text-stone-800 mb-4">品牌理念</h2>
+                <div class="divider"></div>
+                <p class="text-stone-500 max-w-xl mx-auto leading-relaxed">
+                    ENMY 相信每一個平凡的午後都值得被微光與色彩輕輕點綴。
+                </p>
+            </div>
+
+            <div class="fade-in">
+                <div class="quote-block mb-10">每一次指尖與溫潤紙張的輕觸沙沙聲，
 都是一場與內心安靜的對話；
 妳把喧囂的世界細細揉進，
 成掌心裡最精緻、純粹的童話。
@@ -223,200 +457,202 @@
 都在 ENMY 時光裡我們被這份靜謐溫柔地接住。
 
 生活的美好就在這方寸之間的安靜與踏實。
-將每一個平凡的午後，蘸上微光與色彩。
-                </div>
-                        </div>
+將每一個平凡的午後，蘸上微光與色彩。</div>
+            </div>
 
             <!-- 品牌故事連結 -->
-            <div class="text-center mt-12">
+            <div class="text-center fade-in">
                 <a href="story.html"
-                   style="display: inline-flex; align-items: center; gap: 0.75rem; background: linear-gradient(135deg, #c9a96e, #b8935a); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-family: 'Noto Sans TC', sans-serif; font-weight: 500; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(201,169,110,0.4); font-size: 1rem;"
+                   style="display:inline-flex; align-items:center; gap:0.75rem; background:linear-gradient(135deg,#c9a96e,#b8935a); color:white; padding:1rem 2.5rem; border-radius:50px; font-family:'Noto Sans TC',sans-serif; font-weight:500; text-decoration:none; transition:all 0.3s ease; box-shadow:0 4px 20px rgba(201,169,110,0.4);"
                    onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 30px rgba(201,169,110,0.5)';"
-                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(201,169,110,0.4)';">
+                   onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(201,169,110,0.4)';">
                     閱讀完整品牌故事
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Section 2.5: 自創動畫展示區 -->
-    <section id="section-2-5" class="w-full py-20 bg-gray-100 px-6">
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- Section 2.5：丙烯筆動畫展示區                  -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section id="section-video" class="py-24 px-6" style="background:#1a1208;">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <p class="handwritten text-amber-400 text-base tracking-widest mb-2">Creative Motion</p>
+                <h2 class="serif-font text-4xl font-bold text-white mb-4">丙烯筆動畫展示</h2>
+                <div class="divider"></div>
+                <p class="text-amber-100 opacity-70 max-w-lg mx-auto leading-relaxed">
+                    感受 ENMY 小黑盒壓克力麥克筆在紙張上舞動的魔力，搭配重低音的背景音樂，沉浸在創作的世界裡。
+                </p>
+            </div>
+
+            <div class="video-wrapper fade-in">
+                <!-- 聲音控制按鈕 -->
+                <button id="sound-toggle-btn" class="sound-btn center" title="點擊開啟聲音" aria-label="聲音控制">
+                    🔇
+                </button>
+                <video id="acrylic-video" autoplay loop muted playsinline preload="metadata"
+                       style="width:100%; height:auto; display:block;">
+                    <source src="acrylic_pen_with_bass.mp4" type="video/mp4">
+                    你的瀏覽器不支援 HTML5 視頻標籤。
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- 核心價值區                                     -->
+    <!-- ══════════════════════════════════════════════ -->
+    <section class="py-24 px-6" style="background:linear-gradient(135deg,#fef9f0,#fdf4e3,#fef9f0);">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold mb-12 text-center serif-font text-gray-900">丙烯筆動畫展示</h2>
-            
-            <!-- 全寬影片展示 -->
-            <div class="w-full">
-                <p class="text-center text-gray-600 mb-8 text-lg">感受丙烯筆在紙張上舞動的魔力，搭配重低音的背景音樂，創造出沉浸式的藝術體驗。點擊按鈕開啟聲音。</p>
-                <div class="video-container-large" id="acrylic-video-container">
-                    <!-- 聲音控制按鈕 -->
-                    <button class="sound-toggle-btn center" id="sound-toggle-btn" title="點擊開啟聲音">
-                        🔇
-                    </button>
-                    
-                    <video id="acrylic-video" autoplay loop muted playsinline preload="metadata" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);">
-                        <source src="acrylic_pen_with_bass.mp4" type="video/mp4">
-                        你的瀏覽器不支援 HTML5 視頻標籤。
-                    </video>
+            <div class="text-center mb-16 fade-in">
+                <p class="handwritten text-amber-600 text-base tracking-widest mb-2">Our Values</p>
+                <h2 class="serif-font text-4xl font-bold text-stone-800 mb-4">ENMY 的核心信念</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="fade-in text-center p-10 rounded-2xl" style="background:white; box-shadow:0 8px 32px rgba(58,48,40,0.06);">
+                    <div style="font-size:2.5rem; margin-bottom:1.2rem;">✦</div>
+                    <h3 class="serif-font text-xl font-semibold text-stone-800 mb-3">靜謐</h3>
+                    <p class="text-stone-500 leading-relaxed text-sm">在喧囂的世界裡，守護那一方安靜的角落。讓每一個創作的瞬間，都成為與自己對話的珍貴時光。</p>
+                </div>
+                <div class="fade-in text-center p-10 rounded-2xl" style="background:white; box-shadow:0 8px 32px rgba(58,48,40,0.06); transition-delay:0.1s;">
+                    <div style="font-size:2.5rem; margin-bottom:1.2rem;">✧</div>
+                    <h3 class="serif-font text-xl font-semibold text-stone-800 mb-3">閃耀</h3>
+                    <p class="text-stone-500 leading-relaxed text-sm">每一支 ENMY 爆閃筆，都帶著閃亮的魔法。讓色彩閃耀，就是讓生命閃耀。</p>
+                </div>
+                <div class="fade-in text-center p-10 rounded-2xl" style="background:white; box-shadow:0 8px 32px rgba(58,48,40,0.06); transition-delay:0.2s;">
+                    <div style="font-size:2.5rem; margin-bottom:1.2rem;">❋</div>
+                    <h3 class="serif-font text-xl font-semibold text-stone-800 mb-3">純粹</h3>
+                    <p class="text-stone-500 leading-relaxed text-sm">不需要完美，只需要真實。ENMY 陪伴每一個勇敢做自己的靈魂，在紙上留下最純粹的印記。</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Footer 區塊 -->
-    <footer class="w-full py-16 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold serif-font text-gray-900 mb-8">關注全球 ENMY 官方 IG</h2>
-                <p class="text-gray-600 mb-8">追蹤我們的社群媒體，獲得最新的 ENMY 動態與靈感分享</p>
-                
-                <!-- IG 連結清單 -->
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- Footer：全球 IG 連結                           -->
+    <!-- ══════════════════════════════════════════════ -->
+    <footer id="footer" style="background:#1a1208; padding:5rem 1.5rem 3rem;">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14 fade-in">
+                <p class="handwritten text-amber-400 text-base tracking-widest mb-3">Follow Us</p>
+                <h2 class="serif-font text-3xl font-bold text-white mb-3">關注全球 ENMY 官方 IG</h2>
+                <div class="divider"></div>
+                <p class="text-amber-100 opacity-60 mb-10 text-sm">追蹤我們的社群媒體，獲得最新的 ENMY 動態與靈感分享</p>
+
                 <div class="flex flex-wrap justify-center">
-                    <a href="https://www.instagram.com/enmy_official?igsh=NXU5cjM5bjd5ZjZj" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="ig-link"
-                       title="訪問 ENMY Global Instagram">
+                    <a href="https://www.instagram.com/enmy_official?igsh=NXU5cjM5bjd5ZjZj"
+                       target="_blank" rel="noopener noreferrer" class="ig-link">
                         🌍 ENMY Global
                     </a>
-                    <a href="https://www.instagram.com/enmy_official_jp?igsh=ZHo1dHpmcXg3NWt5" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="ig-link"
-                       title="訪問 ENMY Japan Instagram">
+                    <a href="https://www.instagram.com/enmy_official_jp?igsh=ZHo1dHpmcXg3NWt5"
+                       target="_blank" rel="noopener noreferrer" class="ig-link">
                         🇯🇵 ENMY Japan
                     </a>
-                    <a href="https://www.instagram.com/enmy_kids_jp?igsh=YzR0eXp2MndtZGN3" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="ig-link"
-                       title="訪問 ENMY Kids Japan Instagram">
+                    <a href="https://www.instagram.com/enmy_kids_jp?igsh=YzR0eXp2MndtZGN3"
+                       target="_blank" rel="noopener noreferrer" class="ig-link">
                         👶 ENMY Kids Japan
                     </a>
-                    <a href="https://www.instagram.com/enmy_official_mx?igsh=MTFkcndjZHVzdnR5aQ==" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="ig-link"
-                       title="訪問 ENMY Mexico Instagram">
+                    <a href="https://www.instagram.com/enmy_official_mx?igsh=MTFkcndjZHVzdnR5aQ=="
+                       target="_blank" rel="noopener noreferrer" class="ig-link">
                         🇲🇽 ENMY Mexico
                     </a>
-                    <a href="https://www.instagram.com/enmyart?igsh=MXFtdTFmOG51MDJ4Yw==" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="ig-link"
-                       title="訪問 ENMY Art Instagram">
+                    <a href="https://www.instagram.com/enmyart?igsh=MXFtdTFmOG51MDJ4Yw=="
+                       target="_blank" rel="noopener noreferrer" class="ig-link">
                         🎨 ENMY Art
                     </a>
                 </div>
             </div>
-            
-            <!-- Footer 底部資訊 -->
-            <div class="border-t border-gray-200 pt-8 text-center text-gray-600">
-                <p>&copy; 2024 ENMY. All rights reserved. | 靜謐時光 · 精緻童話</p>
+
+            <div style="border-top:1px solid rgba(201,169,110,0.2); padding-top:2rem; text-align:center;">
+                <p class="serif-font text-amber-200 text-xl font-semibold mb-1">ENMY.</p>
+                <p class="handwritten text-amber-400 text-sm mb-4">靜謐時光 · 精緻童話</p>
+                <p style="color:rgba(255,255,255,0.25); font-size:0.8rem; font-family:'Noto Sans TC',sans-serif;">
+                    © 2024 ENMY. All rights reserved. &nbsp;|&nbsp;
+                    <a href="story.html" style="color:rgba(201,169,110,0.5); text-decoration:none;">品牌故事</a>
+                </p>
             </div>
         </div>
     </footer>
-    
+
     <!-- 全域懸浮 LINE 客服按鈕 -->
-    <a href="https://line.me/R/ti/p/@yourlineid" target="_blank" rel="noopener noreferrer" class="line-chat-btn" title="與我們聯絡">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C6.48 2 2 5.58 2 10c0 2.54 1.19 4.85 3.15 6.37.18 1.36.72 2.64 1.55 3.71.2.28.02.65-.28.72-.3.07-.6-.08-.7-.36-.85-1.56-1.42-3.36-1.42-5.44 0-3.59 3.13-6.5 7-6.5s7 2.91 7 6.5-3.13 6.5-7 6.5c-.55 0-1.08-.05-1.6-.15-.5.41-1.21.65-1.97.65-.76 0-1.47-.24-1.97-.65.52.1 1.05.15 1.6.15 3.87 0 7-2.91 7-6.5S15.87 2 12 2zm-2 9h4v-1h-4v1zm-3 0h4v-1H7v1z"/>
+    <a href="https://line.me/R/ti/p/@yourlineid" target="_blank" rel="noopener noreferrer"
+       class="line-chat-btn" title="LINE 客服">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+            <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
         </svg>
     </a>
-    
-    <!-- 結構化數據 - Organization Schema -->
+
+    <!-- 結構化數據 -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "ENMY",
-      "url": "https://www.enmy.com",
-      "logo": "https://www.enmy.com/logo.png",
-      "description": "ENMY 是一個專注於靜謐時光與精緻童話的創意品牌",
+      "url": "https://enmy-taiwan.netlify.app",
+      "description": "ENMY 是一個專注於靜謐時光與精緻童話的創意品牌，主要產品為爆閃筆與小黑盒壓克力麥克筆",
       "sameAs": [
         "https://www.instagram.com/enmy_official",
         "https://www.instagram.com/enmy_official_jp",
         "https://www.instagram.com/enmy_kids_jp",
         "https://www.instagram.com/enmy_official_mx",
         "https://www.instagram.com/enmyart"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Customer Service",
-        "url": "https://line.me/R/ti/p/@yourlineid"
-      }
+      ]
     }
     </script>
-    
-    <!-- 結構化數據 - WebPage Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "ENMY - 靜謐時光 · 精緻童話",
-      "description": "探索 ENMY 的創意世界：手工藝術、動畫展示、品牌理念與全球社群",
-      "url": "https://www.enmy.com",
-      "mainEntity": {
-        "@type": "Organization",
-        "name": "ENMY"
-      }
-    }
-    </script>
-    
-    <!-- 結構化數據 - Video Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "VideoObject",
-      "name": "午間女孩 - ENMY 動畫展示",
-      "description": "ENMY 的創意動畫作品，展現靜謐時光的美好",
-      "thumbnailUrl": "https://www.enmy.com/afternoon-girl-thumbnail.jpg",
-      "uploadDate": "2024-05-18",
-      "duration": "PT2M30S",
-      "contentUrl": "https://www.enmy.com/afternoon_girl.mp4"
-    }
-    </script>
-    
+
     <script>
-        // 聲音控制按鈕功能
-        const soundToggleBtn = document.getElementById('sound-toggle-btn');
+        // ── 滾動進度條 ──
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById('progress-bar').style.width = (scrollTop / scrollHeight * 100) + '%';
+        });
+
+        // ── 導航列滾動效果 ──
+        const navBar = document.getElementById('nav-bar');
+        window.addEventListener('scroll', () => {
+            navBar.classList.toggle('scrolled', window.scrollY > 80);
+        });
+
+        // ── Intersection Observer 淡入動畫 ──
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // ── 聲音控制按鈕 ──
+        const soundBtn = document.getElementById('sound-toggle-btn');
         const acrylicVideo = document.getElementById('acrylic-video');
         let isAudioOn = false;
-        
-        soundToggleBtn.addEventListener('click', function(e) {
+
+        soundBtn.addEventListener('click', function(e) {
             e.stopPropagation();
-            
             if (!isAudioOn) {
-                // 開啟聲音
                 acrylicVideo.muted = false;
                 acrylicVideo.currentTime = 0;
                 acrylicVideo.play();
                 isAudioOn = true;
-                
-                // 按鈕位置變更為右上角，縮小
-                soundToggleBtn.classList.remove('center');
-                soundToggleBtn.classList.add('active');
-                soundToggleBtn.textContent = '🔊';
-                soundToggleBtn.title = '點擊關閉聲音';
+                soundBtn.classList.remove('center');
+                soundBtn.classList.add('active');
+                soundBtn.textContent = '🔊';
+                soundBtn.title = '點擊關閉聲音';
             } else {
-                // 關閉聲音
                 acrylicVideo.muted = true;
                 isAudioOn = false;
-                
-                // 按鈕位置變回中央
-                soundToggleBtn.classList.remove('active');
-                soundToggleBtn.classList.add('center');
-                soundToggleBtn.textContent = '🔇';
-                soundToggleBtn.title = '點擊開啟聲音';
+                soundBtn.classList.remove('active');
+                soundBtn.classList.add('center');
+                soundBtn.textContent = '🔇';
+                soundBtn.title = '點擊開啟聲音';
             }
         });
-        
-        // 影片自動播放（預設靜音）
-        acrylicVideo.autoplay = true;
-        acrylicVideo.loop = true;
     </script>
-    
 </body>
 </html>
