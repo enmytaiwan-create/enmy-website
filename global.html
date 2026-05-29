@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENMY 全球銷售地區 | 全世界都在用 ENMY 丙烯麥克筆</title>
+    <meta name="description" content="ENMY 丙烯麥克筆全球銷售 — 日本、韓國、墨西哥、台灣等全球地區。追蹤各地官方 Instagram，獲得最新動態。">
+    <meta property="og:title" content="ENMY 全球銷售地區">
+    <meta property="og:description" content="探索 ENMY 在全球各地的官方社群，連結全球創作者社區。">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            color: #2f3e46;
+            line-height: 1.6;
+        }
+        
+        nav {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav a {
+            color: #0b4f30;
+            text-decoration: none;
+            margin-right: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #ff007f;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #0b4f30 0%, #1a7a4d 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #0b4f30;
+            margin: 3rem 0 2rem 0;
+            font-weight: 900;
+            text-align: center;
+        }
+        
+        .regions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .region-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .region-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .region-flag {
+            font-size: 4rem;
+            text-align: center;
+            padding: 2rem 1rem;
+            background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+        }
+        
+        .region-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .region-content h3 {
+            color: #0b4f30;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+        }
+        
+        .region-content p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        
+        .region-link {
+            display: inline-block;
+            background: #ff007f;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 0.95rem;
+            transition: background 0.3s, transform 0.3s;
+            text-align: center;
+        }
+        
+        .region-link:hover {
+            background: #e60066;
+            transform: scale(1.05);
+        }
+        
+        .map-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .map-section h2 {
+            color: #0b4f30;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+        
+        .map-placeholder {
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            color: #999;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .map-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #0b4f30 0%, #1a7a4d 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .stats-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 900;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+        }
+        
+        .stat-item p {
+            font-size: 1rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #ff007f 0%, #ff4da6 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #ff007f;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.1rem;
+            transition: background 0.3s, transform 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #2f3e46;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        footer a {
+            color: #ff007f;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .regions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">ENMY.</a>
+        <a href="index.html#section-2">品牌理念</a>
+        <a href="products.html">產品系列</a>
+        <a href="story.html">品牌故事</a>
+    </nav>
+    
+    <div class="hero">
+        <h1>🌍 全球銷售地區</h1>
+        <p>全世界都在用 ENMY 丙烯麥克筆</p>
+        <p>連結全球創作者社區，分享創意靈感</p>
+    </div>
+    
+    <div class="container">
+        <h2 class="section-title">🌏 官方社群據點</h2>
+        
+        <div class="regions-grid">
+            <div class="region-card">
+                <div class="region-flag">🇹🇼</div>
+                <div class="region-content">
+                    <h3>台灣</h3>
+                    <p>ENMY Taiwan - 官方總部</p>
+                    <p>追蹤最新產品資訊、限時優惠和創作靈感分享</p>
+                    <a href="https://lin.ee/t8mMUCh" class="region-link">📱 LINE 客服</a>
+                </div>
+            </div>
+            
+            <div class="region-card">
+                <div class="region-flag">🇯🇵</div>
+                <div class="region-content">
+                    <h3>日本</h3>
+                    <p>ENMY Japan - 日本官方</p>
+                    <p>日本創作者社群，分享日本藝術創作文化</p>
+                    <a href="https://www.instagram.com/enmy_official_jp/" class="region-link">📸 Instagram</a>
+                </div>
+            </div>
+            
+            <div class="region-card">
+                <div class="region-flag">👶</div>
+                <div class="region-content">
+                    <h3>日本兒童</h3>
+                    <p>ENMY Kids Japan - 兒童專區</p>
+                    <p>專為兒童設計的創意活動和教育內容</p>
+                    <a href="https://www.instagram.com/enmy_kids_jp/" class="region-link">📸 Instagram</a>
+                </div>
+            </div>
+            
+            <div class="region-card">
+                <div class="region-flag">🇰🇷</div>
+                <div class="region-content">
+                    <h3>韓國</h3>
+                    <p>ENMY Korea - 韓國官方</p>
+                    <p>韓國創作者社群，展示韓式藝術風格</p>
+                    <a href="https://www.instagram.com/enmy_kr/" class="region-link">📸 Instagram</a>
+                </div>
+            </div>
+            
+            <div class="region-card">
+                <div class="region-flag">🇲🇽</div>
+                <div class="region-content">
+                    <h3>墨西哥</h3>
+                    <p>ENMY Mexico - 墨西哥官方</p>
+                    <p>拉丁美洲創作者社群，展現多彩文化</p>
+                    <a href="https://www.instagram.com/enmy_official_mx/" class="region-link">📸 Instagram</a>
+                </div>
+            </div>
+            
+            <div class="region-card">
+                <div class="region-flag">🎨</div>
+                <div class="region-content">
+                    <h3>藝術社群</h3>
+                    <p>ENMY Art - 全球藝術社群</p>
+                    <p>全球藝術家作品展示和創意交流平台</p>
+                    <a href="https://www.instagram.com/enmyart/" class="region-link">📸 Instagram</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="map-section">
+            <h2>🗺️ 全球分布</h2>
+            <div class="map-placeholder">
+                🌍 ENMY 丙烯麥克筆已銷售至全球 50+ 個國家和地區
+            </div>
+            <div class="map-description">
+                <p>從亞洲到歐洲，從美洲到大洋洲，ENMY 的創意產品已經成為全球創作者的首選。</p>
+                <p>無論您身在何處，都能找到 ENMY 官方社群，與全球創作者分享您的創意靈感。</p>
+            </div>
+        </div>
+        
+        <div class="stats-section">
+            <h2>📊 全球數據</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>銷售國家/地區</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100K+</h3>
+                    <p>全球粉絲社群</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1M+</h3>
+                    <p>創意作品分享</p>
+                </div>
+                <div class="stat-item">
+                    <h3>365</h3>
+                    <p>全年無休服務</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>加入全球 ENMY 社群</h2>
+            <p>分享您的創意，連結全球創作者，一起創造美好時光</p>
+            <a href="https://lin.ee/t8mMUCh" class="btn">📱 聯繫我們</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 ENMY. All rights reserved.</p>
+        <p><a href="index.html">回到首頁</a> | <a href="products.html">所有產品</a></p>
+    </footer>
+</body>
+</html>

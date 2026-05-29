@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENMY 勻彩畫紙 | 專業創作紙張</title>
+    <meta name="description" content="ENMY 勻彩畫紙 — 專業級創作紙張，完美搭配 ENMY 丙烯麥克筆。紙質細膩，色彩呈現飽和，適合各種創作媒材。">
+    <meta property="og:title" content="ENMY 勻彩畫紙">
+    <meta property="og:description" content="探索 ENMY 勻彩畫紙，為您的創作提供最佳支持。">
+    <meta property="og:image" content="products-images/紙.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            color: #2f3e46;
+            line-height: 1.6;
+        }
+        
+        nav {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav a {
+            color: #0b4f30;
+            text-decoration: none;
+            margin-right: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #ff007f;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #f5deb3 0%, #daa520 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #0b4f30;
+            margin: 3rem 0 2rem 0;
+            font-weight: 900;
+            text-align: center;
+        }
+        
+        .intro-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .intro-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        
+        .intro-text h2 {
+            color: #0b4f30;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+        
+        .intro-text p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        .features {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+        
+        .features h2 {
+            color: #0b4f30;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            text-align: center;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 5px solid #ff007f;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-item h3 {
+            color: #0b4f30;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+        }
+        
+        .feature-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .specs-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 3rem 0;
+        }
+        
+        .specs-section h2 {
+            color: #0b4f30;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .spec-item {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 3px solid #ff007f;
+        }
+        
+        .spec-item strong {
+            color: #0b4f30;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .spec-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .usage-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 3rem 0;
+        }
+        
+        .usage-section h2 {
+            color: #0b4f30;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+        
+        .usage-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .usage-list li {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 5px solid #0b4f30;
+        }
+        
+        .usage-list li strong {
+            color: #0b4f30;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .usage-list li p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .pairing-section {
+            background: linear-gradient(135deg, #f5deb3 0%, #daa520 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .pairing-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+        
+        .pairing-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #0b4f30 0%, #1a7a4d 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ff007f;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.1rem;
+            transition: background 0.3s, transform 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #e60066;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #2f3e46;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        footer a {
+            color: #ff007f;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .intro-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">ENMY.</a>
+        <a href="index.html#section-2">品牌理念</a>
+        <a href="products.html">產品系列</a>
+        <a href="story.html">品牌故事</a>
+    </nav>
+    
+    <div class="hero">
+        <h1>📄 勻彩畫紙</h1>
+        <p>專業級創作紙張</p>
+        <p>完美搭配 ENMY 丙烯麥克筆的理想選擇</p>
+    </div>
+    
+    <div class="container">
+        <div class="intro-section">
+            <img src="products-images/紙.png" alt="ENMY 勻彩畫紙">
+            <div class="intro-text">
+                <h2>為創作而生</h2>
+                <p>ENMY 勻彩畫紙採用精選紙漿，經過特殊處理，確保紙質細膩均勻。無論是使用丙烯麥克筆、彩虹勾線筆，還是其他創作媒材，都能呈現最佳效果。</p>
+                <p>紙張表面經過精心設計，能夠完美吸收丙烯顏料，色彩呈現飽和而不失層次感。無論是細緻的線條還是大面積著色，都能展現出最理想的效果。</p>
+                <p>無酸紙質，確保作品長期保存不褪色。是專業藝術家、設計師和創作愛好者的首選。</p>
+            </div>
+        </div>
+        
+        <div class="features">
+            <h2>✨ 紙張特性</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <h3>均勻質地</h3>
+                    <p>紙質細膩均勻，色彩呈現一致</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <h3>色彩飽和</h3>
+                    <p>完美呈現丙烯顏料的色彩深度</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💪</div>
+                    <h3>耐久性強</h3>
+                    <p>無酸紙質，長期保存不褪色</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✋</div>
+                    <h3>手感舒適</h3>
+                    <p>書寫和繪畫時的觸感最佳</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="specs-section">
+            <h2>📋 紙張規格</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <strong>📏 尺寸</strong>
+                    <p>A4 / A3 / 自訂尺寸</p>
+                </div>
+                <div class="spec-item">
+                    <strong>⚖️ 克重</strong>
+                    <p>200～300 gsm</p>
+                </div>
+                <div class="spec-item">
+                    <strong>🎯 紙質</strong>
+                    <p>無酸美術紙</p>
+                </div>
+                <div class="spec-item">
+                    <strong>🌈 顏色</strong>
+                    <p>白色、米白色、淡色系</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="usage-section">
+            <h2>🎯 適用場景</h2>
+            <ul class="usage-list">
+                <li>
+                    <strong>🖼️ 藝術創作</strong>
+                    <p>插畫、繪畫、手繪設計</p>
+                </li>
+                <li>
+                    <strong>✍️ 手帳裝飾</strong>
+                    <p>日記、筆記本美化、創意記錄</p>
+                </li>
+                <li>
+                    <strong>🎨 商業設計</strong>
+                    <p>包裝設計、海報製作、品牌視覺</p>
+                </li>
+                <li>
+                    <strong>📚 教育應用</strong>
+                    <p>美術課程、工作坊、教學示範</p>
+                </li>
+                <li>
+                    <strong>🎁 禮品製作</strong>
+                    <p>客製化禮物、賀卡、特殊紀念品</p>
+                </li>
+                <li>
+                    <strong>🌟 創意手工</strong>
+                    <p>手工藝品、DIY 項目、個人創作</p>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="pairing-section">
+            <h2>💫 完美搭配</h2>
+            <p>ENMY 勻彩畫紙 + ENMY 丙烯麥克筆系列</p>
+            <p>紙張與筆的完美結合，為您的創作提供最佳支持</p>
+        </div>
+        
+        <div class="cta-section">
+            <h2>開始您的創作之旅</h2>
+            <p>ENMY 勻彩畫紙，專為創作者而設計</p>
+            <a href="https://lin.ee/t8mMUCh" class="btn">📱 LINE 客服 — 了解更多</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 ENMY. All rights reserved.</p>
+        <p><a href="index.html">回到首頁</a> | <a href="products.html">所有產品</a></p>
+    </footer>
+</body>
+</html>
