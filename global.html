@@ -1,407 +1,333 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ENMY 全球銷售地區 | 全世界都在用 ENMY 丙烯麥克筆</title>
-    <meta name="description" content="ENMY 丙烯麥克筆全球銷售 — 日本、韓國、墨西哥、台灣等全球地區。追蹤各地官方 Instagram，獲得最新動態。">
-    <meta property="og:title" content="ENMY 全球銷售地區">
-    <meta property="og:description" content="探索 ENMY 在全球各地的官方社群，連結全球創作者社區。">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
-            color: #2f3e46;
-            line-height: 1.6;
-        }
-        
-        nav {
-            background: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav a {
-            color: #0b4f30;
-            text-decoration: none;
-            margin-right: 2rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: #ff007f;
-        }
-        
-        .hero {
-            background: linear-gradient(135deg, #0b4f30 0%, #1a7a4d 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 900;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            color: #0b4f30;
-            margin: 3rem 0 2rem 0;
-            font-weight: 900;
-            text-align: center;
-        }
-        
-        .regions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .region-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .region-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-        
-        .region-flag {
-            font-size: 4rem;
-            text-align: center;
-            padding: 2rem 1rem;
-            background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
-        }
-        
-        .region-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .region-content h3 {
-            color: #0b4f30;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            font-weight: 900;
-        }
-        
-        .region-content p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            flex-grow: 1;
-        }
-        
-        .region-link {
-            display: inline-block;
-            background: #ff007f;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 0.95rem;
-            transition: background 0.3s, transform 0.3s;
-            text-align: center;
-        }
-        
-        .region-link:hover {
-            background: #e60066;
-            transform: scale(1.05);
-        }
-        
-        .map-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin: 3rem 0;
-            text-align: center;
-        }
-        
-        .map-section h2 {
-            color: #0b4f30;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 900;
-        }
-        
-        .map-placeholder {
-            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
-            padding: 3rem 2rem;
-            border-radius: 8px;
-            color: #999;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .map-description {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-        
-        .stats-section {
-            background: linear-gradient(135deg, #0b4f30 0%, #1a7a4d 100%);
-            color: white;
-            padding: 3rem 2rem;
-            border-radius: 12px;
-            margin: 3rem 0;
-            text-align: center;
-        }
-        
-        .stats-section h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            font-weight: 900;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-        
-        .stat-item h3 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 900;
-        }
-        
-        .stat-item p {
-            font-size: 1rem;
-        }
-        
-        .cta-section {
-            background: linear-gradient(135deg, #ff007f 0%, #ff4da6 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            border-radius: 12px;
-            margin: 3rem 0;
-        }
-        
-        .cta-section h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 900;
-        }
-        
-        .cta-section p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: white;
-            color: #ff007f;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.1rem;
-            transition: background 0.3s, transform 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background: #f0f0f0;
-            transform: scale(1.05);
-        }
-        
-        footer {
-            background: #2f3e46;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        
-        footer a {
-            color: #ff007f;
-            text-decoration: none;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .regions-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENMY 全球市場 | Global Creators Community</title>
+  <meta name="description" content="ENMY 丙烯麥克筆風靡全球，日本、韓國、墨西哥、英國、菲律賓、馬來西亞等地創作者都在使用。25 位全球插畫家共同見證 ENMY 的魅力。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans TC', sans-serif; background-color: #fdf8f3; color: #3a3028; overflow-x: hidden; margin: 0; padding: 0; }
+    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(to right, #c9a96e, #e8d5a3, #c9a96e); z-index: 300; transition: width 0.1s ease; }
+    .nav-bar { position: fixed; top: 3px; left: 0; right: 0; z-index: 200; padding: 1.25rem 2rem; transition: background 0.4s ease, box-shadow 0.4s ease; }
+    .nav-bar.scrolled { background: rgba(253,248,243,0.97); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(58,48,40,0.08); }
+    .nav-logo { font-family: 'Noto Serif TC', serif; font-size: 1.5rem; font-weight: 700; color: #fff; letter-spacing: 0.05em; text-decoration: none; transition: color 0.4s; }
+    .nav-bar.scrolled .nav-logo { color: #3a3028; }
+    .nav-link { font-size: 0.85rem; color: rgba(255,255,255,0.85); text-decoration: none; letter-spacing: 0.08em; transition: color 0.3s; }
+    .nav-bar.scrolled .nav-link { color: #6b5c4e; }
+    .nav-link:hover { color: #c9a96e !important; }
+    .nav-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+    .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0d0a06 0%, #1a1208 40%, #2d1f0e 70%, #0d0a06 100%); overflow: hidden; }
+    .hero-bg-pattern { position: absolute; inset: 0; opacity: 0.06; background-image: radial-gradient(circle at 20% 50%, #c9a96e 1px, transparent 1px), radial-gradient(circle at 80% 20%, #c9a96e 1px, transparent 1px), radial-gradient(circle at 60% 80%, #c9a96e 1px, transparent 1px); background-size: 60px 60px; }
+    .hero-glow { position: absolute; width: 700px; height: 700px; background: radial-gradient(circle, rgba(201,169,110,0.12) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+    .particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .particle { position: absolute; width: 3px; height: 3px; background: #c9a96e; border-radius: 50%; opacity: 0; animation: float-p linear infinite; }
+    @keyframes float-p { 0% { opacity: 0; transform: translateY(100vh) scale(0); } 10% { opacity: 0.8; } 90% { opacity: 0.4; } 100% { opacity: 0; transform: translateY(-10vh) scale(1.5); } }
+    .hero-content { position: relative; z-index: 10; padding: 9rem 2rem 5rem; max-width: 860px; text-align: center; }
+    .hero-badge { display: inline-block; background: linear-gradient(135deg, #c9a96e, #e8d5a3); color: #1a1208; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; padding: 0.4rem 1.2rem; border-radius: 2rem; margin-bottom: 1.8rem; text-transform: uppercase; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 0.5rem; }
+    .hero-title-cn { font-family: 'Noto Serif TC', serif; font-size: clamp(1rem, 2vw, 1.4rem); color: #e8d5a3; font-weight: 300; letter-spacing: 0.25em; margin-bottom: 1.8rem; }
+    .hero-desc { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 2; margin-bottom: 2.5rem; max-width: 620px; margin-left: auto; margin-right: auto; }
+    .hero-stats { display: flex; gap: 3.5rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem; }
+    .stat-item { text-align: center; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: #c9a96e; font-weight: 700; line-height: 1; }
+    .stat-label { font-size: 0.7rem; color: rgba(232,213,163,0.55); letter-spacing: 0.18em; margin-top: 0.3rem; text-transform: uppercase; }
+    .gold-divider { width: 60px; height: 2px; background: linear-gradient(to right, #c9a96e, #e8d5a3); margin: 1.2rem auto; }
+    .manifesto-section { background: #1a1208; padding: 5rem 2rem; text-align: center; }
+    .manifesto-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.2rem, 2.5vw, 1.9rem); color: #e8d5a3; max-width: 800px; margin: 0 auto; line-height: 1.9; }
+    .manifesto-sub { font-family: 'Noto Serif TC', serif; font-size: 0.9rem; color: rgba(232,213,163,0.45); margin-top: 1.5rem; letter-spacing: 0.18em; }
+    .sec-header { text-align: center; margin-bottom: 3.5rem; }
+    .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 0.5rem; }
+    .sec-sub { font-family: 'Noto Serif TC', serif; font-size: 0.9rem; letter-spacing: 0.12em; }
+    .markets-section { background: #fdf8f3; padding: 6rem 2rem; }
+    .markets-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+    .market-card-tw { grid-column: span 2; grid-row: span 2; }
+    .market-card { background: #fff; border: 1px solid #e8d5a3; border-radius: 1.2rem; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; display: block; }
+    .market-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(201,169,110,0.22); }
+    .market-card img { width: 100%; object-fit: cover; display: block; }
+    .market-card-tw img { height: 340px; }
+    .market-card-sm img { height: 160px; }
+    .market-card-body { padding: 1.2rem 1.4rem; }
+    .market-flag { font-size: 1.6rem; margin-bottom: 0.4rem; }
+    .market-name { font-family: 'Noto Serif TC', serif; font-size: 1.1rem; font-weight: 700; color: #3a3028; margin-bottom: 0.2rem; }
+    .market-ig { font-size: 0.78rem; color: #c9a96e; letter-spacing: 0.04em; }
+    .market-card-tw .market-name { font-size: 1.4rem; }
+    .market-card-tw .market-desc { font-size: 0.88rem; color: #6b5c4e; line-height: 1.7; margin: 0.5rem 0 1rem; }
+    .market-reel-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #c9a96e, #e8d5a3); color: #1a1208; font-size: 0.82rem; font-weight: 700; padding: 0.55rem 1.3rem; border-radius: 2rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; margin-top: 0.5rem; }
+    .market-reel-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,169,110,0.4); }
+    .market-ig-btn { display: inline-flex; align-items: center; gap: 0.4rem; background: transparent; color: #c9a96e; font-size: 0.78rem; font-weight: 600; padding: 0.45rem 1rem; border-radius: 2rem; text-decoration: none; border: 1px solid rgba(201,169,110,0.4); transition: all 0.2s; margin-top: 0.4rem; margin-left: 0.5rem; }
+    .market-ig-btn:hover { background: rgba(201,169,110,0.1); }
+    .market-card-global { grid-column: span 2; }
+    .market-card-global img { height: 200px; }
+    .taiwan-reel-section { background: #1a1208; padding: 5rem 2rem; }
+    .reel-feature-wrap { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .reel-feature-badge { display: inline-block; background: linear-gradient(135deg, #c9a96e, #e8d5a3); color: #1a1208; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; padding: 0.35rem 1rem; border-radius: 2rem; margin-bottom: 1.2rem; text-transform: uppercase; }
+    .reel-feature-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); color: #e8d5a3; margin-bottom: 0.8rem; line-height: 1.3; }
+    .reel-feature-creator { font-size: 1rem; color: #c9a96e; font-weight: 600; margin-bottom: 0.5rem; }
+    .reel-feature-desc { font-size: 0.88rem; color: rgba(232,213,163,0.6); line-height: 1.9; margin-bottom: 1.5rem; }
+    .reel-feature-link { display: inline-flex; align-items: center; gap: 0.6rem; background: linear-gradient(135deg, #c9a96e, #e8d5a3); color: #1a1208; font-size: 0.9rem; font-weight: 700; padding: 0.8rem 2rem; border-radius: 3rem; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; }
+    .reel-feature-link:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(201,169,110,0.5); }
+    .reel-feature-preview { background: linear-gradient(135deg, #2d1f0e, #1a1208); border-radius: 1.2rem; overflow: hidden; border: 1px solid rgba(201,169,110,0.2); aspect-ratio: 9/16; max-height: 480px; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+    .reel-preview-inner { text-align: center; padding: 2rem; }
+    .reel-play-icon { width: 72px; height: 72px; background: linear-gradient(135deg, #c9a96e, #e8d5a3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; font-size: 1.8rem; transition: transform 0.3s; }
+    .reel-feature-preview:hover .reel-play-icon { transform: scale(1.1); }
+    .reel-preview-label { font-family: 'Noto Serif TC', serif; font-size: 0.85rem; color: rgba(232,213,163,0.5); line-height: 1.7; }
+    .reel-preview-handle { font-size: 1rem; color: #c9a96e; font-weight: 600; margin-bottom: 0.5rem; }
+    .creators-section { background: #0d0a06; padding: 6rem 2rem; }
+    .creators-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; max-width: 1200px; margin: 0 auto; }
+    .creator-card { background: rgba(201,169,110,0.05); border: 1px solid rgba(201,169,110,0.15); border-radius: 1rem; padding: 1.2rem 1rem; text-align: center; transition: transform 0.3s, background 0.3s, box-shadow 0.3s; }
+    .creator-card:hover { transform: translateY(-5px); background: rgba(201,169,110,0.1); box-shadow: 0 10px 30px rgba(201,169,110,0.12); }
+    .creator-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #c9a96e, #e8d5a3); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.7rem; font-size: 1.2rem; }
+    .creator-name { font-size: 0.75rem; color: #e8d5a3; font-weight: 600; margin-bottom: 0.25rem; word-break: break-all; }
+    .creator-reels { font-size: 0.65rem; color: rgba(232,213,163,0.4); margin-bottom: 0.7rem; }
+    .creator-btns { display: flex; flex-direction: column; gap: 0.35rem; }
+    .creator-btn { display: block; font-size: 0.68rem; padding: 0.28rem 0.5rem; border-radius: 1rem; text-decoration: none; text-align: center; transition: all 0.2s; }
+    .creator-btn-profile { background: rgba(201,169,110,0.12); color: #c9a96e; border: 1px solid rgba(201,169,110,0.25); }
+    .creator-btn-profile:hover { background: rgba(201,169,110,0.25); }
+    .creator-btn-reel { background: rgba(255,255,255,0.04); color: rgba(232,213,163,0.55); border: 1px solid rgba(255,255,255,0.07); font-size: 0.63rem; }
+    .creator-btn-reel:hover { background: rgba(255,255,255,0.09); color: #e8d5a3; }
+    .cta-section { background: linear-gradient(135deg, #1a1208, #2d1f0e, #1a1208); padding: 6rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,169,110,0.12) 0%, transparent 70%); pointer-events: none; }
+    .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 3rem); color: #e8d5a3; margin-bottom: 1rem; position: relative; }
+    .cta-sub { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: rgba(232,213,163,0.55); margin-bottom: 3rem; position: relative; letter-spacing: 0.1em; }
+    .cta-btns { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; position: relative; }
+    .btn-gold { display: inline-flex; align-items: center; gap: 0.6rem; background: linear-gradient(135deg, #c9a96e, #e8d5a3); color: #1a1208; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.08em; padding: 1rem 2.5rem; border-radius: 3rem; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(201,169,110,0.35); }
+    .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(201,169,110,0.55); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 0.6rem; background: transparent; color: #e8d5a3; font-weight: 500; font-size: 0.95rem; letter-spacing: 0.08em; padding: 1rem 2.5rem; border-radius: 3rem; text-decoration: none; border: 1px solid rgba(232,213,163,0.35); transition: all 0.3s; }
+    .btn-outline:hover { background: rgba(232,213,163,0.08); border-color: rgba(232,213,163,0.7); }
+    footer { background: #0d0a06; color: rgba(232,213,163,0.4); text-align: center; padding: 2.5rem 2rem; font-size: 0.8rem; }
+    footer a { color: rgba(232,213,163,0.35); text-decoration: none; margin: 0 0.8rem; }
+    footer a:hover { color: #c9a96e; }
+    @media (max-width: 1024px) {
+      .markets-grid { grid-template-columns: repeat(2, 1fr); }
+      .market-card-tw { grid-column: span 2; grid-row: span 1; }
+      .market-card-tw img { height: 260px; }
+      .market-card-global { grid-column: span 2; }
+      .creators-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero-content { padding: 7rem 1.5rem 3rem; }
+      .markets-grid { grid-template-columns: 1fr 1fr; }
+      .market-card-tw { grid-column: span 2; }
+      .market-card-global { grid-column: span 2; }
+      .creators-grid { grid-template-columns: repeat(3, 1fr); }
+      .reel-feature-wrap { grid-template-columns: 1fr; gap: 2rem; }
+      .reel-feature-preview { max-height: 320px; }
+      .hero-stats { gap: 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .markets-grid { grid-template-columns: 1fr; }
+      .market-card-tw { grid-column: span 1; }
+      .market-card-global { grid-column: span 1; }
+      .creators-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">ENMY.</a>
-        <a href="index.html#section-2">品牌理念</a>
-        <a href="products.html">產品系列</a>
-        <a href="story.html">品牌故事</a>
-    </nav>
-    
-    <div class="hero">
-        <h1>🌍 全球銷售地區</h1>
-        <p>全世界都在用 ENMY 丙烯麥克筆</p>
-        <p>連結全球創作者社區，分享創意靈感</p>
+<div class="progress-bar" id="progressBar" style="width:0%"></div>
+<nav class="nav-bar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">ENMY.</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首頁</a>
+      <a href="products.html" class="nav-link">產品系列</a>
+      <a href="rainbow-markers.html" class="nav-link">爆閃筆</a>
+      <a href="black-box.html" class="nav-link">小黑盒</a>
+      <a href="paper.html" class="nav-link">勻彩畫紙</a>
+      <a href="https://lin.ee/t8mMUCh" target="_blank" style="background:linear-gradient(135deg,#c9a96e,#e8d5a3);color:#1a1208;padding:0.4rem 1.2rem;border-radius:2rem;font-weight:700;font-size:0.85rem;text-decoration:none;">LINE 客服</a>
     </div>
-    
-    <div class="container">
-        <h2 class="section-title">🌏 官方社群據點</h2>
-        
-        <div class="regions-grid">
-            <div class="region-card">
-                <div class="region-flag">🇹🇼</div>
-                <div class="region-content">
-                    <h3>台灣</h3>
-                    <p>ENMY Taiwan - 官方總部</p>
-                    <p>追蹤最新產品資訊、限時優惠和創作靈感分享</p>
-                    <a href="https://lin.ee/t8mMUCh" class="region-link">📱 LINE 客服</a>
-                </div>
-            </div>
-            
-            <div class="region-card">
-                <div class="region-flag">🇯🇵</div>
-                <div class="region-content">
-                    <h3>日本</h3>
-                    <p>ENMY Japan - 日本官方</p>
-                    <p>日本創作者社群，分享日本藝術創作文化</p>
-                    <a href="https://www.instagram.com/enmy_official_jp/" class="region-link">📸 Instagram</a>
-                </div>
-            </div>
-            
-            <div class="region-card">
-                <div class="region-flag">👶</div>
-                <div class="region-content">
-                    <h3>日本兒童</h3>
-                    <p>ENMY Kids Japan - 兒童專區</p>
-                    <p>專為兒童設計的創意活動和教育內容</p>
-                    <a href="https://www.instagram.com/enmy_kids_jp/" class="region-link">📸 Instagram</a>
-                </div>
-            </div>
-            
-            <div class="region-card">
-                <div class="region-flag">🇰🇷</div>
-                <div class="region-content">
-                    <h3>韓國</h3>
-                    <p>ENMY Korea - 韓國官方</p>
-                    <p>韓國創作者社群，展示韓式藝術風格</p>
-                    <a href="https://www.instagram.com/enmy_kr/" class="region-link">📸 Instagram</a>
-                </div>
-            </div>
-            
-            <div class="region-card">
-                <div class="region-flag">🇲🇽</div>
-                <div class="region-content">
-                    <h3>墨西哥</h3>
-                    <p>ENMY Mexico - 墨西哥官方</p>
-                    <p>拉丁美洲創作者社群，展現多彩文化</p>
-                    <a href="https://www.instagram.com/enmy_official_mx/" class="region-link">📸 Instagram</a>
-                </div>
-            </div>
-            
-            <div class="region-card">
-                <div class="region-flag">🎨</div>
-                <div class="region-content">
-                    <h3>藝術社群</h3>
-                    <p>ENMY Art - 全球藝術社群</p>
-                    <p>全球藝術家作品展示和創意交流平台</p>
-                    <a href="https://www.instagram.com/enmyart/" class="region-link">📸 Instagram</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="map-section">
-            <h2>🗺️ 全球分布</h2>
-            <div class="map-placeholder">
-                🌍 ENMY 丙烯麥克筆已銷售至全球 50+ 個國家和地區
-            </div>
-            <div class="map-description">
-                <p>從亞洲到歐洲，從美洲到大洋洲，ENMY 的創意產品已經成為全球創作者的首選。</p>
-                <p>無論您身在何處，都能找到 ENMY 官方社群，與全球創作者分享您的創意靈感。</p>
-            </div>
-        </div>
-        
-        <div class="stats-section">
-            <h2>📊 全球數據</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>50+</h3>
-                    <p>銷售國家/地區</p>
-                </div>
-                <div class="stat-item">
-                    <h3>100K+</h3>
-                    <p>全球粉絲社群</p>
-                </div>
-                <div class="stat-item">
-                    <h3>1M+</h3>
-                    <p>創意作品分享</p>
-                </div>
-                <div class="stat-item">
-                    <h3>365</h3>
-                    <p>全年無休服務</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="cta-section">
-            <h2>加入全球 ENMY 社群</h2>
-            <p>分享您的創意，連結全球創作者，一起創造美好時光</p>
-            <a href="https://lin.ee/t8mMUCh" class="btn">📱 聯繫我們</a>
-        </div>
+  </div>
+</nav>
+
+<section class="hero-section">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="particles" id="particles"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Global Creators Community ✦</div>
+    <div class="hero-title">ENMY.<br>Goes Global</div>
+    <div class="hero-title-cn">全世界都在用恩米丙烯麥克筆</div>
+    <p class="hero-desc">從台灣出發，跨越語言與國界，ENMY 丙烯麥克筆已在全球 6 個以上國家和地區廣受創作者喜愛。25 位來自世界各地的插畫家，用 ENMY 創作出令人驚嘆的作品，共同見證這場色彩革命。</p>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">6+</div><div class="stat-label">Countries</div></div>
+      <div class="stat-item"><div class="stat-num">25+</div><div class="stat-label">Creators</div></div>
+      <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">Creations</div></div>
     </div>
-    
-    <footer>
-        <p>&copy; 2024 ENMY. All rights reserved.</p>
-        <p><a href="index.html">回到首頁</a> | <a href="products.html">所有產品</a></p>
-    </footer>
+  </div>
+</section>
+
+<section class="manifesto-section">
+  <div class="gold-divider"></div>
+  <p class="manifesto-text">"Art has no borders.<br>Neither does ENMY."</p>
+  <p class="manifesto-sub">藝術無國界，恩米亦然。</p>
+  <div class="gold-divider" style="margin-top:2rem;"></div>
+</section>
+
+<section class="markets-section">
+  <div class="sec-header">
+    <div class="sec-title" style="color:#3a3028;">全球銷售地區</div>
+    <div class="gold-divider"></div>
+    <div class="sec-sub" style="color:#9b8575;">ENMY Global Markets — Follow Us Worldwide</div>
+  </div>
+  <div class="markets-grid">
+    <div class="market-card market-card-tw">
+      <div style="position:relative;overflow:hidden;">
+        <img src="products-images/global-hero.jpg" alt="ENMY 台灣" style="height:340px;width:100%;object-fit:cover;">
+        <div style="position:absolute;top:1rem;left:1rem;background:linear-gradient(135deg,#c9a96e,#e8d5a3);color:#1a1208;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;padding:0.3rem 0.8rem;border-radius:2rem;">🇹🇼 TAIWAN HQ</div>
+      </div>
+      <div class="market-card-body">
+        <div class="market-flag">🇹🇼</div>
+        <div class="market-name">台灣 Taiwan</div>
+        <p class="market-desc">ENMY 品牌發源地，官方總部。台灣代表「米唐」以精湛的插畫技法展現 ENMY 丙烯麥克筆的無限可能，Reel 作品廣受好評。</p>
+        <div class="market-ig">LINE ID：@enmy_tw</div>
+        <div style="margin-top:0.8rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
+          <a href="https://www.instagram.com/reel/DY6EpzFBdeA/?igsh=dnZpeXJiZm93Y2No" target="_blank" class="market-reel-btn">▶ 米唐 Reel 精選</a>
+          <a href="https://lin.ee/t8mMUCh" target="_blank" class="market-ig-btn">💬 LINE 客服</a>
+        </div>
+      </div>
+    </div>
+    <a href="https://www.instagram.com/enmy_official_jp/" target="_blank" class="market-card market-card-sm">
+      <img src="products-images/country-japan.png" alt="ENMY 日本">
+      <div class="market-card-body"><div class="market-flag">🇯🇵</div><div class="market-name">日本 Japan</div><div class="market-ig">@enmy_official_jp</div></div>
+    </a>
+    <a href="https://www.instagram.com/enmy_kr/" target="_blank" class="market-card market-card-sm">
+      <img src="products-images/country-korea.png" alt="ENMY 韓國">
+      <div class="market-card-body"><div class="market-flag">🇰🇷</div><div class="market-name">韓國 Korea</div><div class="market-ig">@enmy_kr</div></div>
+    </a>
+    <a href="https://www.instagram.com/enmy_official_mx/" target="_blank" class="market-card market-card-sm">
+      <img src="products-images/country-mexico.png" alt="ENMY 墨西哥">
+      <div class="market-card-body"><div class="market-flag">🇲🇽</div><div class="market-name">墨西哥 Mexico</div><div class="market-ig">@enmy_official_mx</div></div>
+    </a>
+    <a href="https://www.instagram.com/enmy_uk/" target="_blank" class="market-card market-card-sm">
+      <img src="products-images/country-uk.png" alt="ENMY 英國">
+      <div class="market-card-body"><div class="market-flag">🇬🇧</div><div class="market-name">英國 UK</div><div class="market-ig">@enmy_uk</div></div>
+    </a>
+    <a href="https://www.instagram.com/enmy_official_ph/" target="_blank" class="market-card market-card-sm">
+      <img src="products-images/country-philippines.png" alt="ENMY 菲律賓">
+      <div class="market-card-body"><div class="market-flag">🇵🇭</div><div class="market-name">菲律賓 Philippines</div><div class="market-ig">@enmy_official_ph</div></div>
+    </a>
+    <a href="https://www.instagram.com/enmy_malaysia/" target="_blank" class="market-card market-card-sm">
+      <img src="products-images/country-malaysia.png" alt="ENMY 馬來西亞">
+      <div class="market-card-body"><div class="market-flag">🇲🇾</div><div class="market-name">馬來西亞 Malaysia</div><div class="market-ig">@enmy_malaysia</div></div>
+    </a>
+    <a href="https://www.instagram.com/enmy__official/" target="_blank" class="market-card market-card-global">
+      <img src="products-images/country-official.png" alt="ENMY Global Official" style="height:200px;">
+      <div class="market-card-body" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div><div class="market-flag">🌎</div><div class="market-name">Global Official</div><div class="market-ig">@enmy__official</div></div>
+        <div style="background:linear-gradient(135deg,#c9a96e,#e8d5a3);color:#1a1208;font-size:0.8rem;font-weight:700;padding:0.5rem 1.3rem;border-radius:2rem;">追蹤全球官方 →</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="taiwan-reel-section">
+  <div class="sec-header">
+    <div class="hero-badge" style="display:inline-block;">✦ Taiwan Representative ✦</div>
+    <div class="sec-title" style="color:#e8d5a3;margin-top:0.8rem;">台灣代表 · 米唐</div>
+    <div class="gold-divider"></div>
+    <div class="sec-sub" style="color:rgba(232,213,163,0.5);">ENMY 台灣官方代表創作者精選 Reel</div>
+  </div>
+  <div class="reel-feature-wrap">
+    <div class="reel-feature-info">
+      <div class="reel-feature-badge">Taiwan Creator</div>
+      <div class="reel-feature-title">米唐的<br>ENMY 創作世界</div>
+      <div class="reel-feature-creator">台灣官方代表創作者</div>
+      <p class="reel-feature-desc">米唐以細膩溫柔的插畫風格，展現 ENMY 丙烯麥克筆在不同媒材上的驚人表現力。從色彩層疊到細節刻畫，每一筆都是對 ENMY 品質的最佳詮釋。這支 Reel 獲得廣大迴響，展現了台灣創作者的獨特美學。</p>
+      <a href="https://www.instagram.com/reel/DY6EpzFBdeA/?igsh=dnZpeXJiZm93Y2No" target="_blank" class="reel-feature-link">▶ 前往 Instagram 觀看完整 Reel</a>
+    </div>
+    <a href="https://www.instagram.com/reel/DY6EpzFBdeA/?igsh=dnZpeXJiZm93Y2No" target="_blank" class="reel-feature-preview">
+      <div class="reel-preview-inner">
+        <div class="reel-play-icon">▶</div>
+        <div class="reel-preview-handle">米唐 · Taiwan</div>
+        <div class="reel-preview-label">點擊前往 Instagram<br>觀看完整 Reel 作品</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="creators-section">
+  <div class="sec-header">
+    <div class="hero-badge" style="display:inline-block;">✦ Global Creators ✦</div>
+    <div class="sec-title" style="color:#e8d5a3;margin-top:0.8rem;">全球插畫家社群</div>
+    <div class="gold-divider"></div>
+    <div class="sec-sub" style="color:rgba(232,213,163,0.5);">25 位創作者，用 ENMY 畫出世界</div>
+  </div>
+  <div class="creators-grid">
+    <div class="creator-card"><div class="creator-avatar">🎨</div><div class="creator-name">@bir_bir_chiao</div><div class="creator-reels">5 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/bir_bir_chiao/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/bir_bir_chiao/reel/DMfXRRYPIh1/" target="_blank" class="creator-btn creator-btn-reel">▶ 作品 1</a><a href="https://www.instagram.com/bir_bir_chiao/reel/DOxQFX3E-ZZ/" target="_blank" class="creator-btn creator-btn-reel">▶ 作品 2</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🖌️</div><div class="creator-name">@carl__pufferfish</div><div class="creator-reels">4 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/carl__pufferfish/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/carl__pufferfish/reel/DJjQY72TLw1/" target="_blank" class="creator-btn creator-btn-reel">▶ 作品 1</a><a href="https://www.instagram.com/carl__pufferfish/reel/DWTYm8SCQIn/" target="_blank" class="creator-btn creator-btn-reel">▶ 作品 2</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">✏️</div><div class="creator-name">@ashelypainting</div><div class="creator-reels">2 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/ashelypainting/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/ashelypainting/reel/DJQ-D-gBn5B/" target="_blank" class="creator-btn creator-btn-reel">▶ 作品 1</a><a href="https://www.instagram.com/ashelypainting/reel/DJeMPkCBetW/" target="_blank" class="creator-btn creator-btn-reel">▶ 作品 2</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🌸</div><div class="creator-name">@063945_sheng</div><div class="creator-reels">2 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/063945_sheng/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/063945_sheng/reel/DJd68RSvOOT/" target="_blank" class="creator-btn creator-btn-reel">▶ 作品 1</a><a href="https://www.instagram.com/063945_sheng/reel/DJoiu46Prtv/" target="_blank" class="creator-btn creator-btn-reel">▶ 作品 2</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🎭</div><div class="creator-name">@kerisan0913</div><div class="creator-reels">2 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/kerisan0913/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/kerisan0913/reel/DUuSq1hEmxO/" target="_blank" class="creator-btn creator-btn-reel">▶ 作品 1</a><a href="https://www.instagram.com/kerisan0913/reel/DW8jFrMj4il/" target="_blank" class="creator-btn creator-btn-reel">▶ 作品 2</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🌈</div><div class="creator-name">@roy._.png</div><div class="creator-reels">2 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/roy._.png/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/roy._.png/reel/DR5_lPECYmW/" target="_blank" class="creator-btn creator-btn-reel">▶ 作品 1</a><a href="https://www.instagram.com/roy._.png/reel/DR_5ObwCUzK/" target="_blank" class="creator-btn creator-btn-reel">▶ 作品 2</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🦋</div><div class="creator-name">@yuki61019</div><div class="creator-reels">2 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/yuki61019/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/yuki61019/reel/DW_LuVdE825/" target="_blank" class="creator-btn creator-btn-reel">▶ 作品 1</a><a href="https://www.instagram.com/yuki61019/reel/DX1QQBPh3zx/" target="_blank" class="creator-btn creator-btn-reel">▶ 作品 2</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🎪</div><div class="creator-name">@_caoxuan_</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/_caoxuan_/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/_caoxuan_/reel/DW-sjcFCe__/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🌿</div><div class="creator-name">@ash_valley1020</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/ash_valley1020/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/ash_valley1020/reel/DOkaX4IEqTQ/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🎯</div><div class="creator-name">@bgzini86</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/bgzini86/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/bgzini86/reel/DLKPvmTPu37/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🍀</div><div class="creator-name">@coco.draw10</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/coco.draw10/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/coco.draw10/reel/DQy_8gnEhZh/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🌙</div><div class="creator-name">@duo63x</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/duo63x/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/duo63x/reel/DOOAi9FCW_Y/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🦊</div><div class="creator-name">@fufurensen1111</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/fufurensen1111/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/fufurensen1111/reel/DW0z5Mnj-sn/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">⭐</div><div class="creator-name">@getback_3000000</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/getback_3000000/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/getback_3000000/reel/DXBclhJB6_B/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🌺</div><div class="creator-name">@guto_2.0</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/guto_2.0/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/guto_2.0/reel/DOVdzlfkX8n/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🚗</div><div class="creator-name">@hankdopaint</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/hankdopaint/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/hankdopaint/reel/DOxsEL0AZM8/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🏎️</div><div class="creator-name">@hh.cararts</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/hh.cararts/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/hh.cararts/reel/DRHg4TFicfL/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🍃</div><div class="creator-name">@kimuart</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/kimuart/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/kimuart/reel/DL_X3TvzYq3/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🌊</div><div class="creator-name">@merrowe_huang</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/merrowe_huang/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/merrowe_huang/reel/DX4HKLBBXrX/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🌸</div><div class="creator-name">@midori_fufu</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/midori_fufu/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/midori_fufu/p/DQdzFpqEyg_/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🎵</div><div class="creator-name">@mwu_00095</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/mwu_00095/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/mwu_00095/reel/DLRq29wvUa3/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🐋</div><div class="creator-name">@poisonarwhal</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/poisonarwhal/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/poisonarwhal/reel/DYCgg_XTpi2/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🌴</div><div class="creator-name">@sankiyang</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/sankiyang/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/sankiyang/reel/DT5RD6bgTE8/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">⚡</div><div class="creator-name">@tsun_x2</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/tsun_x2/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/tsun_x2/reel/DRrlwPnAcOg/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+    <div class="creator-card"><div class="creator-avatar">🦁</div><div class="creator-name">@whyxzoo</div><div class="creator-reels">1 部作品</div><div class="creator-btns"><a href="https://www.instagram.com/whyxzoo/" target="_blank" class="creator-btn creator-btn-profile">IG 主頁</a><a href="https://www.instagram.com/whyxzoo/reel/DNarBCYRlvN/" target="_blank" class="creator-btn creator-btn-reel">▶ 觀看作品</a></div></div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="hero-badge" style="display:inline-block;margin-bottom:1.5rem;">✦ Join the Community ✦</div>
+  <div class="cta-title">加入全球 ENMY 創作者社群</div>
+  <div class="cta-sub">用 ENMY 創作，讓全世界看見你的作品</div>
+  <div class="cta-btns">
+    <a href="https://lin.ee/t8mMUCh" target="_blank" class="btn-gold">💬 LINE 客服 — 了解更多</a>
+    <a href="https://www.instagram.com/enmy__official/" target="_blank" class="btn-outline">📸 追蹤全球官方 IG</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 ENMY. All Rights Reserved. | 靜謐時光 · 精緻童話</p>
+  <p style="margin-top:0.5rem;">
+    <a href="index.html">首頁</a>
+    <a href="products.html">產品系列</a>
+    <a href="rainbow-markers.html">爆閃筆</a>
+    <a href="black-box.html">小黑盒</a>
+    <a href="paper.html">勻彩畫紙</a>
+    <a href="https://lin.ee/t8mMUCh" target="_blank">LINE 客服</a>
+  </p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const dh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('progressBar').style.width = (st / dh * 100) + '%';
+    const nav = document.getElementById('navbar');
+    if (st > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 40; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    const sz = (Math.random() * 4 + 1) + 'px';
+    p.style.width = sz; p.style.height = sz;
+    p.style.animationDuration = (Math.random() * 10 + 6) + 's';
+    p.style.animationDelay = (Math.random() * 15) + 's';
+    container.appendChild(p);
+  }
+</script>
 </body>
 </html>
