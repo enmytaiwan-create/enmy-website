@@ -1,364 +1,308 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ENMY 勻彩畫紙 | Evenhue Acrylic Marker Papers</title>
-  <meta name="description" content="ENMY 勻彩畫紙 — 創作者專用，300gsm 厚磅雙面，棉漿鎖水設計，上色更穩、更順、更漂亮。8K、16K、32K 三種尺寸任你選。">
+  <title>ENMY 勻彩紙 — 創作者專用畫紙 | ENMY.</title>
+  <meta name="description" content="ENMY 勻彩紙，300g 厚磅雙面，棉漿鎖水設計，不易起毛球，吸水度佳，最適合丙烯麥克筆重疊創作。8K、16K、32K 三種尺寸。">
+  <meta property="og:title" content="ENMY 勻彩紙 — 創作者專用畫紙">
+  <meta property="og:image" content="https://enmytaiwan-create.github.io/enmy-website/products-images/paper-showcase.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+TC:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Noto Sans TC', sans-serif; background-color: #fdf8f3; color: #3a3028; overflow-x: hidden; margin: 0; padding: 0; }
-    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(to right, #c9a96e, #e8d5a3, #c9a96e); z-index: 300; transition: width 0.1s ease; }
-    .nav-bar { position: fixed; top: 3px; left: 0; right: 0; z-index: 200; padding: 1.25rem 2rem; transition: background 0.4s ease, box-shadow 0.4s ease; }
-    .nav-bar.scrolled { background: rgba(253,248,243,0.95); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(58,48,40,0.08); }
-    .nav-logo { font-family: 'Noto Serif TC', serif; font-size: 1.5rem; font-weight: 700; color: #fff; letter-spacing: 0.05em; text-decoration: none; transition: color 0.4s; }
-    .nav-bar.scrolled .nav-logo { color: #3a3028; }
-    .nav-link { font-size: 0.85rem; color: rgba(255,255,255,0.85); text-decoration: none; letter-spacing: 0.08em; transition: color 0.3s; }
-    .nav-bar.scrolled .nav-link { color: #6b5c4e; }
-    .nav-link:hover { color: #c9a96e !important; }
-    .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
-    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,7,3,0.90) 0%, rgba(10,7,3,0.50) 55%, rgba(10,7,3,0.08) 100%); }
-    .hero-content { position: relative; z-index: 10; padding: 8rem 4rem 4rem; max-width: 680px; }
-    .hero-badge { display: inline-block; background: linear-gradient(135deg, #c9a96e, #e8d5a3); color: #1a1208; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; padding: 0.4rem 1.2rem; border-radius: 2rem; margin-bottom: 1.5rem; text-transform: uppercase; }
-    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 0.5rem; }
-    .hero-title-cn { font-family: 'Noto Serif TC', serif; font-size: clamp(1.1rem, 2vw, 1.5rem); color: #e8d5a3; font-weight: 300; letter-spacing: 0.15em; margin-bottom: 1.5rem; }
-    .hero-desc { font-size: 0.95rem; color: rgba(255,255,255,0.72); line-height: 1.9; margin-bottom: 2.5rem; max-width: 500px; }
-    .hero-cta { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #c9a96e, #e8d5a3); color: #1a1208; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; padding: 0.9rem 2.2rem; border-radius: 3rem; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(201,169,110,0.4); }
-    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,169,110,0.6); }
-    .particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-    .particle { position: absolute; width: 3px; height: 3px; background: #c9a96e; border-radius: 50%; opacity: 0; animation: float-p linear infinite; }
-    @keyframes float-p { 0% { opacity: 0; transform: translateY(100vh) scale(0); } 10% { opacity: 0.8; } 90% { opacity: 0.4; } 100% { opacity: 0; transform: translateY(-10vh) scale(1.5); } }
-    .gold-divider { width: 60px; height: 2px; background: linear-gradient(to right, #c9a96e, #e8d5a3); margin: 1.2rem auto; }
-    .manifesto-section { background: #1a1208; padding: 5rem 2rem; text-align: center; }
-    .manifesto-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.3rem, 2.5vw, 2rem); color: #e8d5a3; max-width: 800px; margin: 0 auto; line-height: 1.8; }
-    .manifesto-sub { font-family: 'Noto Serif TC', serif; font-size: 0.9rem; color: rgba(232,213,163,0.5); margin-top: 1.5rem; letter-spacing: 0.15em; }
-    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; max-width: 1200px; margin: 0 auto; align-items: stretch; }
-    .feature-grid.reverse { direction: rtl; }
-    .feature-grid.reverse > * { direction: ltr; }
-    .feature-img-wrap { overflow: hidden; }
-    .feature-img-wrap img { width: 100%; height: 520px; object-fit: cover; display: block; transition: transform 0.6s ease; }
-    .feature-img-wrap:hover img { transform: scale(1.04); }
-    .feature-text { padding: 4rem; display: flex; flex-direction: column; justify-content: center; }
-    .feature-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; color: #c9a96e; text-transform: uppercase; margin-bottom: 1rem; }
-    .feature-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #3a3028; margin-bottom: 0.5rem; line-height: 1.2; }
-    .feature-title-cn { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: #c9a96e; margin-bottom: 1.5rem; }
-    .feature-desc { font-size: 0.95rem; color: #6b5c4e; line-height: 1.9; }
-    .tag-pill { display: inline-block; background: #f0e8d8; color: #6b5c4e; font-size: 0.78rem; padding: 0.35rem 0.9rem; border-radius: 2rem; border: 1px solid #c9a96e; margin: 0.3rem 0.2rem 0 0; }
-    .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); text-align: center; margin-bottom: 0.5rem; }
-    .sec-sub { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; text-align: center; letter-spacing: 0.1em; }
-    .sizes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1000px; margin: 3rem auto 0; }
-    .size-card { background: #fff; border: 1px solid #e8d5a3; border-radius: 1.2rem; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
-    .size-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(201,169,110,0.2); }
-    .size-card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
-    .size-card-body { padding: 1.5rem; }
-    .size-badge { display: inline-block; background: linear-gradient(135deg, #c9a96e, #e8d5a3); color: #1a1208; font-size: 1.2rem; font-weight: 700; padding: 0.3rem 1rem; border-radius: 2rem; margin-bottom: 0.8rem; }
-    .size-dim { font-family: 'Noto Serif TC', serif; font-size: 0.85rem; color: #9b8575; margin-bottom: 0.5rem; }
-    .size-use { font-size: 0.9rem; color: #3a3028; font-weight: 500; margin-bottom: 0.8rem; }
-    .size-desc { font-size: 0.82rem; color: #6b5c4e; line-height: 1.7; }
-    .features5-section { background: #0d0a06; padding: 6rem 2rem; }
-    .features5-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1100px; margin: 3rem auto 0; align-items: center; }
-    .feature5-list { display: flex; flex-direction: column; gap: 1.5rem; }
-    .feature5-item { display: flex; gap: 1.2rem; align-items: flex-start; }
-    .feature5-icon { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, rgba(201,169,110,0.13), rgba(201,169,110,0.27)); border: 1px solid rgba(201,169,110,0.33); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
-    .feature5-content h4 { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: #e8d5a3; margin: 0 0 0.3rem; }
-    .feature5-content p { font-size: 0.85rem; color: rgba(232,213,163,0.6); line-height: 1.7; margin: 0; }
-    .features5-img { border-radius: 1rem; overflow: hidden; box-shadow: 0 16px 50px rgba(0,0,0,0.4); border: 1px solid rgba(201,169,110,0.2); }
-    .features5-img img { width: 100%; display: block; }
-    .video-section { background: #0d0a06; padding: 6rem 2rem; text-align: center; }
-    .video-wrap { max-width: 960px; margin: 3rem auto 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); border: 1px solid rgba(201,169,110,0.3); }
-    .video-wrap video { width: 100%; display: block; }
-    .guide-section { background: #fdf8f3; padding: 6rem 2rem; }
-    .guide-img { max-width: 900px; margin: 3rem auto 0; display: block; border-radius: 1rem; box-shadow: 0 8px 40px rgba(58,48,40,0.12); }
-    .cta-section { background: linear-gradient(135deg, #1a1208, #2d1f0e, #1a1208); padding: 6rem 2rem; text-align: center; position: relative; overflow: hidden; }
-    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,169,110,0.15) 0%, transparent 70%); }
-    .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 3rem); color: #e8d5a3; margin-bottom: 1rem; position: relative; }
-    .cta-sub { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: rgba(232,213,163,0.6); margin-bottom: 3rem; position: relative; }
-    .cta-btns { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; position: relative; }
-    .btn-gold { display: inline-flex; align-items: center; gap: 0.6rem; background: linear-gradient(135deg, #c9a96e, #e8d5a3); color: #1a1208; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.08em; padding: 1rem 2.5rem; border-radius: 3rem; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(201,169,110,0.4); }
-    .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(201,169,110,0.6); }
-    .btn-outline { display: inline-flex; align-items: center; gap: 0.6rem; background: transparent; color: #e8d5a3; font-weight: 500; font-size: 0.95rem; letter-spacing: 0.08em; padding: 1rem 2.5rem; border-radius: 3rem; text-decoration: none; border: 1px solid rgba(232,213,163,0.4); transition: all 0.3s; }
-    .btn-outline:hover { background: rgba(232,213,163,0.1); border-color: rgba(232,213,163,0.8); }
-    .qr-wrap { display: inline-block; background: white; padding: 1rem; border-radius: 1rem; margin-top: 2.5rem; }
-    .qr-wrap img { width: 120px; height: 120px; display: block; }
-    footer { background: #0d0a06; color: rgba(232,213,163,0.45); text-align: center; padding: 2rem; font-size: 0.8rem; }
-    footer a { color: rgba(232,213,163,0.4); text-decoration: none; margin: 0 0.8rem; }
-    footer a:hover { color: #c9a96e; }
-    @media (max-width: 768px) {
-      .hero-content { padding: 7rem 1.5rem 3rem; }
-      .feature-grid, .feature-grid.reverse { grid-template-columns: 1fr; direction: ltr; }
-      .feature-text { padding: 2rem 1.5rem; }
-      .feature-img-wrap img { height: 300px; }
-      .sizes-grid { grid-template-columns: 1fr; }
-      .features5-grid { grid-template-columns: 1fr; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#0d0a06;color:#e8d5a3;font-family:'Inter','Noto Serif TC',sans-serif;overflow-x:hidden}
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,10,6,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,169,110,0.15);padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:#e8d5a3;text-decoration:none;letter-spacing:0.1em}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{color:rgba(232,213,163,0.7);text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;transition:color 0.2s}
+    .nav-links a:hover,.nav-links a.active{color:#c9a96e}
+    .nav-cta{background:linear-gradient(135deg,#c9a96e,#e8d5a3);color:#1a1208 !important;padding:0.4rem 1.2rem;border-radius:2rem;font-weight:700;font-size:0.85rem}
+    /* HERO */
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding-top:60px;background:linear-gradient(135deg,#0d0a06 0%,#1a1208 40%,#0d0a06 100%)}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(201,169,110,0.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 30%,rgba(100,180,100,0.05) 0%,transparent 50%);pointer-events:none}
+    .hero-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    .hero-badge{display:inline-block;border:1px solid rgba(201,169,110,0.5);color:#c9a96e;font-size:0.7rem;letter-spacing:0.25em;padding:0.4rem 1.2rem;margin-bottom:1.5rem}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);line-height:1.1;color:#e8d5a3;margin-bottom:0.5rem}
+    .hero-title-cn{font-family:'Noto Serif TC',serif;font-size:clamp(1rem,2vw,1.3rem);color:#c9a96e;letter-spacing:0.15em;margin-bottom:1.5rem}
+    .hero-desc{color:rgba(232,213,163,0.65);font-size:0.9rem;line-height:1.9;margin-bottom:2rem;max-width:480px}
+    .hero-tags{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:2rem}
+    .hero-tag{border:1px solid rgba(201,169,110,0.4);color:rgba(232,213,163,0.7);font-size:0.72rem;padding:0.3rem 0.9rem;letter-spacing:0.05em}
+    .hero-cta{display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,#c9a96e,#e8d5a3);color:#1a1208;font-size:0.85rem;font-weight:700;padding:0.8rem 2rem;text-decoration:none;letter-spacing:0.05em;transition:transform 0.2s,box-shadow 0.2s}
+    .hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,169,110,0.4)}
+    .hero-img-wrap{position:relative}
+    .hero-img-wrap img{width:100%;border-radius:1rem;box-shadow:0 20px 80px rgba(0,0,0,0.5);object-fit:contain}
+    /* GOLD DIVIDER */
+    .gold-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,#c9a96e,transparent);margin:1rem auto}
+    .sec-header{text-align:center;margin-bottom:3rem}
+    .sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:0.5rem}
+    .sec-sub{font-size:0.85rem;letter-spacing:0.1em;color:rgba(232,213,163,0.55)}
+    /* FEATURES */
+    .features-section{background:#1a1208;padding:6rem 2rem}
+    .features-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+    .feature-card{text-align:center;padding:2rem 1.5rem;border:1px solid rgba(201,169,110,0.15);background:rgba(201,169,110,0.03);transition:border-color 0.3s}
+    .feature-card:hover{border-color:rgba(201,169,110,0.4)}
+    .feature-icon{font-size:2.5rem;margin-bottom:1rem}
+    .feature-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:#e8d5a3;margin-bottom:0.5rem}
+    .feature-name-cn{font-family:'Noto Serif TC',serif;font-size:0.8rem;color:#c9a96e;margin-bottom:0.8rem;letter-spacing:0.1em}
+    .feature-text{font-size:0.82rem;color:rgba(232,213,163,0.6);line-height:1.7}
+    /* SIZES */
+    .sizes-section{background:#0d0a06;padding:6rem 2rem}
+    .sizes-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .size-card{background:#1a1208;border:1px solid rgba(201,169,110,0.2);padding:2.5rem 2rem;text-align:center;position:relative;transition:border-color 0.3s,transform 0.3s}
+    .size-card:hover{border-color:#c9a96e;transform:translateY(-4px)}
+    .size-card.featured{border-color:#c9a96e;background:linear-gradient(135deg,#2a1f12,#1a1208)}
+    .size-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#c9a96e;color:#0d0a06;font-size:0.65rem;font-weight:700;padding:0.25rem 0.8rem;white-space:nowrap;letter-spacing:0.1em}
+    .size-color{width:50px;height:50px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+    .size-num{font-family:'Playfair Display',serif;font-size:3rem;color:#e8d5a3;line-height:1}
+    .size-unit{font-size:1.2rem;color:#c9a96e}
+    .size-dim{font-size:0.8rem;color:rgba(232,213,163,0.5);margin:0.5rem 0 1rem;letter-spacing:0.05em}
+    .size-desc{font-size:0.82rem;color:rgba(232,213,163,0.6);line-height:1.7}
+    /* SPECS */
+    .specs-section{background:#1a1208;padding:5rem 2rem}
+    .specs-inner{max-width:900px;margin:0 auto}
+    .specs-table{width:100%;border-collapse:collapse;margin-top:2rem}
+    .specs-table th{background:rgba(201,169,110,0.15);color:#c9a96e;font-size:0.8rem;letter-spacing:0.1em;padding:0.8rem 1.2rem;text-align:left;border-bottom:1px solid rgba(201,169,110,0.2)}
+    .specs-table td{padding:0.8rem 1.2rem;font-size:0.85rem;color:rgba(232,213,163,0.7);border-bottom:1px solid rgba(201,169,110,0.08)}
+    .specs-table tr:last-child td{border-bottom:none}
+    .specs-table td:first-child{color:#c9a96e;font-weight:600}
+    /* PAPER PRODUCT */
+    .product-section{background:#0d0a06;padding:6rem 2rem}
+    .product-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    .product-img img{width:100%;border-radius:1rem;box-shadow:0 20px 60px rgba(0,0,0,0.5);object-fit:contain}
+    .product-text .sec-header{text-align:left;margin-bottom:2rem}
+    .product-text .sec-title{text-align:left}
+    .product-text .gold-divider{margin:1rem 0}
+    .product-text .sec-sub{text-align:left}
+    .product-points{list-style:none;margin:1.5rem 0 2rem}
+    .product-points li{padding:0.6rem 0;border-bottom:1px solid rgba(201,169,110,0.1);font-size:0.88rem;color:rgba(232,213,163,0.7);display:flex;align-items:center;gap:0.8rem}
+    .product-points li::before{content:"✦";color:#c9a96e;font-size:0.7rem;flex-shrink:0}
+    /* GALLERY */
+    .gallery-section{background:#1a1208;padding:6rem 2rem}
+    .gallery-grid{max-width:1200px;margin:2rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    .gallery-item{border-radius:1rem;overflow:hidden;position:relative}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s}
+    .gallery-item:hover img{transform:scale(1.04)}
+    .gallery-item.tall{grid-row:span 2}
+    .gallery-item.wide{grid-column:span 2}
+    .gallery-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(13,10,6,0.85));padding:1.5rem 1rem 0.8rem;font-size:0.78rem;color:rgba(232,213,163,0.8);letter-spacing:0.05em}
+    /* CTA */
+    .cta-section{background:linear-gradient(135deg,#1a1208,#2d1f0e,#1a1208);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden}
+    .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,169,110,0.12) 0%,transparent 70%);pointer-events:none}
+    .cta-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);color:#e8d5a3;margin-bottom:1rem;position:relative}
+    .cta-sub{font-family:'Noto Serif TC',serif;font-size:1rem;color:rgba(232,213,163,0.55);margin-bottom:3rem;position:relative;letter-spacing:0.1em}
+    .cta-btns{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;position:relative}
+    .btn-gold{display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,#c9a96e,#e8d5a3);color:#1a1208;font-size:0.9rem;font-weight:700;padding:0.9rem 2.5rem;text-decoration:none;letter-spacing:0.05em;transition:transform 0.2s,box-shadow 0.2s}
+    .btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,169,110,0.4)}
+    .btn-outline{display:inline-flex;align-items:center;gap:0.5rem;border:1px solid rgba(201,169,110,0.5);color:#c9a96e;font-size:0.9rem;padding:0.9rem 2.5rem;text-decoration:none;letter-spacing:0.05em;transition:all 0.2s}
+    .btn-outline:hover{background:rgba(201,169,110,0.1)}
+    @media(max-width:900px){
+      .hero-inner,.product-inner{grid-template-columns:1fr}
+      .features-grid{grid-template-columns:1fr 1fr}
+      .sizes-grid{grid-template-columns:1fr}
+      .gallery-grid{grid-template-columns:1fr 1fr}
+      .gallery-item.tall{grid-row:span 1}
+      .gallery-item.wide{grid-column:span 2}
+    }
+    @media(max-width:600px){
+      .features-grid{grid-template-columns:1fr}
+      .gallery-grid{grid-template-columns:1fr}
+      .gallery-item.wide{grid-column:span 1}
     }
   </style>
 </head>
 <body>
-<div class="progress-bar" id="progressBar" style="width:0%"></div>
-<nav class="nav-bar" id="navbar">
-  <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-    <a href="index.html" class="nav-logo">ENMY.</a>
-    <div style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;">
-      <a href="index.html" class="nav-link">首頁</a>
-      <a href="products.html" class="nav-link">產品系列</a>
-      <a href="rainbow-markers.html" class="nav-link">爆閃筆</a>
-      <a href="black-box.html" class="nav-link">小黑盒</a>
-      <a href="global.html" class="nav-link">全球市場</a>
-      <a href="https://lin.ee/t8mMUCh" target="_blank" style="background:linear-gradient(135deg,#c9a96e,#e8d5a3);color:#1a1208;padding:0.4rem 1.2rem;border-radius:2rem;font-weight:700;font-size:0.85rem;text-decoration:none;">LINE 客服</a>
-    </div>
-  </div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">ENMY.</a>
+  <ul class="nav-links">
+    <li><a href="index.html">首頁</a></li>
+    <li><a href="products.html">產品系列</a></li>
+    <li><a href="black-box.html">小黑盒</a></li>
+    <li><a href="rainbow-markers.html">爆閃筆</a></li>
+    <li><a href="liner-pens.html">勾線筆</a></li>
+    <li><a href="paper.html" class="active">勻彩紙</a></li>
+    <li><a href="https://lin.ee/t8mMUCh" target="_blank" class="nav-cta">LINE 客服</a></li>
+  </ul>
 </nav>
 
-<!-- Hero -->
-<section class="hero-section">
-  <img src="products-images/paper-product-all.jpg" alt="ENMY 勻彩畫紙 8K 16K 32K" class="hero-img">
-  <div class="hero-overlay"></div>
-  <div class="particles" id="particles"></div>
-  <div class="hero-content">
-    <div class="hero-badge">✦ Creator's Choice ✦</div>
-    <div class="hero-title">Evenhue<br>Acrylic Papers</div>
-    <div class="hero-title-cn">勻彩畫紙 — 創作者專用</div>
-    <p class="hero-desc">一張好紙，成就一幅傑作。ENMY 勻彩畫紙採用 100% 棉漿鎖水技術，300gsm 厚磅雙面設計，讓每一筆丙烯墨水均勻展開、飽和顯色，上色更穩、更順、更漂亮。</p>
-    <a href="https://lin.ee/t8mMUCh" target="_blank" class="hero-cta">✦ 立即諮詢購買</a>
-  </div>
-</section>
-
-<!-- 品牌宣言 -->
-<section class="manifesto-section">
-  <div class="gold-divider"></div>
-  <p class="manifesto-text">"The right paper doesn't just hold your art —<br>it elevates it."</p>
-  <p class="manifesto-sub">好的紙張不只承載你的創作，更讓它昇華。</p>
-  <div class="gold-divider" style="margin-top:2rem;"></div>
-</section>
-
-<!-- 特性一：棉漿鎖水 -->
-<section style="background:#fdf8f3;">
-  <div class="feature-grid">
-    <div class="feature-img-wrap">
-      <img src="products-images/paper-artwork.jpg" alt="ENMY 勻彩畫紙創作示範">
-    </div>
-    <div class="feature-text" style="background:#fdf8f3;">
-      <div class="feature-tag">✦ Technology 01</div>
-      <div class="feature-title">Streaks Free</div>
-      <div class="feature-title-cn">棉漿鎖水 · 上色均勻</div>
-      <p class="feature-desc">ENMY 勻彩畫紙採用獨家棉漿鎖水設計，紙張纖維能快速吸附並均勻鎖住丙烯墨水，有效減少水痕、筆痕與斑駁感。每一筆色彩都能飽和展開，呈現如印刷般的均勻質感，讓初學者也能輕鬆畫出專業水準的作品。</p>
-      <div style="margin-top:1.5rem;">
-        <span class="tag-pill">✓ 棉漿鎖水</span>
-        <span class="tag-pill">✓ 無水痕</span>
-        <span class="tag-pill">✓ 均勻顯色</span>
-        <span class="tag-pill">✓ 快速吸墨</span>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">✦ ENMY EVENHUE PAPER ✦</div>
+      <h1 class="hero-title">Evenhue<br>Paper</h1>
+      <div class="hero-title-cn">恩米勻彩紙 — 創作者專用</div>
+      <p class="hero-desc">專為丙烯麥克筆設計的高磅數畫紙。棉漿鎖水技術讓色彩均勻飽和，不起毛球、不滲透，讓每一筆都完美呈現。從隨身速寫到裝框收藏，三種尺寸滿足所有創作需求。</p>
+      <div class="hero-tags">
+        <span class="hero-tag">✓ 300g 厚磅雙面</span>
+        <span class="hero-tag">✓ 棉漿鎖水設計</span>
+        <span class="hero-tag">✓ 不易起毛球</span>
+        <span class="hero-tag">✓ 30張/本</span>
+        <span class="hero-tag">✓ 8K · 16K · 32K</span>
       </div>
+      <a href="https://lin.ee/t8mMUCh" target="_blank" class="hero-cta">✦ LINE 客服諮詢購買</a>
+    </div>
+    <div class="hero-img-wrap">
+      <img src="products-images/paper-showcase.jpg" alt="ENMY 勻彩紙 8K 16K 32K 三種尺寸展示">
     </div>
   </div>
 </section>
 
-<!-- 特性二：300gsm 雙面 -->
-<section style="background:#f5ede3;">
-  <div class="feature-grid reverse">
-    <div class="feature-img-wrap">
-      <img src="products-images/paper-product-main.png" alt="ENMY 勻彩畫紙 300gsm" style="object-fit:contain;background:#f0e8d8;">
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="sec-header">
+    <div class="hero-badge" style="display:inline-block;">✦ Why Evenhue ✦</div>
+    <div class="sec-title" style="color:#e8d5a3;margin-top:0.8rem;">為什麼選擇勻彩紙</div>
+    <div class="gold-divider"></div>
+    <div class="sec-sub">專業創作者的最佳選擇</div>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🪡</div>
+      <div class="feature-name">Streaks Free</div>
+      <div class="feature-name-cn">不起毛球</div>
+      <p class="feature-text">棉漿纖維緊密結合，重複疊色也不起毛球，筆觸流暢不受阻，讓細節呈現更完美。</p>
     </div>
-    <div class="feature-text" style="background:#f5ede3;">
-      <div class="feature-tag">✦ Technology 02</div>
-      <div class="feature-title">300gsm Dual Side</div>
-      <div class="feature-title-cn">厚磅耐用 · 雙面創作</div>
-      <p class="feature-desc">300gsm 超厚磅紙張，厚實穩定，創作時不易翹曲變形，即使多次疊色也能保持平整。每本 30 張高品質紙張，雙面皆可安心創作，一本用盡，每一張都是完整的作品。畫好後可直接裝框收藏，無需轉印。</p>
-      <div style="margin-top:1.5rem;">
-        <span class="tag-pill">✓ 300gsm 厚磅</span>
-        <span class="tag-pill">✓ 雙面可用</span>
-        <span class="tag-pill">✓ 不翹曲</span>
-        <span class="tag-pill">✓ 可裝框收藏</span>
+    <div class="feature-card">
+      <div class="feature-icon">💧</div>
+      <div class="feature-name">Water-Locking</div>
+      <div class="feature-name-cn">棉漿鎖水設計</div>
+      <p class="feature-text">100% 棉漿鎖水技術，丙烯墨水均勻吸收不暈染，色彩飽和鮮豔，上色更穩更順更漂亮。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📐</div>
+      <div class="feature-name">Double-Sided</div>
+      <div class="feature-name-cn">雙面可用</div>
+      <p class="feature-text">300g 厚磅雙面設計，正反兩面皆可創作，一本等於兩本，性價比極高。畫好直接裝框收藏。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎒</div>
+      <div class="feature-name">Portable</div>
+      <div class="feature-name-cn">攜帶方便</div>
+      <p class="feature-text">三種尺寸靈活選擇，32K 隨身速寫，16K 日常創作，8K 精緻大作，隨時隨地盡情創作。</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT SHOWCASE -->
+<section class="product-section">
+  <div class="product-inner">
+    <div class="product-img">
+      <img src="products-images/paper-sizes.png" alt="ENMY 勻彩紙規格尺寸圖">
+    </div>
+    <div class="product-text">
+      <div class="sec-header">
+        <div class="hero-badge" style="display:inline-block;">✦ Product ✦</div>
+        <div class="sec-title" style="color:#e8d5a3;margin-top:0.8rem;">恩米創作者專用紙</div>
+        <div class="gold-divider"></div>
+        <div class="sec-sub" style="text-align:left;">勻彩紙 — 讓上色更穩、更順、更漂亮</div>
       </div>
+      <ul class="product-points">
+        <li>ENMY 創作者專用，專為丙烯麥克筆優化</li>
+        <li>棉漿鎖水設計 × 厚磅耐用 × 雙面可用</li>
+        <li>300g 高磅數，畫好直接裝框收藏</li>
+        <li>30 張/本，每張都是創作舞台</li>
+        <li>Acid Free 無酸紙，長期保存不泛黃</li>
+        <li>Bleed Resistant 防滲透，背面不透色</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- 特性三：硬底板 易撕 -->
-<section style="background:#fdf8f3;">
-  <div class="feature-grid">
-    <div class="feature-img-wrap">
-      <img src="products-images/paper-3sizes.png" alt="ENMY 勻彩畫紙三種尺寸" style="object-fit:contain;background:#f8f4ef;">
-    </div>
-    <div class="feature-text" style="background:#fdf8f3;">
-      <div class="feature-tag">✦ Technology 03</div>
-      <div class="feature-title">Hard Back + Easy Tear</div>
-      <div class="feature-title-cn">硬底板 · 易撕膠裝</div>
-      <p class="feature-desc">自帶硬式背板設計，外出寫生或課堂創作時也能平穩作畫，無需另備畫板。膠裝設計方便撕取，不易傷到作品邊緣，每一張都能完整保存，讓您的每件創作都值得被珍藏。</p>
-      <div style="margin-top:1.5rem;">
-        <span class="tag-pill">✓ 硬式背板</span>
-        <span class="tag-pill">✓ 易撕膠裝</span>
-        <span class="tag-pill">✓ 外出方便</span>
-        <span class="tag-pill">✓ 完整保存</span>
-      </div>
-    </div>
+<!-- SIZES -->
+<section class="sizes-section">
+  <div class="sec-header">
+    <div class="hero-badge" style="display:inline-block;">✦ Sizes ✦</div>
+    <div class="sec-title" style="color:#e8d5a3;margin-top:0.8rem;">三種尺寸，滿足所有創作</div>
+    <div class="gold-divider"></div>
+    <div class="sec-sub">從隨身速寫到精緻大作，一次滿足</div>
   </div>
-</section>
-
-<!-- 三種尺寸 -->
-<section style="background:#fdf8f3;padding:6rem 2rem;">
-  <div class="sec-title" style="color:#3a3028;">三大尺寸 任你選</div>
-  <div class="gold-divider"></div>
-  <div class="sec-sub" style="color:#9b8575;">8K · 16K · 32K — Choose Your Canvas</div>
   <div class="sizes-grid">
     <div class="size-card">
-      <img src="products-images/paper-product-all.jpg" alt="ENMY 8K 畫紙" class="size-card-img" style="object-position:top;">
-      <div class="size-card-body">
-        <div class="size-badge">8K</div>
-        <div class="size-dim">380 × 260 mm</div>
-        <div class="size-use">大幅創作 · 展覽收藏</div>
-        <p class="size-desc">最大尺寸，適合風景創作、人物插畫等大型作品。畫好後可直接裝框展示，是藝術家與進階創作者的首選。</p>
-        <div style="margin-top:0.8rem;"><span class="tag-pill">#風景創作</span><span class="tag-pill">#多媒材</span><span class="tag-pill">#作品收藏</span></div>
-      </div>
+      <div class="size-color" style="background:rgba(255,220,50,0.15);color:#f0c040;">📒</div>
+      <div class="size-num">32<span class="size-unit">K</span></div>
+      <div class="size-dim">180 × 125 mm</div>
+      <p class="size-desc">隨身速寫本，輕巧便攜。放入口袋或小包，靈感來了隨時創作，是外出寫生的最佳夥伴。</p>
+    </div>
+    <div class="size-card featured">
+      <div class="size-badge">★ 最受歡迎</div>
+      <div class="size-color" style="background:rgba(50,200,200,0.15);color:#40c0c0;">📗</div>
+      <div class="size-num">16<span class="size-unit">K</span></div>
+      <div class="size-dim">260 × 180 mm</div>
+      <p class="size-desc">日常創作首選，尺寸適中。足夠展現細節，又不佔太多桌面空間，是插畫師最愛的日常本。</p>
     </div>
     <div class="size-card">
-      <img src="products-images/paper-sizes.jpg" alt="ENMY 16K 畫紙" class="size-card-img">
-      <div class="size-card-body">
-        <div class="size-badge">16K</div>
-        <div class="size-dim">260 × 180 mm</div>
-        <div class="size-use">日常創作 · 課堂練習</div>
-        <p class="size-desc">最受歡迎的中型尺寸，適合日常插畫練習、課堂作業與日記創作。大小適中，攜帶方便，是最多人選擇的入門款。</p>
-        <div style="margin-top:0.8rem;"><span class="tag-pill">#插畫練習</span><span class="tag-pill">#課堂作業</span><span class="tag-pill">#日常創作</span></div>
-      </div>
-    </div>
-    <div class="size-card">
-      <img src="products-images/paper-3sizes.png" alt="ENMY 32K 畫紙" class="size-card-img" style="object-fit:contain;background:#f8f4ef;">
-      <div class="size-card-body">
-        <div class="size-badge">32K</div>
-        <div class="size-dim">180 × 125 mm</div>
-        <div class="size-use">口袋本 · 隨手塗鴉</div>
-        <p class="size-desc">迷你口袋尺寸，隨身攜帶不佔空間，靈感來了隨時記錄。適合速寫塗鴉、色彩測試與靈感收集，是創作者的隨身夥伴。</p>
-        <div style="margin-top:0.8rem;"><span class="tag-pill">#隨身攜帶</span><span class="tag-pill">#速寫塗鴉</span><span class="tag-pill">#靈感記錄</span></div>
-      </div>
+      <div class="size-color" style="background:rgba(100,200,50,0.15);color:#80c040;">📘</div>
+      <div class="size-num">8<span class="size-unit">K</span></div>
+      <div class="size-dim">380 × 260 mm</div>
+      <p class="size-desc">精緻大作專用，寬廣畫面。適合複雜構圖與大型作品，完成後直接裝框，成為家中最美的藝術品。</p>
     </div>
   </div>
 </section>
 
-<!-- 5大特色 -->
-<section class="features5-section">
-  <div class="hero-badge" style="display:block;width:fit-content;margin:0 auto 1rem;">✦ Paper Features ✦</div>
-  <div class="sec-title" style="color:#e8d5a3;">5 大紙張特色</div>
-  <div class="gold-divider"></div>
-  <div class="sec-sub" style="color:rgba(232,213,163,0.6);">ENMY Evenhue — Crafted for Creators</div>
-  <div class="features5-grid">
-    <div class="feature5-list">
-      <div class="feature5-item">
-        <div class="feature5-icon">📦</div>
-        <div class="feature5-content">
-          <h4>300gsm 厚磅耐用</h4>
-          <p>紙張厚實穩定，創作時不易翹曲，多次疊色也能保持平整，讓您安心揮灑每一筆。</p>
-        </div>
-      </div>
-      <div class="feature5-item">
-        <div class="feature5-icon">📄</div>
-        <div class="feature5-content">
-          <h4>不易透色，雙面可用</h4>
-          <p>每本 30 張高品質紙張，墨水穩定停留紙面，雙面都能安心創作，物超所值。</p>
-        </div>
-      </div>
-      <div class="feature5-item">
-        <div class="feature5-icon">🎨</div>
-        <div class="feature5-content">
-          <h4>上色滑順不卡色</h4>
-          <p>棉漿鎖水設計，吸墨快速、顏色均勻展開，減少水痕、筆痕與斑駁感，初學者也能輕鬆上手。</p>
-        </div>
-      </div>
-      <div class="feature5-item">
-        <div class="feature5-icon">🌿</div>
-        <div class="feature5-content">
-          <h4>安全專業品質</h4>
-          <p>100% 棉漿、無螢光劑，畫面乾淨自然，學生與創作者都適合使用，安心無慮。</p>
-        </div>
-      </div>
-      <div class="feature5-item">
-        <div class="feature5-icon">📋</div>
-        <div class="feature5-content">
-          <h4>硬底板 + 易撕膠裝</h4>
-          <p>自帶硬式背板，外出也能平穩作畫；膠裝設計方便撕取，不易傷到作品，每張都值得收藏。</p>
-        </div>
-      </div>
+<!-- SPECS TABLE -->
+<section class="specs-section">
+  <div class="specs-inner">
+    <div class="sec-header">
+      <div class="hero-badge" style="display:inline-block;">✦ Specifications ✦</div>
+      <div class="sec-title" style="color:#e8d5a3;margin-top:0.8rem;">產品規格</div>
+      <div class="gold-divider"></div>
     </div>
-    <div class="features5-img">
-      <img src="products-images/paper-features.png" alt="ENMY 勻彩畫紙 5大特色">
-    </div>
+    <table class="specs-table">
+      <tr><th>規格項目</th><th>8K</th><th>16K</th><th>32K</th></tr>
+      <tr><td>尺寸</td><td>380 × 260 mm</td><td>260 × 180 mm</td><td>180 × 125 mm</td></tr>
+      <tr><td>磅數</td><td colspan="3">300 gsm / 100 lb</td></tr>
+      <tr><td>張數</td><td colspan="3">30 張/本</td></tr>
+      <tr><td>紙面</td><td colspan="3">雙面可用</td></tr>
+      <tr><td>材質</td><td colspan="3">100% 棉漿，棉漿鎖水技術</td></tr>
+      <tr><td>特性</td><td colspan="3">Acid Free 無酸 · Bleed Resistant 防滲透</td></tr>
+      <tr><td>適用媒材</td><td colspan="3">丙烯麥克筆、水彩、色鉛筆、鋼筆</td></tr>
+    </table>
   </div>
 </section>
 
-<!-- 影片 -->
-<section class="video-section">
-  <div class="hero-badge" style="display:block;width:fit-content;margin:0 auto 1rem;">✦ Product Video ✦</div>
-  <div class="sec-title" style="color:#e8d5a3;">感受每一張的質感</div>
-  <div class="gold-divider"></div>
-  <div class="sec-sub" style="color:rgba(232,213,163,0.6);">ENMY Evenhue Acrylic Marker Papers — In Action</div>
-  <div class="video-wrap">
-    <video controls muted loop playsinline>
-      <source src="products-images/paper-video.mp4" type="video/mp4">
-      您的瀏覽器不支援影片播放。
-    </video>
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="sec-header">
+    <div class="hero-badge" style="display:inline-block;">✦ Artwork Gallery ✦</div>
+    <div class="sec-title" style="color:#e8d5a3;margin-top:0.8rem;">創作成品展示</div>
+    <div class="gold-divider"></div>
+    <div class="sec-sub">在勻彩紙上，每一筆都是完美呈現</div>
   </div>
-</section>
-
-<!-- 使用指南 -->
-<section class="guide-section">
-  <div class="sec-title" style="color:#3a3028;">使用指南</div>
-  <div class="gold-divider"></div>
-  <div class="sec-sub" style="color:#9b8575;">How to Use — 讓每一張紙都發揮最大價值</div>
-  <img src="products-images/paper-guide.webp" alt="ENMY 勻彩畫紙使用指南" class="guide-img">
+  <div class="gallery-grid">
+    <div class="gallery-item tall">
+      <img src="products-images/paper-artwork-3.jpg" alt="人物插畫 — 勻彩紙創作">
+      <div class="gallery-caption">人物插畫 · 色彩層疊不起毛球</div>
+    </div>
+    <div class="gallery-item">
+      <img src="products-images/paper-artwork-1.jpg" alt="熱帶植物插畫 — 勻彩紙創作">
+      <div class="gallery-caption">植物插畫 · 飽和色彩完美呈現</div>
+    </div>
+    <div class="gallery-item">
+      <img src="products-images/paper-artwork-2.jpg" alt="極光風景 — 勻彩紙創作">
+      <div class="gallery-caption">風景插畫 · 漸層自然流暢</div>
+    </div>
+    <div class="gallery-item wide">
+      <img src="products-images/dessert-paper-art.jpg" alt="法式甜點插畫 — 勻彩紙創作" style="height:300px;object-fit:cover;">
+      <div class="gallery-caption">法式甜點 · 精緻細節完整保留</div>
+    </div>
+  </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
-  <div class="hero-badge" style="display:block;width:fit-content;margin:0 auto 1.5rem;">✦ Get Yours Now ✦</div>
-  <div class="cta-title">一張好紙，成就一幅傑作</div>
-  <div class="cta-sub">ENMY Evenhue Acrylic Marker Papers — Your Perfect Canvas</div>
+  <div class="hero-badge" style="display:inline-block;margin-bottom:1.5rem;">✦ Get Yours Now ✦</div>
+  <div class="cta-title">開始你的勻彩紙創作之旅</div>
+  <div class="cta-sub">300g 厚磅 · 棉漿鎖水 · 三種尺寸 · 30張/本</div>
   <div class="cta-btns">
-    <a href="https://lin.ee/t8mMUCh" target="_blank" class="btn-gold">💬 LINE 客服 — 了解更多</a>
-    <a href="https://shopee.tw/%E3%80%90%E5%8F%B0%E7%81%A3%E7%8D%A8%E5%AE%B6%E8%B2%A9%E5%94%AE-%E6%96%B0%E5%93%81%E9%99%90%E6%99%82%E5%84%AA%E6%83%A0%E3%80%91ENMY%E9%A6%AC%E5%85%8B%E7%AD%86%E6%94%B6%E7%B4%8D%E5%8C%85-80%E6%9E%9D%E8%A3%9D%E6%94%B6%E7%B4%8D%E8%A2%8B-%E9%BA%A5%E5%85%8B%E7%AD%86%E6%94%B6%E7%B4%8D%E8%A2%8B-%E6%89%8B%E6%8F%90%E7%AD%86%E8%A2%8B-%E7%95%AB%E7%95%AB%E6%94%B6%E7%B4%8D%E5%8C%85-%E6%94%B6%E7%B4%8D%E5%8C%85-i.1167105029.40078394939" target="_blank" class="btn-outline">🛒 蝦皮賣場購買</a>
-  </div>
-  <div style="margin-top:3rem;position:relative;">
-    <p style="color:rgba(232,213,163,0.5);font-size:0.8rem;margin-bottom:1rem;letter-spacing:0.1em;">掃描 QR Code 加入 LINE 官方帳號</p>
-    <div class="qr-wrap" style="margin:0 auto;">
-      <img src="products-images/line-qr.jpg" alt="LINE QR Code @enmy_tw">
-    </div>
-    <p style="color:rgba(232,213,163,0.4);font-size:0.75rem;margin-top:0.8rem;">LINE ID：@enmy_tw</p>
+    <a href="https://lin.ee/t8mMUCh" target="_blank" class="btn-gold">💬 LINE 客服 — 立即詢問</a>
+    <a href="products.html" class="btn-outline">← 返回產品系列</a>
   </div>
 </section>
 
-<footer>
-  <p>© 2025 ENMY. All Rights Reserved. | 靜謐時光 · 精緻童話</p>
-  <p style="margin-top:0.5rem;">
-    <a href="index.html">首頁</a>
-    <a href="products.html">產品系列</a>
-    <a href="rainbow-markers.html">爆閃筆</a>
-    <a href="black-box.html">小黑盒</a>
-    <a href="global.html">全球市場</a>
-    <a href="https://lin.ee/t8mMUCh" target="_blank">LINE 客服</a>
-  </p>
-</footer>
-
-<script>
-  window.addEventListener('scroll', () => {
-    const st = document.documentElement.scrollTop;
-    const dh = document.documentElement.scrollHeight - window.innerHeight;
-    document.getElementById('progressBar').style.width = (st / dh * 100) + '%';
-    const nav = document.getElementById('navbar');
-    if (st > 60) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  });
-  const container = document.getElementById('particles');
-  for (let i = 0; i < 28; i++) {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = Math.random() * 100 + '%';
-    p.style.width = p.style.height = (Math.random() * 4 + 1) + 'px';
-    p.style.animationDuration = (Math.random() * 8 + 6) + 's';
-    p.style.animationDelay = (Math.random() * 10) + 's';
-    container.appendChild(p);
-  }
-</script>
 </body>
 </html>
