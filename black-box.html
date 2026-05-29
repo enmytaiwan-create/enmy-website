@@ -1,465 +1,347 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ENMY 小黑盒壓克力麥克筆 | 專業級丙烯麥克筆</title>
-    <meta name="description" content="ENMY 小黑盒壓克力麥克筆 — 24/36/48/60/80 色選項，雙頭設計，黑色精品收納盒。專業級丙烯顏料，全球暢銷。">
-    <meta property="og:title" content="ENMY 小黑盒壓克力麥克筆系列">
-    <meta property="og:description" content="探索 ENMY 小黑盒系列，5 種規格滿足不同創作需求。">
-    <meta property="og:image" content="products-images/S__20250821.jpg">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
-            color: #2f3e46;
-            line-height: 1.6;
-        }
-        
-        nav {
-            background: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav a {
-            color: #0b4f30;
-            text-decoration: none;
-            margin-right: 2rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: #ff007f;
-        }
-        
-        .hero {
-            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 900;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            color: #0b4f30;
-            margin: 3rem 0 2rem 0;
-            font-weight: 900;
-            text-align: center;
-        }
-        
-        .spec-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .spec-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 5px solid #ff007f;
-        }
-        
-        .spec-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-        
-        .spec-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .spec-card-content {
-            padding: 1.5rem;
-        }
-        
-        .spec-number {
-            display: inline-block;
-            background: #ff007f;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-        }
-        
-        .spec-card h3 {
-            color: #0b4f30;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 900;
-        }
-        
-        .spec-card p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 0.8rem;
-        }
-        
-        .spec-details {
-            background: #f9f9f9;
-            padding: 1rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            color: #555;
-        }
-        
-        .spec-details strong {
-            color: #0b4f30;
-        }
-        
-        .features {
-            background: #f9f9f9;
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 3rem 0;
-        }
-        
-        .features h2 {
-            color: #0b4f30;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 900;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .feature-item {
-            text-align: center;
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .feature-item h3 {
-            color: #0b4f30;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 900;
-        }
-        
-        .feature-item p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-        
-        .comparison {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin: 3rem 0;
-        }
-        
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        .comparison-table th {
-            background: #0b4f30;
-            color: white;
-            padding: 1rem;
-            text-align: left;
-            font-weight: 900;
-        }
-        
-        .comparison-table td {
-            padding: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .comparison-table tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-        
-        .cta-section {
-            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            border-radius: 12px;
-            margin: 3rem 0;
-        }
-        
-        .cta-section h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 900;
-        }
-        
-        .cta-section p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: #ff007f;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.1rem;
-            transition: background 0.3s, transform 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background: #e60066;
-            transform: scale(1.05);
-        }
-        
-        footer {
-            background: #2f3e46;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        
-        footer a {
-            color: #ff007f;
-            text-decoration: none;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .spec-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .comparison-table {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENMY 小黑盒壓克力麥克筆 | Ink Control Acrylic Markers</title>
+  <meta name="description" content="ENMY 小黑盒壓克力麥克筆 — 精緻黑色翻蓋收納盒，24至80色可選，雙頭設計，墨水飽和濃郁，全球藝術家首選。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans TC', sans-serif; background-color: #fdf8f3; color: #3a3028; overflow-x: hidden; margin: 0; padding: 0; }
+    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(to right, #c9a96e, #e8d5a3, #c9a96e); z-index: 300; transition: width 0.1s ease; }
+    .nav-bar { position: fixed; top: 3px; left: 0; right: 0; z-index: 200; padding: 1.25rem 2rem; transition: background 0.4s ease, box-shadow 0.4s ease; }
+    .nav-bar.scrolled { background: rgba(253,248,243,0.95); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(58,48,40,0.08); }
+    .nav-logo { font-family: 'Noto Serif TC', serif; font-size: 1.5rem; font-weight: 700; color: #fff; letter-spacing: 0.05em; text-decoration: none; transition: color 0.4s; }
+    .nav-bar.scrolled .nav-logo { color: #3a3028; }
+    .nav-link { font-size: 0.85rem; color: rgba(255,255,255,0.85); text-decoration: none; letter-spacing: 0.08em; transition: color 0.3s; }
+    .nav-bar.scrolled .nav-link { color: #6b5c4e; }
+    .nav-link:hover { color: #c9a96e !important; }
+    .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
+    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,7,3,0.92) 0%, rgba(10,7,3,0.55) 55%, rgba(10,7,3,0.1) 100%); }
+    .hero-content { position: relative; z-index: 10; padding: 8rem 4rem 4rem; max-width: 700px; }
+    .hero-badge { display: inline-block; background: linear-gradient(135deg, #c9a96e, #e8d5a3); color: #1a1208; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; padding: 0.4rem 1.2rem; border-radius: 2rem; margin-bottom: 1.5rem; text-transform: uppercase; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 0.5rem; }
+    .hero-title-cn { font-family: 'Noto Serif TC', serif; font-size: clamp(1.1rem, 2vw, 1.6rem); color: #e8d5a3; font-weight: 300; letter-spacing: 0.15em; margin-bottom: 1.5rem; }
+    .hero-desc { font-size: 0.95rem; color: rgba(255,255,255,0.72); line-height: 1.9; margin-bottom: 2.5rem; max-width: 500px; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #c9a96e, #e8d5a3); color: #1a1208; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; padding: 0.9rem 2.2rem; border-radius: 3rem; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(201,169,110,0.4); }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,169,110,0.6); }
+    .particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .particle { position: absolute; width: 3px; height: 3px; background: #c9a96e; border-radius: 50%; opacity: 0; animation: float-p linear infinite; }
+    @keyframes float-p { 0% { opacity: 0; transform: translateY(100vh) scale(0); } 10% { opacity: 0.8; } 90% { opacity: 0.4; } 100% { opacity: 0; transform: translateY(-10vh) scale(1.5); } }
+    .gold-divider { width: 60px; height: 2px; background: linear-gradient(to right, #c9a96e, #e8d5a3); margin: 1.2rem auto; }
+    .manifesto-section { background: #1a1208; padding: 5rem 2rem; text-align: center; }
+    .manifesto-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.3rem, 2.5vw, 2rem); color: #e8d5a3; max-width: 800px; margin: 0 auto; line-height: 1.8; }
+    .manifesto-sub { font-family: 'Noto Serif TC', serif; font-size: 0.9rem; color: rgba(232,213,163,0.5); margin-top: 1.5rem; letter-spacing: 0.15em; }
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; max-width: 1200px; margin: 0 auto; align-items: stretch; }
+    .feature-grid.reverse { direction: rtl; }
+    .feature-grid.reverse > * { direction: ltr; }
+    .feature-img-wrap { overflow: hidden; }
+    .feature-img-wrap img { width: 100%; height: 520px; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .feature-img-wrap:hover img { transform: scale(1.04); }
+    .feature-text { padding: 4rem; display: flex; flex-direction: column; justify-content: center; }
+    .feature-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; color: #c9a96e; text-transform: uppercase; margin-bottom: 1rem; }
+    .feature-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #3a3028; margin-bottom: 0.5rem; line-height: 1.2; }
+    .feature-title-cn { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: #c9a96e; margin-bottom: 1.5rem; }
+    .feature-desc { font-size: 0.95rem; color: #6b5c4e; line-height: 1.9; }
+    .tag-pill { display: inline-block; background: #f0e8d8; color: #6b5c4e; font-size: 0.78rem; padding: 0.35rem 0.9rem; border-radius: 2rem; border: 1px solid #c9a96e; margin: 0.3rem 0.2rem 0 0; }
+    .specs-section { background: #fdf8f3; padding: 6rem 2rem; }
+    .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); text-align: center; margin-bottom: 0.5rem; }
+    .sec-sub { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; text-align: center; letter-spacing: 0.1em; }
+    .specs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; max-width: 1100px; margin: 3rem auto 0; }
+    .spec-card { background: #fff; border: 1px solid #e8d5a3; border-radius: 1rem; padding: 2rem 1rem; text-align: center; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; cursor: default; }
+    .spec-card:hover { transform: translateY(-6px); box-shadow: 0 12px 35px rgba(201,169,110,0.2); border-color: #c9a96e; }
+    .spec-card.featured { background: linear-gradient(135deg, #1a1208, #2d1f0e); border-color: #c9a96e; }
+    .spec-num { font-family: 'Playfair Display', serif; font-size: 3rem; color: #c9a96e; font-weight: 700; line-height: 1; }
+    .spec-card.featured .spec-num { color: #e8d5a3; }
+    .spec-unit { font-size: 1.2rem; color: #c9a96e; }
+    .spec-label { font-family: 'Noto Serif TC', serif; font-size: 0.8rem; color: #6b5c4e; margin-top: 0.5rem; }
+    .spec-card.featured .spec-label { color: rgba(232,213,163,0.7); }
+    .spec-badge { display: inline-block; background: #c9a96e; color: #1a1208; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.7rem; border-radius: 1rem; margin-top: 0.8rem; letter-spacing: 0.1em; }
+    .gallery-section { background: #0d0a06; padding: 6rem 2rem; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 1200px; margin: 3rem auto 0; }
+    .gallery-item { overflow: hidden; border-radius: 0.75rem; }
+    .gallery-item img { width: 100%; height: 320px; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item.tall img { height: 660px; }
+    .video-section { background: #0d0a06; padding: 6rem 2rem; text-align: center; }
+    .video-wrap { max-width: 960px; margin: 3rem auto 0; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); border: 1px solid rgba(201,169,110,0.3); }
+    .video-wrap video { width: 100%; display: block; }
+    .cta-section { background: linear-gradient(135deg, #1a1208, #2d1f0e, #1a1208); padding: 6rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,169,110,0.15) 0%, transparent 70%); }
+    .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 3rem); color: #e8d5a3; margin-bottom: 1rem; position: relative; }
+    .cta-sub { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: rgba(232,213,163,0.6); margin-bottom: 3rem; position: relative; }
+    .cta-btns { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; position: relative; }
+    .btn-gold { display: inline-flex; align-items: center; gap: 0.6rem; background: linear-gradient(135deg, #c9a96e, #e8d5a3); color: #1a1208; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.08em; padding: 1rem 2.5rem; border-radius: 3rem; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 20px rgba(201,169,110,0.4); }
+    .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(201,169,110,0.6); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 0.6rem; background: transparent; color: #e8d5a3; font-weight: 500; font-size: 0.95rem; letter-spacing: 0.08em; padding: 1rem 2.5rem; border-radius: 3rem; text-decoration: none; border: 1px solid rgba(232,213,163,0.4); transition: all 0.3s; }
+    .btn-outline:hover { background: rgba(232,213,163,0.1); border-color: rgba(232,213,163,0.8); }
+    .qr-wrap { display: inline-block; background: white; padding: 1rem; border-radius: 1rem; margin-top: 2.5rem; }
+    .qr-wrap img { width: 120px; height: 120px; display: block; }
+    footer { background: #0d0a06; color: rgba(232,213,163,0.45); text-align: center; padding: 2rem; font-size: 0.8rem; }
+    footer a { color: rgba(232,213,163,0.4); text-decoration: none; margin: 0 0.8rem; }
+    footer a:hover { color: #c9a96e; }
+    @media (max-width: 900px) { .specs-grid { grid-template-columns: repeat(3, 1fr); } .gallery-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) { .hero-content { padding: 7rem 1.5rem 3rem; } .feature-grid { grid-template-columns: 1fr; } .feature-grid.reverse { direction: ltr; } .feature-text { padding: 2rem 1.5rem; } .feature-img-wrap img { height: 300px; } .specs-grid { grid-template-columns: 1fr 1fr; } .gallery-grid { grid-template-columns: 1fr; } .gallery-item.tall img { height: 320px; } }
+  </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">ENMY.</a>
-        <a href="index.html#section-2">品牌理念</a>
-        <a href="products.html">產品系列</a>
-        <a href="story.html">品牌故事</a>
-    </nav>
-    
-    <div class="hero">
-        <h1>🖤 小黑盒壓克力麥克筆系列</h1>
-        <p>專業級丙烯麥克筆</p>
-        <p>5 種規格 × 24～80 色 × 黑色精品收納盒</p>
+
+<div class="progress-bar" id="progressBar" style="width:0%"></div>
+
+<nav class="nav-bar" id="navbar">
+  <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <a href="index.html" class="nav-logo">ENMY.</a>
+    <div style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;">
+      <a href="index.html" class="nav-link">首頁</a>
+      <a href="products.html" class="nav-link">產品系列</a>
+      <a href="rainbow-markers.html" class="nav-link">爆閃筆</a>
+      <a href="global.html" class="nav-link">全球市場</a>
+      <a href="https://lin.ee/t8mMUCh" target="_blank" style="background:linear-gradient(135deg,#c9a96e,#e8d5a3);color:#1a1208;padding:0.4rem 1.2rem;border-radius:2rem;font-weight:700;font-size:0.85rem;text-decoration:none;">LINE 客服</a>
     </div>
-    
-    <div class="container">
-        <div class="features">
-            <h2>✨ 系列特色</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🎨</div>
-                    <h3>5 種規格</h3>
-                    <p>24/36/48/60/80 色，滿足不同需求</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">✏️</div>
-                    <h3>雙頭設計</h3>
-                    <p>粗細雙頭，細節描繪與大面積著色</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🎁</div>
-                    <h3>精品收納盒</h3>
-                    <p>黑色高級收納盒，專業級質感</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🌍</div>
-                    <h3>全球銷售</h3>
-                    <p>深受全球藝術家和設計師推崇</p>
-                </div>
-            </div>
-        </div>
-        
-        <h2 class="section-title">📦 5 種規格介紹</h2>
-        
-        <div class="spec-grid">
-            <div class="spec-card">
-                <img src="products-images/S__20250821.jpg" alt="24 色小黑盒">
-                <div class="spec-card-content">
-                    <span class="spec-number">24 色</span>
-                    <h3>入門款</h3>
-                    <p>完美的起點</p>
-                    <p>適合初學者或試用者，包含基礎色彩</p>
-                    <div class="spec-details">
-                        <strong>內容：</strong> 24 支雙頭筆 + 黑色收納盒<br>
-                        <strong>適用：</strong> 初學者、試用、小型項目
-                    </div>
-                </div>
-            </div>
-            
-            <div class="spec-card">
-                <img src="products-images/S__20250816_0.jpg" alt="36 色小黑盒">
-                <div class="spec-card-content">
-                    <span class="spec-number">36 色</span>
-                    <h3>進階款</h3>
-                    <p>色彩更豐富</p>
-                    <p>增加色系選擇，適合中等創作項目</p>
-                    <div class="spec-details">
-                        <strong>內容：</strong> 36 支雙頭筆 + 黑色收納盒<br>
-                        <strong>適用：</strong> 進階創作者、中型項目
-                    </div>
-                </div>
-            </div>
-            
-            <div class="spec-card">
-                <img src="products-images/S__20250826_0.jpg" alt="48 色小黑盒">
-                <div class="spec-card-content">
-                    <span class="spec-number">48 色</span>
-                    <h3>專業款</h3>
-                    <p>色彩完整</p>
-                    <p>色系齊全，滿足大多數創作需求</p>
-                    <div class="spec-details">
-                        <strong>內容：</strong> 48 支雙頭筆 + 黑色收納盒<br>
-                        <strong>適用：</strong> 專業創作者、大型項目
-                    </div>
-                </div>
-            </div>
-            
-            <div class="spec-card">
-                <img src="products-images/S__20373568_0.jpg" alt="60 色小黑盒">
-                <div class="spec-card-content">
-                    <span class="spec-number">60 色</span>
-                    <h3>旗艦款</h3>
-                    <p>色彩極致</p>
-                    <p>色彩層次豐富，專業級色彩選擇</p>
-                    <div class="spec-details">
-                        <strong>內容：</strong> 60 支雙頭筆 + 黑色收納盒<br>
-                        <strong>適用：</strong> 專業藝術家、商業設計
-                    </div>
-                </div>
-            </div>
-            
-            <div class="spec-card">
-                <img src="products-images/S__20373572_0.jpg" alt="80 色小黑盒">
-                <div class="spec-card-content">
-                    <span class="spec-number">80 色</span>
-                    <h3>終極款</h3>
-                    <p>完全色系</p>
-                    <p>最完整的色彩選擇，無限創意可能</p>
-                    <div class="spec-details">
-                        <strong>內容：</strong> 80 支雙頭筆 + 黑色收納盒<br>
-                        <strong>適用：</strong> 專業藝術家、工作室、教育機構
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="comparison">
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>規格</th>
-                        <th>支數</th>
-                        <th>色彩層次</th>
-                        <th>適用場景</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>24 色</strong></td>
-                        <td>24 支</td>
-                        <td>基礎色系</td>
-                        <td>初學者、試用</td>
-                    </tr>
-                    <tr>
-                        <td><strong>36 色</strong></td>
-                        <td>36 支</td>
-                        <td>豐富色系</td>
-                        <td>進階創作</td>
-                    </tr>
-                    <tr>
-                        <td><strong>48 色</strong></td>
-                        <td>48 支</td>
-                        <td>完整色系</td>
-                        <td>專業創作</td>
-                    </tr>
-                    <tr>
-                        <td><strong>60 色</strong></td>
-                        <td>60 支</td>
-                        <td>極致色系</td>
-                        <td>商業設計</td>
-                    </tr>
-                    <tr>
-                        <td><strong>80 色</strong></td>
-                        <td>80 支</td>
-                        <td>完全色系</td>
-                        <td>專業工作室</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="cta-section">
-            <h2>選擇適合你的規格</h2>
-            <p>ENMY 小黑盒，專業級丙烯麥克筆的完美選擇</p>
-            <a href="https://lin.ee/t8mMUCh" class="btn">📱 LINE 客服 — 了解更多</a>
-        </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero-section">
+  <img src="products-images/blackbox-hero.jpg" alt="ENMY 小黑盒壓克力麥克筆" class="hero-img">
+  <div class="hero-overlay"></div>
+  <div class="particles" id="particles"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Signature Collection ✦</div>
+    <div class="hero-title">Ink Control<br>Acrylic Markers</div>
+    <div class="hero-title-cn">小黑盒壓克力麥克筆</div>
+    <p class="hero-desc">
+      一盒在手，世界盡染。ENMY 小黑盒以精緻磨砂黑色翻蓋設計，
+      承載 24 至 80 色的飽和丙烯墨水，雙頭筆尖精準掌控每一道線條，
+      是全球藝術家與創作者的靈感夥伴。
+    </p>
+    <a href="https://lin.ee/t8mMUCh" target="_blank" class="hero-cta">✦ 立即諮詢購買</a>
+  </div>
+</section>
+
+<!-- 品牌宣言 -->
+<section class="manifesto-section">
+  <div class="gold-divider"></div>
+  <p class="manifesto-text">
+    "Every color tells a story.<br>Every stroke defines a world."
+  </p>
+  <p class="manifesto-sub">每一個色彩都在訴說故事，每一筆觸都在定義世界。</p>
+  <div class="gold-divider" style="margin-top:2rem;"></div>
+</section>
+
+<!-- 特性一：精緻黑盒 開蓋即是儀式 -->
+<section style="background:#fdf8f3;">
+  <div class="feature-grid">
+    <div class="feature-img-wrap">
+      <img src="products-images/bb-open-80.jpg" alt="小黑盒翻蓋設計">
     </div>
-    
-    <footer>
-        <p>&copy; 2024 ENMY. All rights reserved.</p>
-        <p><a href="index.html">回到首頁</a> | <a href="products.html">所有產品</a></p>
-    </footer>
+    <div class="feature-text" style="background:#fdf8f3;">
+      <div class="feature-tag">✦ Design 01</div>
+      <div class="feature-title">The Black Box</div>
+      <div class="feature-title-cn">開蓋即是儀式</div>
+      <p class="feature-desc">
+        精緻磨砂黑色硬殼翻蓋設計，每一次開啟都是一場創作的序曲。
+        盒蓋內側印有 ENMY 品牌標誌與色數徽章，
+        彩筆整齊排列於托盤之中，如同調色盤般一覽無遺。
+        它不只是一個筆盒，更是您創作桌上最優雅的存在。
+      </p>
+      <div style="margin-top:1.5rem;">
+        <span class="tag-pill">✓ 磨砂黑硬殼</span>
+        <span class="tag-pill">✓ 翻蓋設計</span>
+        <span class="tag-pill">✓ 整齊托盤</span>
+        <span class="tag-pill">✓ 品牌金字</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 特性二：墨水飽和 雙頭精準 -->
+<section style="background:#f5ede3;">
+  <div class="feature-grid reverse">
+    <div class="feature-img-wrap">
+      <img src="products-images/bb-detail-tip.jpg" alt="雙頭筆尖設計">
+    </div>
+    <div class="feature-text" style="background:#f5ede3;">
+      <div class="feature-tag">✦ Design 02</div>
+      <div class="feature-title">Dual Tip Precision</div>
+      <div class="feature-title-cn">雙頭精準 · 墨水掌控</div>
+      <p class="feature-desc">
+        每支筆配備粗細兩用雙頭筆尖，細頭精描輪廓，粗頭大面積上色，
+        一支在手，從細節到全局皆能完美駕馭。
+        ENMY 獨家 Ink Control 墨水技術，
+        確保每一筆色彩飽和、不暈染、快速乾燥。
+      </p>
+      <div style="margin-top:1.5rem;">
+        <span class="tag-pill">✓ 細頭精描</span>
+        <span class="tag-pill">✓ 粗頭上色</span>
+        <span class="tag-pill">✓ 快速乾燥</span>
+        <span class="tag-pill">✓ 不暈染</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 特性三：多媒材適用 -->
+<section style="background:#fdf8f3;">
+  <div class="feature-grid">
+    <div class="feature-img-wrap">
+      <img src="products-images/bb-artwork-demo.jpg" alt="ENMY 創作示範">
+    </div>
+    <div class="feature-text" style="background:#fdf8f3;">
+      <div class="feature-tag">✦ Design 03</div>
+      <div class="feature-title">Vivid on Any Surface</div>
+      <div class="feature-title-cn">任何媒材 皆能生輝</div>
+      <p class="feature-desc">
+        ENMY 壓克力墨水具備優異的附著力，
+        適用於畫紙、畫布、木板、石頭、布料、玻璃等多種媒材。
+        色彩乾燥後防水耐光，長期保存不褪色，
+        讓您的每一件作品都能歷久彌新，傳遞永恆的創作溫度。
+      </p>
+      <div style="margin-top:1.5rem;">
+        <span class="tag-pill">✓ 多媒材適用</span>
+        <span class="tag-pill">✓ 防水耐光</span>
+        <span class="tag-pill">✓ 不褪色</span>
+        <span class="tag-pill">✓ 壓克力配方</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 規格選擇 -->
+<section class="specs-section">
+  <div class="sec-title" style="color:#3a3028;">選擇您的色彩宇宙</div>
+  <div class="gold-divider"></div>
+  <div class="sec-sub" style="color:#9b8575;">Choose Your Collection — 5 Sizes Available</div>
+  <div class="specs-grid">
+    <div class="spec-card">
+      <div class="spec-num">24<span class="spec-unit">色</span></div>
+      <div class="spec-label">入門精選<br>Essential Set</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-num">36<span class="spec-unit">色</span></div>
+      <div class="spec-label">進階創作<br>Creative Set</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-num">48<span class="spec-unit">色</span></div>
+      <div class="spec-label">豐富表現<br>Expression Set</div>
+    </div>
+    <div class="spec-card featured">
+      <div class="spec-num">60<span class="spec-unit">色</span></div>
+      <div class="spec-label">暢銷首選<br>Best Seller</div>
+      <div class="spec-badge">★ 熱銷款</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-num">80<span class="spec-unit">色</span></div>
+      <div class="spec-label">專業完整<br>Pro Collection</div>
+    </div>
+  </div>
+  <div style="max-width:900px;margin:3rem auto 0;text-align:center;">
+    <img src="products-images/bb-open-60.jpg" alt="ENMY 小黑盒 60色" style="width:100%;border-radius:1rem;box-shadow:0 8px 40px rgba(58,48,40,0.12);">
+    <p style="font-family:'Noto Serif TC',serif;font-size:0.85rem;color:#9b8575;margin-top:1rem;letter-spacing:0.1em;">60 色暢銷款 — 無隔板設計，彩筆整齊排列，一覽 60 種飽和色彩</p>
+  </div>
+</section>
+
+<!-- 色票展示 -->
+<section style="background:#1a1208;padding:5rem 2rem;">
+  <div class="sec-title" style="color:#e8d5a3;">60 色完整色譜</div>
+  <div class="gold-divider"></div>
+  <div class="sec-sub" style="color:rgba(232,213,163,0.6);">From the deepest shadow to the brightest highlight</div>
+  <div style="max-width:1000px;margin:3rem auto 0;text-align:center;">
+    <img src="products-images/bb-color-swatch.jpg" alt="ENMY 60色色票" style="width:100%;border-radius:1rem;box-shadow:0 12px 40px rgba(0,0,0,0.4);border:1px solid rgba(201,169,110,0.2);">
+  </div>
+</section>
+
+<!-- 生活情境圖片 -->
+<section class="gallery-section">
+  <div class="hero-badge" style="display:block;width:fit-content;margin:0 auto 1rem;">✦ Lifestyle Gallery ✦</div>
+  <div class="sec-title" style="color:#e8d5a3;">創作者的日常</div>
+  <div class="gold-divider"></div>
+  <div class="sec-sub" style="color:rgba(232,213,163,0.6);">Inspired by Artists Around the World</div>
+  <div class="gallery-grid">
+    <div class="gallery-item tall">
+      <img src="products-images/bb-lifestyle-01.jpg" alt="ENMY 生活情境">
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      <div class="gallery-item" style="flex:1;">
+        <img src="products-images/bb-lifestyle-02.jpg" alt="ENMY 創作情境" style="height:320px;object-fit:cover;width:100%;border-radius:0.75rem;">
+      </div>
+      <div class="gallery-item" style="flex:1;">
+        <img src="products-images/bb-lifestyle-03.jpg" alt="ENMY 藝術創作" style="height:320px;object-fit:cover;width:100%;border-radius:0.75rem;">
+      </div>
+    </div>
+    <div class="gallery-item tall">
+      <img src="products-images/bb-product-main.jpg" alt="ENMY 小黑盒產品">
+    </div>
+  </div>
+</section>
+
+<!-- 影片 -->
+<section class="video-section">
+  <div class="hero-badge" style="display:block;width:fit-content;margin:0 auto 1rem;">✦ Product Video ✦</div>
+  <div class="sec-title" style="color:#e8d5a3;">感受每一筆的重量</div>
+  <div class="gold-divider"></div>
+  <div class="sec-sub" style="color:rgba(232,213,163,0.6);">ENMY Ink Control Acrylic Markers — 80 Colors in Action</div>
+  <div class="video-wrap">
+    <video controls muted loop playsinline>
+      <source src="products-images/blackbox-video.mp4" type="video/mp4">
+      您的瀏覽器不支援影片播放。
+    </video>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="hero-badge" style="display:block;width:fit-content;margin:0 auto 1.5rem;">✦ Get Yours Now ✦</div>
+  <div class="cta-title">一盒在手，世界盡染</div>
+  <div class="cta-sub">ENMY Ink Control Acrylic Markers — Your Creative Companion</div>
+  <div class="cta-btns">
+    <a href="https://lin.ee/t8mMUCh" target="_blank" class="btn-gold">💬 LINE 客服 — 了解更多</a>
+    <a href="https://shopee.tw/%E3%80%90%E5%8F%B0%E7%81%A3%E7%8D%A8%E5%AE%B6%E8%B2%A9%E5%94%AE-%E6%96%B0%E5%93%81%E9%99%90%E6%99%82%E5%84%AA%E6%83%A0%E3%80%91ENMY%E9%A6%AC%E5%85%8B%E7%AD%86%E6%94%B6%E7%B4%8D%E5%8C%85-80%E6%9E%9D%E8%A3%9D%E6%94%B6%E7%B4%8D%E8%A2%8B-%E9%BA%A5%E5%85%8B%E7%AD%86%E6%94%B6%E7%B4%8D%E8%A2%8B-%E6%89%8B%E6%8F%90%E7%AD%86%E8%A2%8B-%E7%95%AB%E7%95%AB%E6%94%B6%E7%B4%8D%E5%8C%85-%E6%94%B6%E7%B4%8D%E5%8C%85-i.1167105029.40078394939" target="_blank" class="btn-outline">🛒 蝦皮賣場購買</a>
+  </div>
+  <div style="margin-top:3rem;position:relative;">
+    <p style="color:rgba(232,213,163,0.5);font-size:0.8rem;margin-bottom:1rem;letter-spacing:0.1em;">掃描 QR Code 加入 LINE 官方帳號</p>
+    <div class="qr-wrap" style="margin:0 auto;">
+      <img src="products-images/line-qr.jpg" alt="LINE QR Code @enmy_tw">
+    </div>
+    <p style="color:rgba(232,213,163,0.4);font-size:0.75rem;margin-top:0.8rem;">LINE ID：@enmy_tw</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 ENMY. All Rights Reserved. | 靜謐時光 · 精緻童話</p>
+  <p style="margin-top:0.5rem;">
+    <a href="index.html">首頁</a>
+    <a href="products.html">產品系列</a>
+    <a href="rainbow-markers.html">爆閃筆</a>
+    <a href="global.html">全球市場</a>
+    <a href="https://lin.ee/t8mMUCh" target="_blank">LINE 客服</a>
+  </p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const dh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('progressBar').style.width = (st / dh * 100) + '%';
+    const nav = document.getElementById('navbar');
+    if (st > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 28; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.width = p.style.height = (Math.random() * 4 + 1) + 'px';
+    p.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    container.appendChild(p);
+  }
+</script>
 </body>
 </html>
