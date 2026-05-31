@@ -9,3 +9,7 @@ build/
 
 # Local Netlify folder
 .netlify
+
+# Tailwind 編譯產物（由 GitHub Actions 自動生成，不需手動 commit）
+tailwind.min.css
+package-lock.json

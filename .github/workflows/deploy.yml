@@ -1,0 +1,65 @@
+name: 編譯 Tailwind CSS 並部署至 GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:  # 允許手動觸發
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一時間只允許一個部署，避免競爭條件
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # 1. 取得原始碼
+      - name: 取得原始碼
+        uses: actions/checkout@v4
+
+      # 2. 設定 Node.js 環境
+      - name: 設定 Node.js 環境
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # 3. 安裝相依套件（Tailwind CSS v3）
+      - name: 安裝相依套件
+        run: npm ci
+
+      # 4. 編譯 Tailwind CSS
+      - name: 編譯 Tailwind CSS
+        run: |
+          ./node_modules/.bin/tailwindcss \
+            -i tailwind-input.css \
+            -o tailwind.min.css \
+            --minify
+          echo "✅ Tailwind CSS 編譯完成"
+          echo "📦 檔案大小：$(wc -c < tailwind.min.css) bytes"
+
+      # 5. 設定 GitHub Pages
+      - name: 設定 GitHub Pages
+        uses: actions/configure-pages@v4
+
+      # 6. 上傳網站檔案（排除開發用檔案）
+      - name: 上傳網站檔案
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      # 7. 部署至 GitHub Pages
+      - name: 部署至 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
