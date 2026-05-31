@@ -12,3 +12,6 @@ build/
 
 # Tailwind 編譯產物（由 GitHub Actions 自動生成，不需手動 commit）
 tailwind.min.css
+
+# 安全審查報告（含敏感資訊，不應公開）
+enmy-security-performance-audit.md
