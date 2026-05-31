@@ -26,11 +26,11 @@ jobs:
     steps:
       # 1. 取得原始碼
       - name: 取得原始碼
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
 
       # 2. 設定 Node.js 環境
       - name: 設定 Node.js 環境
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4
         with:
           node-version: '24'
           cache: 'npm'
@@ -49,17 +49,33 @@ jobs:
           echo "✅ Tailwind CSS 編譯完成"
           echo "📦 檔案大小：$(wc -c < tailwind.min.css) bytes"
 
-      # 5. 設定 GitHub Pages
+      # 5. 複製靜態網站檔案至 dist/（排除開發用檔案）
+      - name: 準備靜態網站檔案
+        run: |
+          mkdir -p dist
+          # 複製 HTML 頁面
+          cp *.html dist/
+          # 複製編譯後的 CSS
+          cp tailwind.min.css dist/
+          # 複製圖片與影片資源
+          cp *.jpg *.webp *.png *.mp4 dist/ 2>/dev/null || true
+          # 複製產品圖片目錄
+          cp -r products-images dist/
+          echo "✅ 靜態檔案準備完成"
+          echo "📁 dist/ 內容："
+          ls dist/
+
+      # 6. 設定 GitHub Pages
       - name: 設定 GitHub Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@1f0c5cde4bc74cd7e1254d0cb4de8d49e9068c7d  # v4
 
-      # 6. 上傳網站檔案（排除開發用檔案）
+      # 7. 上傳靜態網站檔案（僅 dist/，排除 package.json 等開發用檔案）
       - name: 上傳網站檔案
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa  # v3
         with:
-          path: '.'
+          path: 'dist'
 
-      # 7. 部署至 GitHub Pages
+      # 8. 部署至 GitHub Pages
       - name: 部署至 GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e  # v4
