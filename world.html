@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界的恩米 | ENMY 全球畫家社群</title>
+    <meta name="description" content="從台灣出發，跨越語言與國界。探索 ENMY 全球官方帳號與來自世界各地的創作者，一起用爆閃筆畫出世界的色彩。">
+    <meta property="og:title" content="世界的恩米 | ENMY 全球畫家社群">
+    <meta property="og:description" content="從台灣出發，跨越語言與國界。ENMY 全球官方帳號與世界各地創作者。">
+    <meta property="og:image" content="https://enmytaiwan-create.github.io/enmy-website/enmy_world_hero.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://enmytaiwan-create.github.io/enmy-website/world.html">
+    <link rel="canonical" href="https://enmytaiwan-create.github.io/enmy-website/world.html">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;700&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tailwind.min.css">
+    <style>
+        :root {
+            --gold: #c9a96e;
+            --gold-light: #e8d5a3;
+            --dark: #1a1208;
+            --cream: #fdf8f3;
+        }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--cream);
+            color: #3a3028;
+            margin: 0;
+        }
+        .serif-font { font-family: 'Noto Serif TC', serif; }
+        .handwritten { font-family: 'Klee One', cursive; }
+
+        /* ── 導航列 ── */
+        .nav-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            transition: background 0.3s ease;
+        }
+        .nav-bar.scrolled {
+            background: rgba(253, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(90, 60, 30, 0.08);
+        }
+        .nav-logo {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 0.15em;
+            transition: color 0.3s;
+        }
+        .nav-bar.scrolled .nav-logo { color: #1a1208; }
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            margin-left: 32px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .nav-bar.scrolled .nav-links a { color: #6b5744; }
+        .nav-links a:hover { color: var(--gold) !important; }
+        .nav-links a.active { color: var(--gold) !important; }
+
+        /* ── Hero ── */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('enmy_world_hero.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.65);
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(10, 5, 0, 0.3) 0%,
+                rgba(10, 5, 0, 0.5) 60%,
+                rgba(10, 5, 0, 0.8) 100%
+            );
+        }
+        @keyframes heroZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.06); }
+        }
+        .hero-bg { animation: heroZoom 20s ease-in-out infinite alternate; }
+
+        /* ── 金色文字 ── */
+        .gold-text {
+            background: linear-gradient(135deg, #c9a96e, #e8d5a3, #b8935a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .divider {
+            width: 60px; height: 2px;
+            background: linear-gradient(to right, #c9a96e, #e8d5a3);
+            margin: 1.5rem auto;
+        }
+        .divider-left { margin: 1.5rem 0; }
+
+        /* ── 星星裝飾 ── */
+        .star-deco {
+            position: absolute;
+            font-size: 1.2rem;
+            opacity: 0.4;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        /* ── 淡入動畫 ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── 全球官方大卡片 ── */
+        .global-official-card {
+            background: linear-gradient(135deg, #1a1208 0%, #2d2018 50%, #1a1208 100%);
+            border: 2px solid rgba(201,169,110,0.5);
+            border-radius: 24px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .global-official-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(201,169,110,0.08) 0%, transparent 70%);
+        }
+        .global-official-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(201,169,110,0.25);
+            border-color: rgba(201,169,110,0.8);
+        }
+        .official-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c9a96e, #e8d5a3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            box-shadow: 0 0 30px rgba(201,169,110,0.4);
+        }
+        .official-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #c9a96e, #e8d5a3);
+            color: #1a1208;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .official-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+        .official-handle {
+            color: var(--gold-light);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .official-desc {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .official-arrow {
+            margin-left: auto;
+            color: var(--gold);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* ── 各國市場卡片 ── */
+        .markets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+        .market-card {
+            background: white;
+            border: 1px solid rgba(201,169,110,0.2);
+            border-radius: 16px;
+            padding: 1.5rem 1.2rem;
+            text-align: center;
+            text-decoration: none;
+            color: #3a3028;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: block;
+        }
+        .market-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(201,169,110,0.15);
+            border-color: rgba(201,169,110,0.5);
+        }
+        .market-flag { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .market-name { font-weight: 700; font-size: 0.95rem; color: #1a1208; margin-bottom: 0.3rem; }
+        .market-handle { font-size: 0.8rem; color: var(--gold); }
+
+        /* ── 畫家卡片 ── */
+        .creators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        .creator-card {
+            background: white;
+            border: 1px solid rgba(201,169,110,0.15);
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .creator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(201,169,110,0.15);
+        }
+        .creator-avatar {
+            font-size: 2.2rem;
+            margin-bottom: 0.75rem;
+        }
+        .creator-name {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #1a1208;
+            margin-bottom: 0.5rem;
+            word-break: break-all;
+        }
+        .creator-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .creator-btn {
+            display: block;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 0.72rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .creator-btn-profile {
+            background: rgba(201,169,110,0.12);
+            color: #8b6914;
+            border: 1px solid rgba(201,169,110,0.3);
+        }
+        .creator-btn-profile:hover {
+            background: rgba(201,169,110,0.25);
+            color: #6b4e0a;
+        }
+        .creator-btn-reel {
+            background: linear-gradient(135deg, #c9a96e, #b8935a);
+            color: white;
+        }
+        .creator-btn-reel:hover {
+            background: linear-gradient(135deg, #b8935a, #a07840);
+            transform: scale(1.02);
+        }
+
+        /* ── 爆閃筆規格區 ── */
+        .glitter-specs {
+            background: linear-gradient(135deg, #1a1208 0%, #2d2018 100%);
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .glitter-specs::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.1) 0%, transparent 60%);
+        }
+        .spec-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+        .spec-card {
+            background: rgba(201,169,110,0.08);
+            border: 1px solid rgba(201,169,110,0.2);
+            border-radius: 16px;
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+        .spec-card:hover {
+            background: rgba(201,169,110,0.15);
+            border-color: rgba(201,169,110,0.4);
+        }
+        .spec-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .spec-name {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 0.4rem;
+        }
+        .spec-desc {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.6;
+        }
+        .spec-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #c9a96e, #e8d5a3);
+            color: #1a1208;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-top: 0.6rem;
+        }
+
+        /* ── 購買按鈕 ── */
+        .buy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #c9a96e, #b8935a);
+            color: #1a1208;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+        }
+        .buy-btn:hover {
+            background: linear-gradient(135deg, #e8d5a3, #c9a96e);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(201,169,110,0.4);
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: #1a1208;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        .footer-logo {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer-link {
+            color: rgba(201,169,110,0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+        .footer-link:hover { color: var(--gold); }
+        .footer-copy {
+            color: rgba(255,255,255,0.3);
+            font-size: 0.75rem;
+        }
+
+        /* ── LINE 浮動按鈕 ── */
+        .line-float-btn {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            z-index: 999;
+            width: 60px; height: 60px;
+            background-color: #00b900;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,185,0,0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .line-float-btn:hover {
+            background-color: #009900;
+            transform: scale(1.1);
+        }
+
+        /* ── 滾動進度條 ── */
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            background: linear-gradient(to right, #c9a96e, #e8d5a3);
+            z-index: 200;
+            transition: width 0.1s ease;
+        }
+
+        @media (max-width: 768px) {
+            .global-official-card { flex-direction: column; text-align: center; padding: 2rem; }
+            .official-arrow { margin-left: 0; }
+            .markets-grid { grid-template-columns: repeat(2, 1fr); }
+            .creators-grid { grid-template-columns: repeat(2, 1fr); }
+            .spec-cards { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 滾動進度條 -->
+    <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+
+    <!-- 導航列 -->
+    <nav class="nav-bar" id="nav-bar">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="nav-logo">ENMY.</a>
+            <div class="nav-links hidden md:flex">
+                <a href="index.html">首頁</a>
+                <a href="story.html">品牌故事</a>
+                <a href="products.html">產品系列</a>
+                <a href="world.html" class="active">世界的恩米</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero 主視覺 -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <span class="star-deco" style="top:12%; right:18%; animation-delay:0s;">✦</span>
+        <span class="star-deco" style="top:22%; right:30%; animation-delay:1s;">✧</span>
+        <span class="star-deco" style="top:65%; right:12%; animation-delay:2s;">✦</span>
+        <span class="star-deco" style="top:75%; left:15%; animation-delay:0.5s;">✧</span>
+        <div class="relative z-10 max-w-6xl mx-auto px-6 w-full">
+            <div class="max-w-xl">
+                <p class="handwritten text-amber-200 text-lg mb-4 tracking-widest fade-in" style="transition-delay:0.1s;">ENMY Around the World</p>
+                <h1 class="serif-font text-white font-bold leading-tight mb-6 fade-in" style="font-size: clamp(2.5rem, 6vw, 4.5rem); transition-delay:0.2s;">
+                    世界的<br>
+                    <span class="gold-text">恩米</span>
+                </h1>
+                <div class="divider-left fade-in" style="transition-delay:0.3s;"></div>
+                <p class="text-amber-50 text-lg leading-relaxed mb-8 fade-in" style="transition-delay:0.4s; font-weight:300;">
+                    從台灣出發，跨越語言與國界。<br>
+                    每一支爆閃筆，都在世界的某個角落<br>
+                    留下一道閃亮的痕跡。
+                </p>
+                <a href="#global-ig" class="inline-flex items-center gap-3 text-amber-200 hover:text-white transition-colors duration-300 fade-in" style="transition-delay:0.5s;">
+                    <span class="handwritten text-base">探索全球社群</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 5v14M5 12l7 7 7-7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ══ 爆閃筆規格 ══ -->
+    <section class="py-20 px-6" style="background: linear-gradient(180deg, #fdf8f3 0%, #f5ede0 100%);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 fade-in">
+                <p class="handwritten text-amber-600 text-base tracking-widest mb-2">Outshiner · Glitter Marker</p>
+                <h2 class="serif-font text-4xl font-bold text-stone-800 mb-4">爆閃筆 規格一覽</h2>
+                <div class="divider"></div>
+                <p class="text-stone-500 max-w-xl mx-auto leading-relaxed">
+                    高濃度閃粉顏料，乾燥後不掉粉，閃耀每一個創作瞬間。<br>
+                    提供單支選購與多色套組，滿足不同創作需求。
+                </p>
+            </div>
+            <div class="glitter-specs fade-in">
+                <div class="relative z-10">
+                    <p class="handwritten text-amber-300 text-sm tracking-widest mb-1">ENMY. Outshiner</p>
+                    <h3 class="serif-font text-2xl font-bold text-white mb-1">爆閃筆 <span class="gold-text">選購方式</span></h3>
+                    <p class="text-sm" style="color:rgba(255,255,255,0.5);">單支 · 套組任選，閃耀程度自己決定</p>
+                    <div class="spec-cards">
+                        <div class="spec-card">
+                            <div class="spec-icon">✨</div>
+                            <div class="spec-name">單支選購</div>
+                            <div class="spec-desc">自由挑選喜愛的閃亮色彩，打造專屬配色組合</div>
+                            <div class="spec-badge">單支</div>
+                        </div>
+                        <div class="spec-card">
+                            <div class="spec-icon">🎁</div>
+                            <div class="spec-name">12 色套組</div>
+                            <div class="spec-desc">精選 12 種閃亮色彩，禮盒包裝，送禮自用兩相宜</div>
+                            <div class="spec-badge">12 色組</div>
+                        </div>
+                        <div class="spec-card">
+                            <div class="spec-icon">🌈</div>
+                            <div class="spec-name">24 色套組</div>
+                            <div class="spec-desc">豐富 24 色閃粉顏料，涵蓋金、銀、彩虹系閃色</div>
+                            <div class="spec-badge">24 色組</div>
+                        </div>
+                        <div class="spec-card">
+                            <div class="spec-icon">💫</div>
+                            <div class="spec-name">80 色套組</div>
+                            <div class="spec-desc">終極收藏版，80 種閃亮色彩，創作無極限</div>
+                            <div class="spec-badge">80 色組</div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-8">
+                        <a href="https://shopee.tw/search?keyword=%E6%81%A9%E7%B1%B3%E7%88%86%E9%96%83%E7%AD%86" target="_blank" rel="noopener noreferrer" class="buy-btn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M7 4V2H17V4H20C20.5523 4 21 4.44772 21 5V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V5C3 4.44772 3.44772 4 4 4H7ZM7 6H5V20H19V6H17V8H7V6ZM9 6V4H15V6H9Z"/></svg>
+                            前往蝦皮選購爆閃筆
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ 全球官方 IG ══ -->
+    <section id="global-ig" class="py-20 px-6" style="background: #fdf8f3;">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 fade-in">
+                <p class="handwritten text-amber-600 text-base tracking-widest mb-2">Official Accounts</p>
+                <h2 class="serif-font text-4xl font-bold text-stone-800 mb-4">ENMY 官方帳號</h2>
+                <div class="divider"></div>
+                <p class="text-stone-500 max-w-xl mx-auto leading-relaxed">
+                    追蹤 ENMY 全球官方 Instagram，掌握最新產品資訊、創作靈感與全球活動。
+                </p>
+            </div>
+
+            <!-- 全球官方大卡片 -->
+            <a href="https://www.instagram.com/enmy__official/" target="_blank" rel="noopener noreferrer" class="global-official-card fade-in" style="margin-bottom: 2rem; display: flex;">
+                <div class="official-icon">🌎</div>
+                <div class="relative z-10 flex-1">
+                    <div class="official-badge">GLOBAL OFFICIAL</div>
+                    <div class="official-title">ENMY 全球官方</div>
+                    <div class="official-handle">@enmy__official</div>
+                    <div class="official-desc">ENMY 品牌全球總帳號，發布最新產品、創作靈感與全球合作資訊</div>
+                </div>
+                <div class="official-arrow">→</div>
+            </a>
+
+            <!-- 各國市場 -->
+            <h3 class="serif-font text-xl font-bold text-stone-700 mb-6 fade-in">各國官方帳號</h3>
+            <div class="markets-grid fade-in">
+                <a href="https://www.instagram.com/enmy_official_jp/" target="_blank" rel="noopener noreferrer" class="market-card">
+                    <div class="market-flag">🇯🇵</div>
+                    <div class="market-name">日本 Japan</div>
+                    <div class="market-handle">@enmy_official_jp</div>
+                </a>
+                <a href="https://www.instagram.com/enmy_kr/" target="_blank" rel="noopener noreferrer" class="market-card">
+                    <div class="market-flag">🇰🇷</div>
+                    <div class="market-name">韓國 Korea</div>
+                    <div class="market-handle">@enmy_kr</div>
+                </a>
+                <a href="https://www.instagram.com/enmy_official_mx/" target="_blank" rel="noopener noreferrer" class="market-card">
+                    <div class="market-flag">🇲🇽</div>
+                    <div class="market-name">墨西哥 Mexico</div>
+                    <div class="market-handle">@enmy_official_mx</div>
+                </a>
+                <a href="https://www.instagram.com/enmy_uk/" target="_blank" rel="noopener noreferrer" class="market-card">
+                    <div class="market-flag">🇬🇧</div>
+                    <div class="market-name">英國 UK</div>
+                    <div class="market-handle">@enmy_uk</div>
+                </a>
+                <a href="https://www.instagram.com/enmy_official_ph/" target="_blank" rel="noopener noreferrer" class="market-card">
+                    <div class="market-flag">🇵🇭</div>
+                    <div class="market-name">菲律賓 Philippines</div>
+                    <div class="market-handle">@enmy_official_ph</div>
+                </a>
+                <a href="https://www.instagram.com/enmy_malaysia/" target="_blank" rel="noopener noreferrer" class="market-card">
+                    <div class="market-flag">🇲🇾</div>
+                    <div class="market-name">馬來西亞 Malaysia</div>
+                    <div class="market-handle">@enmy_malaysia</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ 全球畫家 ══ -->
+    <section class="py-20 px-6" style="background: linear-gradient(180deg, #f5ede0 0%, #fdf8f3 100%);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 fade-in">
+                <p class="handwritten text-amber-600 text-base tracking-widest mb-2">Global Creators</p>
+                <h2 class="serif-font text-4xl font-bold text-stone-800 mb-4">全球創作者</h2>
+                <div class="divider"></div>
+                <p class="text-stone-500 max-w-xl mx-auto leading-relaxed">
+                    來自世界各地的插畫家、藝術家，用 ENMY 爆閃筆創作出屬於自己的閃亮作品。
+                </p>
+            </div>
+            <div class="creators-grid fade-in">
+                <!-- 非台灣創作者 -->
+                <div class="creator-card">
+                    <div class="creator-avatar">🎪</div>
+                    <div class="creator-name">@_caoxuan_</div>
+                    <div class="creator-btns">
+                        <a href="https://www.instagram.com/_caoxuan_/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
+                        <a href="https://www.instagram.com/_caoxuan_/reel/DW-sjcFCe__/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
+                    </div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">🌿</div>
+                    <div class="creator-name">@ash_valley1020</div>
+                    <div class="creator-btns">
+                        <a href="https://www.instagram.com/ash_valley1020/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
+                        <a href="https://www.instagram.com/ash_valley1020/reel/DOkaX4IEqTQ/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
+                    </div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">🎯</div>
+                    <div class="creator-name">@bgzini86</div>
+                    <div class="creator-btns">
+                        <a href="https://www.instagram.com/bgzini86/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
+                        <a href="https://www.instagram.com/bgzini86/reel/DLKPvmTPu37/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
+                    </div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">🍀</div>
+                    <div class="creator-name">@coco.draw10</div>
+                    <div class="creator-btns">
+                        <a href="https://www.instagram.com/coco.draw10/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
+                        <a href="https://www.instagram.com/coco.draw10/reel/DQy_8gnEhZh/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
+                    </div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">🌙</div>
+                    <div class="creator-name">@duo63x</div>
+                    <div class="creator-btns">
+                        <a href="https://www.instagram.com/duo63x/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
+                        <a href="https://www.instagram.com/duo63x/reel/DOOAi9FCW_Y/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
+                    </div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">🦊</div>
+                    <div class="creator-name">@fufurensen1111</div>
+                    <div class="creator-btns">
+                        <a href="https://www.instagram.com/fufurensen1111/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
+                        <a href="https://www.instagram.com/fufurensen1111/reel/DW0z5Mnj-sn/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
+                    </div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">⭐</div>
+                    <div class="creator-name">@getback_3000000</div>
+                    <div class="creator-btns">
+                        <a href="https://www.instagram.com/getback_3000000/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
+                        <a href="https://www.instagram.com/getback_3000000/reel/DXBclhJB6_B/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
+                    </div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">🌺</div>
+                    <div class="creator-name">@guto_2.0</div>
+                    <div class="creator-btns">
+                        <a href="https://www.instagram.com/guto_2.0/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
+                        <a href="https://www.instagram.com/guto_2.0/reel/DOVdzlfkX8n/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
+                    </div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">🚗</div>
+                    <div class="creator-name">@hankdopaint</div>
+                    <div class="creator-btns">
+                        <a href="https://www.instagram.com/hankdopaint/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
+                        <a href="https://www.instagram.com/hankdopaint/reel/DOxsEL0AZM8/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
+                    </div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">🌊</div>
+                    <div class="creator-name">@merrowe_huang</div>
+                    <div class="creator-btns">
+                        <a href="https://www.instagram.com/merrowe_huang/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
+                        <a href="https://www.instagram.com/merrowe_huang/reel/DX4HKLBBXrX/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
+                    </div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">⚡</div>
+                    <div class="creator-name">@tsun_x2</div>
+                    <div class="creator-btns">
+                        <a href="https://www.instagram.com/tsun_x2/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
+                        <a href="https://www.instagram.com/tsun_x2/reel/DRrlwPnAcOg/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">ENMY.</div>
+        <div class="footer-links">
+            <a href="index.html" class="footer-link">首頁</a>
+            <a href="story.html" class="footer-link">品牌故事</a>
+            <a href="products.html" class="footer-link">產品系列</a>
+            <a href="world.html" class="footer-link">世界的恩米</a>
+            <a href="https://www.instagram.com/enmy__official/" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
+        </div>
+        <p class="footer-copy">© 2025 ENMY Taiwan. All rights reserved.</p>
+    </footer>
+
+    <!-- LINE 浮動按鈕 -->
+    <a href="https://lin.ee/your-line-link" target="_blank" rel="noopener noreferrer" class="line-float-btn" aria-label="聯絡 LINE">
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="white">
+            <path d="M24 4C12.95 4 4 11.86 4 21.5c0 5.5 2.9 10.4 7.4 13.6L9 40l6.3-2.8C17.1 37.7 20.5 38 24 38c11.05 0 20-7.86 20-17.5S35.05 4 24 4z"/>
+        </svg>
+    </a>
+
+    <script>
+        // 滾動進度條
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        });
+
+        // 導航列滾動效果
+        const navBar = document.getElementById('nav-bar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navBar.classList.add('scrolled');
+            } else {
+                navBar.classList.remove('scrolled');
+            }
+        });
+
+        // 淡入動畫
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Hero 初始動畫
+        setTimeout(() => {
+            document.querySelectorAll('.hero-section .fade-in').forEach(el => {
+                el.classList.add('visible');
+            });
+        }, 300);
+    </script>
+</body>
+</html>

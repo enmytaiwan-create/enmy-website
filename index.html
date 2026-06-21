@@ -314,9 +314,9 @@
             <a href="index.html" class="nav-logo">ENMY.</a>
             <div class="nav-links hidden md:flex">
                 <a href="#section-2">品牌理念</a>
-                <a href="#section-video">動畫展示</a>
                 <a href="story.html">品牌故事</a>
                 <a href="products.html">產品系列</a>
+                <a href="world.html">世界的恩米</a>
                 <a href="#footer">關注我們</a>
             </div>
         </div>
@@ -475,34 +475,6 @@
     </section>
 
     <!-- ══════════════════════════════════════════════ -->
-    <!-- Section 2.5：丙烯筆動畫展示區                  -->
-    <!-- ══════════════════════════════════════════════ -->
-    <section id="section-video" class="py-24 px-6" style="background:#1a1208;">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16 fade-in">
-                <p class="handwritten text-amber-400 text-base tracking-widest mb-2">Creative Motion</p>
-                <h2 class="serif-font text-4xl font-bold text-white mb-4">丙烯筆動畫展示</h2>
-                <div class="divider"></div>
-                <p class="text-amber-100 opacity-70 max-w-lg mx-auto leading-relaxed">
-                    感受 ENMY 小黑盒壓克力麥克筆在紙張上舞動的魔力，搭配重低音的背景音樂，沉浸在創作的世界裡。
-                </p>
-            </div>
-
-            <div class="video-wrapper fade-in">
-                <!-- 聲音控制按鈕 -->
-                <button id="sound-toggle-btn" class="sound-btn center" title="點擊開啟聲音" aria-label="聲音控制">
-                    🔇
-                </button>
-                <video id="acrylic-video" autoplay loop muted playsinline preload="metadata" title="ENMY 小黑盒壓克力麥克筆創作示範影片" aria-label="ENMY 小黑盒壓克力麥克筆創作示範影片"
-                       style="width:100%; height:auto; display:block;">
-                    <source src="acrylic_pen_with_bass.mp4" type="video/mp4">
-                    你的瀏覽器不支援 HTML5 視頻標籤。
-                </video>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════ -->
     <!-- 核心價值區                                     -->
     <!-- ══════════════════════════════════════════════ -->
     <section class="py-24 px-6" style="background:linear-gradient(135deg,#fef9f0,#fdf4e3,#fef9f0);">
@@ -625,31 +597,6 @@
         }, { threshold: 0.12 });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // ── 聲音控制按鈕 ──
-        const soundBtn = document.getElementById('sound-toggle-btn');
-        const acrylicVideo = document.getElementById('acrylic-video');
-        let isAudioOn = false;
-
-        soundBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (!isAudioOn) {
-                acrylicVideo.muted = false;
-                acrylicVideo.currentTime = 0;
-                acrylicVideo.play();
-                isAudioOn = true;
-                soundBtn.classList.remove('center');
-                soundBtn.classList.add('active');
-                soundBtn.textContent = '🔊';
-                soundBtn.title = '點擊關閉聲音';
-            } else {
-                acrylicVideo.muted = true;
-                isAudioOn = false;
-                soundBtn.classList.remove('active');
-                soundBtn.classList.add('center');
-                soundBtn.textContent = '🔇';
-                soundBtn.title = '點擊開啟聲音';
-            }
-        });
     </script>
 </body>
 </html>
