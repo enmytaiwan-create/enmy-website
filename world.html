@@ -424,13 +424,21 @@
             box-shadow: 0 14px 40px rgba(201,169,110,0.12);
         }
         .creator-card:hover::before { opacity: 1; }
-        .creator-initial {
+        .creator-avatar {
             width: 52px; height: 52px;
             border-radius: 50%;
-            background: linear-gradient(135deg, rgba(201,169,110,0.15), rgba(201,169,110,0.05));
             border: 1.5px solid rgba(201,169,110,0.3);
             display: flex; align-items: center; justify-content: center;
             margin: 0 auto 1rem;
+            overflow: hidden;
+            background: rgba(201,169,110,0.08);
+        }
+        .creator-avatar img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .creator-avatar-fallback {
             font-family: 'Noto Serif TC', serif;
             font-size: 1.2rem;
             font-weight: 700;
@@ -756,7 +764,9 @@
             <div class="creators-grid fade-in" style="transition-delay:0.15s;">
 
                 <div class="creator-card">
-                    <div class="creator-initial">曹</div>
+                    <div class="creator-avatar">
+                        <img src="https://www.instagram.com/_caoxuan_/profilepicture/?size=large" alt="_caoxuan_" onerror="this.parentElement.innerHTML='<span class=\"creator-avatar-fallback\">曹</span>'">
+                    </div>
                     <div class="creator-name">@_caoxuan_</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/_caoxuan_/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
@@ -765,7 +775,9 @@
                 </div>
 
                 <div class="creator-card">
-                    <div class="creator-initial">A</div>
+                    <div class="creator-avatar">
+                        <img src="https://www.instagram.com/ash_valley1020/profilepicture/?size=large" alt="ash_valley1020" onerror="this.parentElement.innerHTML='<span class=\"creator-avatar-fallback\">A</span>'">
+                    </div>
                     <div class="creator-name">@ash_valley1020</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/ash_valley1020/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
@@ -774,7 +786,9 @@
                 </div>
 
                 <div class="creator-card">
-                    <div class="creator-initial">B</div>
+                    <div class="creator-avatar">
+                        <img src="https://www.instagram.com/bgzini86/profilepicture/?size=large" alt="bgzini86" onerror="this.parentElement.innerHTML='<span class=\"creator-avatar-fallback\">B</span>'">
+                    </div>
                     <div class="creator-name">@bgzini86</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/bgzini86/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
@@ -783,7 +797,9 @@
                 </div>
 
                 <div class="creator-card">
-                    <div class="creator-initial">C</div>
+                    <div class="creator-avatar">
+                        <img src="https://www.instagram.com/coco.draw10/profilepicture/?size=large" alt="coco.draw10" onerror="this.parentElement.innerHTML='<span class=\"creator-avatar-fallback\">C</span>'">
+                    </div>
                     <div class="creator-name">@coco.draw10</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/coco.draw10/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
@@ -792,7 +808,9 @@
                 </div>
 
                 <div class="creator-card">
-                    <div class="creator-initial">D</div>
+                    <div class="creator-avatar">
+                        <img src="https://www.instagram.com/duo63x/profilepicture/?size=large" alt="duo63x" onerror="this.parentElement.innerHTML='<span class=\"creator-avatar-fallback\">D</span>'">
+                    </div>
                     <div class="creator-name">@duo63x</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/duo63x/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
@@ -801,7 +819,9 @@
                 </div>
 
                 <div class="creator-card">
-                    <div class="creator-initial">F</div>
+                    <div class="creator-avatar">
+                        <img src="https://www.instagram.com/fufurensen1111/profilepicture/?size=large" alt="fufurensen1111" onerror="this.parentElement.innerHTML='<span class=\"creator-avatar-fallback\">F</span>'">
+                    </div>
                     <div class="creator-name">@fufurensen1111</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/fufurensen1111/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
@@ -810,7 +830,9 @@
                 </div>
 
                 <div class="creator-card">
-                    <div class="creator-initial">G</div>
+                    <div class="creator-avatar">
+                        <img src="https://www.instagram.com/getback_3000000/profilepicture/?size=large" alt="getback_3000000" onerror="this.parentElement.innerHTML='<span class=\"creator-avatar-fallback\">G</span>'">
+                    </div>
                     <div class="creator-name">@getback_3000000</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/getback_3000000/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
@@ -819,7 +841,9 @@
                 </div>
 
                 <div class="creator-card">
-                    <div class="creator-initial">G</div>
+                    <div class="creator-avatar">
+                        <img src="https://www.instagram.com/guto_2.0/profilepicture/?size=large" alt="guto_2.0" onerror="this.parentElement.innerHTML='<span class=\"creator-avatar-fallback\">G</span>'">
+                    </div>
                     <div class="creator-name">@guto_2.0</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/guto_2.0/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
@@ -828,7 +852,9 @@
                 </div>
 
                 <div class="creator-card">
-                    <div class="creator-initial">H</div>
+                    <div class="creator-avatar">
+                        <img src="https://www.instagram.com/hankdopaint/profilepicture/?size=large" alt="hankdopaint" onerror="this.parentElement.innerHTML='<span class=\"creator-avatar-fallback\">H</span>'">
+                    </div>
                     <div class="creator-name">@hankdopaint</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/hankdopaint/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
@@ -837,7 +863,9 @@
                 </div>
 
                 <div class="creator-card">
-                    <div class="creator-initial">M</div>
+                    <div class="creator-avatar">
+                        <img src="https://www.instagram.com/merrowe_huang/profilepicture/?size=large" alt="merrowe_huang" onerror="this.parentElement.innerHTML='<span class=\"creator-avatar-fallback\">M</span>'">
+                    </div>
                     <div class="creator-name">@merrowe_huang</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/merrowe_huang/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
@@ -846,7 +874,9 @@
                 </div>
 
                 <div class="creator-card">
-                    <div class="creator-initial">T</div>
+                    <div class="creator-avatar">
+                        <img src="https://www.instagram.com/tsun_x2/profilepicture/?size=large" alt="tsun_x2" onerror="this.parentElement.innerHTML='<span class=\"creator-avatar-fallback\">T</span>'">
+                    </div>
                     <div class="creator-name">@tsun_x2</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/tsun_x2/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
