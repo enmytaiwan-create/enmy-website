@@ -3,47 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>世界的恩米 | ENMY 全球畫家社群</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>世界的恩米 | ENMY 全球社群 · 爆閃筆</title>
     <meta name="description" content="從台灣出發，跨越語言與國界。探索 ENMY 全球官方帳號與來自世界各地的創作者，一起用爆閃筆畫出世界的色彩。">
-    <meta property="og:title" content="世界的恩米 | ENMY 全球畫家社群">
+    <meta property="og:title" content="世界的恩米 | ENMY 全球社群">
     <meta property="og:description" content="從台灣出發，跨越語言與國界。ENMY 全球官方帳號與世界各地創作者。">
-    <meta property="og:image" content="https://enmytaiwan-create.github.io/enmy-website/enmy_world_hero.jpg">
+    <meta property="og:image" content="https://enmytaiwan-create.github.io/enmy-website/enmy_world_hero_v3.jpg">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://enmytaiwan-create.github.io/enmy-website/world.html">
     <link rel="canonical" href="https://enmytaiwan-create.github.io/enmy-website/world.html">
-    <!-- Google Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;700&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="tailwind.min.css">
+
     <style>
-        :root {
-            --gold: #c9a96e;
-            --gold-light: #e8d5a3;
-            --dark: #1a1208;
-            --cream: #fdf8f3;
-        }
+        /* ── 全域基礎 ── */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--cream);
+            background-color: #fdf8f3;
             color: #3a3028;
+            overflow-x: hidden;
             margin: 0;
         }
-        .serif-font { font-family: 'Noto Serif TC', serif; }
+        .serif-font  { font-family: 'Noto Serif TC', serif; }
         .handwritten { font-family: 'Klee One', cursive; }
+
+        /* ── 滾動進度條 ── */
+        .progress-bar {
+            position: fixed; top: 0; left: 0;
+            height: 3px;
+            background: linear-gradient(to right, #c9a96e, #e8d5a3, #c9a96e);
+            z-index: 300;
+            transition: width 0.1s ease;
+        }
 
         /* ── 導航列 ── */
         .nav-bar {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            padding: 1rem 2rem;
-            transition: background 0.3s ease;
+            position: fixed; top: 3px; left: 0; right: 0;
+            z-index: 200;
+            padding: 1.25rem 2rem;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
         }
         .nav-bar.scrolled {
-            background: rgba(253, 248, 243, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(90, 60, 30, 0.08);
+            background: rgba(253, 248, 243, 0.92);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 20px rgba(58, 48, 40, 0.08);
         }
         .nav-logo {
             font-family: 'Noto Serif TC', serif;
@@ -51,77 +59,106 @@
             font-weight: 700;
             color: white;
             text-decoration: none;
-            letter-spacing: 0.15em;
-            transition: color 0.3s;
+            letter-spacing: 0.1em;
+            transition: color 0.4s;
         }
-        .nav-bar.scrolled .nav-logo { color: #1a1208; }
+        .nav-bar.scrolled .nav-logo { color: #3a3028; }
         .nav-links a {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 0.875rem;
             color: rgba(255,255,255,0.85);
             text-decoration: none;
-            margin-left: 32px;
-            font-size: 0.9rem;
+            margin-left: 2rem;
             transition: color 0.3s;
         }
         .nav-bar.scrolled .nav-links a { color: #6b5744; }
-        .nav-links a:hover { color: var(--gold) !important; }
-        .nav-links a.active { color: var(--gold) !important; }
+        .nav-links a:hover { color: #c9a96e !important; }
+        .nav-links a.active { color: #c9a96e !important; }
 
-        /* ── Hero ── */
+        /* ── Hero 全屏區 ── */
         .hero-section {
             position: relative;
-            min-height: 100vh;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
             display: flex;
             align-items: center;
             overflow: hidden;
         }
         .hero-bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('enmy_world_hero.jpg');
+            position: absolute; inset: 0;
+            background-image: url('enmy_world_hero_v3.jpg');
             background-size: cover;
             background-position: center;
-            filter: brightness(0.65);
-        }
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to bottom,
-                rgba(10, 5, 0, 0.3) 0%,
-                rgba(10, 5, 0, 0.5) 60%,
-                rgba(10, 5, 0, 0.8) 100%
-            );
+            transform: scale(1.05);
+            animation: heroZoom 20s ease-in-out infinite alternate;
         }
         @keyframes heroZoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.06); }
+            from { transform: scale(1.05); }
+            to   { transform: scale(1.12); }
         }
-        .hero-bg { animation: heroZoom 20s ease-in-out infinite alternate; }
-
-        /* ── 金色文字 ── */
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(15, 8, 2, 0.72) 0%,
+                rgba(30, 18, 8, 0.50) 50%,
+                rgba(15, 8, 2, 0.65) 100%
+            );
+        }
+        .hero-overlay-bottom {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 200px;
+            background: linear-gradient(to bottom, transparent, #fdf8f3);
+        }
         .gold-text {
-            background: linear-gradient(135deg, #c9a96e, #e8d5a3, #b8935a);
+            background: linear-gradient(135deg, #e8d5a3, #c9a96e, #f0e0b0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .divider {
-            width: 60px; height: 2px;
-            background: linear-gradient(to right, #c9a96e, #e8d5a3);
-            margin: 1.5rem auto;
-        }
-        .divider-left { margin: 1.5rem 0; }
-
-        /* ── 星星裝飾 ── */
         .star-deco {
             position: absolute;
+            color: rgba(201, 169, 110, 0.6);
             font-size: 1.2rem;
-            opacity: 0.4;
-            animation: twinkle 3s ease-in-out infinite;
+            animation: starPulse 3s ease-in-out infinite;
+            pointer-events: none;
         }
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.2; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.2); }
+        @keyframes starPulse {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50%       { opacity: 0.9; transform: scale(1.3); }
+        }
+        .divider-left {
+            width: 60px; height: 2px;
+            background: linear-gradient(to right, #c9a96e, transparent);
+            margin-bottom: 1.5rem;
+        }
+        .divider {
+            width: 60px; height: 2px;
+            background: linear-gradient(to right, transparent, #c9a96e, transparent);
+            margin: 1.5rem auto;
+        }
+        .scroll-hint {
+            position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+            z-index: 10;
+            display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+        }
+        .scroll-hint span {
+            font-family: 'Klee One', cursive;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.15em;
+        }
+        .scroll-arrow {
+            width: 24px; height: 24px;
+            border-right: 1.5px solid rgba(255,255,255,0.4);
+            border-bottom: 1.5px solid rgba(255,255,255,0.4);
+            transform: rotate(45deg);
+            animation: scrollBounce 1.8s ease-in-out infinite;
+        }
+        @keyframes scrollBounce {
+            0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.4; }
+            50%       { transform: rotate(45deg) translateY(6px); opacity: 1; }
         }
 
         /* ── 淡入動畫 ── */
@@ -135,132 +172,277 @@
             transform: translateY(0);
         }
 
-        /* ── 全球官方大卡片 ── */
-        .global-official-card {
+        /* ── 區塊通用 ── */
+        .section-label {
+            font-family: 'Klee One', cursive;
+            font-size: 0.8rem;
+            letter-spacing: 0.3em;
+            color: #c9a96e;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: #3a3028;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        .section-desc {
+            font-size: 1rem;
+            color: #8a7a6a;
+            line-height: 1.9;
+            max-width: 540px;
+        }
+
+        /* ── 爆閃筆規格區（深色） ── */
+        .dark-section {
             background: linear-gradient(135deg, #1a1208 0%, #2d2018 50%, #1a1208 100%);
-            border: 2px solid rgba(201,169,110,0.5);
-            border-radius: 24px;
-            padding: 3rem;
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            padding: 6rem 0;
+        }
+        .dark-section .section-title { color: white; }
+        .dark-section .section-desc { color: rgba(255,255,255,0.55); max-width: 600px; margin: 0 auto; }
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .spec-card {
+            background: rgba(201,169,110,0.06);
+            border: 1px solid rgba(201,169,110,0.2);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: background 0.3s, border-color 0.3s, transform 0.3s;
             position: relative;
             overflow: hidden;
         }
-        .global-official-card::before {
+        .spec-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .spec-card:hover {
+            background: rgba(201,169,110,0.12);
+            border-color: rgba(201,169,110,0.4);
+            transform: translateY(-4px);
+        }
+        .spec-card:hover::before { opacity: 1; }
+        .spec-number {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #c9a96e;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .spec-unit {
+            font-size: 1rem;
+            color: rgba(201,169,110,0.7);
+            margin-left: 2px;
+        }
+        .spec-name {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .spec-desc {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.6;
+        }
+
+        /* ── 全球官方大卡片 ── */
+        .official-card {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            background: linear-gradient(135deg, #1a1208 0%, #2d2018 50%, #1a1208 100%);
+            border: 1.5px solid rgba(201,169,110,0.4);
+            border-radius: 20px;
+            padding: 2.5rem 3rem;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .official-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(201,169,110,0.08) 0%, transparent 70%);
+            background: radial-gradient(ellipse at 25% 50%, rgba(201,169,110,0.08) 0%, transparent 65%);
         }
-        .global-official-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 60px rgba(201,169,110,0.25);
-            border-color: rgba(201,169,110,0.8);
+        .official-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(201,169,110,0.2);
+            border-color: rgba(201,169,110,0.7);
         }
-        .official-icon {
-            width: 90px;
-            height: 90px;
+        .official-icon-wrap {
+            width: 80px; height: 80px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #c9a96e, #e8d5a3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
+            background: linear-gradient(135deg, rgba(201,169,110,0.2), rgba(201,169,110,0.05));
+            border: 1.5px solid rgba(201,169,110,0.4);
+            display: flex; align-items: center; justify-content: center;
             flex-shrink: 0;
-            box-shadow: 0 0 30px rgba(201,169,110,0.4);
         }
+        .official-icon-wrap svg { width: 36px; height: 36px; }
         .official-badge {
             display: inline-block;
             background: linear-gradient(135deg, #c9a96e, #e8d5a3);
             color: #1a1208;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 700;
             padding: 3px 10px;
             border-radius: 20px;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             margin-bottom: 0.5rem;
         }
         .official-title {
             font-family: 'Noto Serif TC', serif;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: white;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.25rem;
         }
         .official-handle {
-            color: var(--gold-light);
-            font-size: 1rem;
+            color: #e8d5a3;
+            font-size: 0.95rem;
             margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
         }
         .official-desc {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.88rem;
             line-height: 1.7;
         }
         .official-arrow {
             margin-left: auto;
-            color: var(--gold);
-            font-size: 1.5rem;
             flex-shrink: 0;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(201,169,110,0.4);
+            display: flex; align-items: center; justify-content: center;
+            color: #c9a96e;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .official-card:hover .official-arrow {
+            background: rgba(201,169,110,0.15);
+            border-color: rgba(201,169,110,0.7);
         }
 
         /* ── 各國市場卡片 ── */
         .markets-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.2rem;
         }
         .market-card {
             background: white;
-            border: 1px solid rgba(201,169,110,0.2);
+            border: 1px solid rgba(201,169,110,0.18);
             border-radius: 16px;
-            padding: 1.5rem 1.2rem;
+            padding: 1.8rem 1.5rem;
             text-align: center;
             text-decoration: none;
             color: #3a3028;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
             display: block;
+            position: relative;
+            overflow: hidden;
+        }
+        .market-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
         .market-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(201,169,110,0.15);
-            border-color: rgba(201,169,110,0.5);
+            box-shadow: 0 16px 40px rgba(201,169,110,0.12);
+            border-color: rgba(201,169,110,0.4);
         }
-        .market-flag { font-size: 2.5rem; margin-bottom: 0.75rem; }
-        .market-name { font-weight: 700; font-size: 0.95rem; color: #1a1208; margin-bottom: 0.3rem; }
-        .market-handle { font-size: 0.8rem; color: var(--gold); }
+        .market-card:hover::after { opacity: 1; }
+        .market-flag {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+        .market-name {
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #1a1208;
+            margin-bottom: 0.3rem;
+        }
+        .market-handle {
+            font-size: 0.78rem;
+            color: #c9a96e;
+            letter-spacing: 0.03em;
+        }
 
-        /* ── 畫家卡片 ── */
+        /* ── 創作者區（淺色背景） ── */
+        .creators-section {
+            background: linear-gradient(180deg, #fdf8f3 0%, #f5ede0 60%, #fdf8f3 100%);
+            padding: 6rem 0;
+        }
         .creators-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
         }
         .creator-card {
             background: white;
             border: 1px solid rgba(201,169,110,0.15);
             border-radius: 16px;
-            padding: 1.5rem 1rem;
+            padding: 1.8rem 1.2rem;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .creator-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(201,169,110,0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
         .creator-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(201,169,110,0.15);
+            box-shadow: 0 14px 40px rgba(201,169,110,0.12);
         }
-        .creator-avatar {
-            font-size: 2.2rem;
-            margin-bottom: 0.75rem;
+        .creator-card:hover::before { opacity: 1; }
+        .creator-initial {
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(201,169,110,0.15), rgba(201,169,110,0.05));
+            border: 1.5px solid rgba(201,169,110,0.3);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1rem;
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #c9a96e;
         }
         .creator-name {
             font-size: 0.8rem;
-            font-weight: 700;
-            color: #1a1208;
-            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #3a3028;
+            margin-bottom: 0.75rem;
             word-break: break-all;
+            letter-spacing: 0.02em;
         }
         .creator-btns {
             display: flex;
@@ -269,21 +451,22 @@
         }
         .creator-btn {
             display: block;
-            padding: 6px 10px;
+            padding: 7px 10px;
             border-radius: 8px;
             font-size: 0.72rem;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.2s ease;
+            transition: all 0.2s;
+            letter-spacing: 0.03em;
         }
         .creator-btn-profile {
-            background: rgba(201,169,110,0.12);
+            background: rgba(201,169,110,0.08);
             color: #8b6914;
-            border: 1px solid rgba(201,169,110,0.3);
+            border: 1px solid rgba(201,169,110,0.25);
         }
         .creator-btn-profile:hover {
-            background: rgba(201,169,110,0.25);
-            color: #6b4e0a;
+            background: rgba(201,169,110,0.18);
+            border-color: rgba(201,169,110,0.5);
         }
         .creator-btn-reel {
             background: linear-gradient(135deg, #c9a96e, #b8935a);
@@ -294,94 +477,38 @@
             transform: scale(1.02);
         }
 
-        /* ── 爆閃筆規格區 ── */
-        .glitter-specs {
-            background: linear-gradient(135deg, #1a1208 0%, #2d2018 100%);
-            border-radius: 24px;
-            padding: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .glitter-specs::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.1) 0%, transparent 60%);
-        }
-        .spec-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.2rem;
-            margin-top: 2rem;
-        }
-        .spec-card {
-            background: rgba(201,169,110,0.08);
-            border: 1px solid rgba(201,169,110,0.2);
-            border-radius: 16px;
-            padding: 1.8rem 1.5rem;
-            text-align: center;
-            transition: background 0.3s ease, border-color 0.3s ease;
-        }
-        .spec-card:hover {
-            background: rgba(201,169,110,0.15);
-            border-color: rgba(201,169,110,0.4);
-        }
-        .spec-icon { font-size: 2rem; margin-bottom: 0.75rem; }
-        .spec-name {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--gold-light);
-            margin-bottom: 0.4rem;
-        }
-        .spec-desc {
-            font-size: 0.82rem;
-            color: rgba(255,255,255,0.55);
-            line-height: 1.6;
-        }
-        .spec-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #c9a96e, #e8d5a3);
-            color: #1a1208;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 20px;
-            margin-top: 0.6rem;
-        }
-
-        /* ── 購買按鈕 ── */
+        /* ── 購買 CTA ── */
         .buy-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             background: linear-gradient(135deg, #c9a96e, #b8935a);
             color: #1a1208;
             font-weight: 700;
-            padding: 12px 28px;
+            padding: 0.9rem 2.2rem;
             border-radius: 50px;
             text-decoration: none;
             font-size: 0.9rem;
-            transition: all 0.3s ease;
-            margin-top: 1.5rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s;
         }
         .buy-btn:hover {
             background: linear-gradient(135deg, #e8d5a3, #c9a96e);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(201,169,110,0.4);
+            box-shadow: 0 8px 28px rgba(201,169,110,0.4);
         }
 
         /* ── Footer ── */
         footer {
             background: #1a1208;
-            padding: 3rem 1.5rem;
+            padding: 3.5rem 1.5rem;
             text-align: center;
         }
         .footer-logo {
             font-family: 'Noto Serif TC', serif;
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--gold);
+            color: #c9a96e;
             letter-spacing: 0.15em;
             margin-bottom: 1.5rem;
         }
@@ -393,59 +520,54 @@
             margin-bottom: 1.5rem;
         }
         .footer-link {
-            color: rgba(201,169,110,0.6);
+            color: rgba(201,169,110,0.5);
             text-decoration: none;
             font-size: 0.85rem;
             transition: color 0.3s;
         }
-        .footer-link:hover { color: var(--gold); }
+        .footer-link:hover { color: #c9a96e; }
         .footer-copy {
-            color: rgba(255,255,255,0.3);
+            color: rgba(255,255,255,0.25);
             font-size: 0.75rem;
         }
 
-        /* ── LINE 浮動按鈕 ── */
-        .line-float-btn {
-            position: fixed;
-            bottom: 30px; right: 30px;
-            z-index: 999;
+        /* ── LINE 懸浮按鈕 ── */
+        .line-chat-btn {
+            position: fixed; bottom: 30px; right: 30px;
             width: 60px; height: 60px;
             background-color: #00b900;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(0,185,0,0.4);
+            border: none; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 999;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 185, 0, 0.4);
             text-decoration: none;
         }
-        .line-float-btn:hover {
-            background-color: #009900;
-            transform: scale(1.1);
+        .line-chat-btn:hover {
+            transform: scale(1.12);
+            background-color: #00a800;
+            box-shadow: 0 6px 28px rgba(0, 185, 0, 0.55);
         }
+        .line-chat-btn svg { width: 32px; height: 32px; }
 
-        /* ── 滾動進度條 ── */
-        .progress-bar {
-            position: fixed;
-            top: 0; left: 0;
-            height: 3px;
-            background: linear-gradient(to right, #c9a96e, #e8d5a3);
-            z-index: 200;
-            transition: width 0.1s ease;
+        /* ── RWD ── */
+        @media (max-width: 900px) {
+            .spec-grid { grid-template-columns: repeat(2, 1fr); }
+            .markets-grid { grid-template-columns: repeat(2, 1fr); }
         }
-
-        @media (max-width: 768px) {
-            .global-official-card { flex-direction: column; text-align: center; padding: 2rem; }
-            .official-arrow { margin-left: 0; }
+        @media (max-width: 640px) {
+            .official-card { flex-direction: column; text-align: center; padding: 2rem; }
+            .official-arrow { margin: 0 auto; }
+            .spec-grid { grid-template-columns: repeat(2, 1fr); }
             .markets-grid { grid-template-columns: repeat(2, 1fr); }
             .creators-grid { grid-template-columns: repeat(2, 1fr); }
-            .spec-cards { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
+
     <!-- 滾動進度條 -->
-    <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+    <div class="progress-bar" id="progress-bar" style="width:0%"></div>
 
     <!-- 導航列 -->
     <nav class="nav-bar" id="nav-bar">
@@ -460,150 +582,159 @@
         </div>
     </nav>
 
-    <!-- Hero 主視覺 -->
-    <section class="hero-section">
+    <!-- ══ Hero 主視覺 ══ -->
+    <section class="hero-section" aria-label="世界的恩米主視覺">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
-        <span class="star-deco" style="top:12%; right:18%; animation-delay:0s;">✦</span>
-        <span class="star-deco" style="top:22%; right:30%; animation-delay:1s;">✧</span>
-        <span class="star-deco" style="top:65%; right:12%; animation-delay:2s;">✦</span>
-        <span class="star-deco" style="top:75%; left:15%; animation-delay:0.5s;">✧</span>
+        <div class="hero-overlay-bottom"></div>
+
+        <span class="star-deco" style="top:14%; right:18%; animation-delay:0s;">✦</span>
+        <span class="star-deco" style="top:22%; right:28%; animation-delay:1.2s;">✧</span>
+        <span class="star-deco" style="top:65%; right:12%; animation-delay:2.1s;">✦</span>
+        <span class="star-deco" style="top:78%; right:35%; animation-delay:0.6s;">✧</span>
+        <span class="star-deco" style="top:40%; left:8%;  animation-delay:1.8s;">✦</span>
+
         <div class="relative z-10 max-w-6xl mx-auto px-6 w-full">
-            <div class="max-w-xl">
-                <p class="handwritten text-amber-200 text-lg mb-4 tracking-widest fade-in" style="transition-delay:0.1s;">ENMY Around the World</p>
-                <h1 class="serif-font text-white font-bold leading-tight mb-6 fade-in" style="font-size: clamp(2.5rem, 6vw, 4.5rem); transition-delay:0.2s;">
+            <div class="max-w-2xl">
+                <p class="handwritten text-amber-200 text-lg mb-4 tracking-widest fade-in" style="transition-delay:0.1s;">
+                    ENMY Around the World
+                </p>
+                <h1 class="serif-font text-white font-bold leading-tight mb-6 fade-in"
+                    style="font-size: clamp(2.8rem, 6vw, 5rem); transition-delay:0.2s;">
                     世界的<br>
                     <span class="gold-text">恩米</span>
                 </h1>
                 <div class="divider-left fade-in" style="transition-delay:0.3s;"></div>
-                <p class="text-amber-50 text-lg leading-relaxed mb-8 fade-in" style="transition-delay:0.4s; font-weight:300;">
+                <p class="text-amber-50 text-lg leading-relaxed mb-10 fade-in"
+                   style="transition-delay:0.4s; font-weight:300; max-width:480px;">
                     從台灣出發，跨越語言與國界。<br>
                     每一支爆閃筆，都在世界的某個角落<br>
                     留下一道閃亮的痕跡。
                 </p>
-                <a href="#global-ig" class="inline-flex items-center gap-3 text-amber-200 hover:text-white transition-colors duration-300 fade-in" style="transition-delay:0.5s;">
+                <a href="#outshiner" class="inline-flex items-center gap-3 fade-in" style="transition-delay:0.5s; color:rgba(232,213,163,0.85); text-decoration:none; transition: color 0.3s;">
                     <span class="handwritten text-base">探索全球社群</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M12 5v14M5 12l7 7 7-7"/>
                     </svg>
                 </a>
             </div>
         </div>
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5">
-                <path d="M12 5v14M5 12l7 7 7-7"/>
-            </svg>
+
+        <div class="scroll-hint">
+            <span>scroll</span>
+            <div class="scroll-arrow"></div>
         </div>
     </section>
 
     <!-- ══ 爆閃筆規格 ══ -->
-    <section class="py-20 px-6" style="background: linear-gradient(180deg, #fdf8f3 0%, #f5ede0 100%);">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12 fade-in">
-                <p class="handwritten text-amber-600 text-base tracking-widest mb-2">Outshiner · Glitter Marker</p>
-                <h2 class="serif-font text-4xl font-bold text-stone-800 mb-4">爆閃筆 規格一覽</h2>
+    <section id="outshiner" class="dark-section">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center fade-in">
+                <p class="section-label" style="color:#c9a96e;">Outshiner · Glitter Marker</p>
+                <h2 class="section-title" style="color:white;">爆閃筆 <span class="gold-text">規格一覽</span></h2>
                 <div class="divider"></div>
-                <p class="text-stone-500 max-w-xl mx-auto leading-relaxed">
+                <p class="section-desc mx-auto" style="text-align:center;">
                     高濃度閃粉顏料，乾燥後不掉粉，閃耀每一個創作瞬間。<br>
                     提供單支選購與多色套組，滿足不同創作需求。
                 </p>
             </div>
-            <div class="glitter-specs fade-in">
-                <div class="relative z-10">
-                    <p class="handwritten text-amber-300 text-sm tracking-widest mb-1">ENMY. Outshiner</p>
-                    <h3 class="serif-font text-2xl font-bold text-white mb-1">爆閃筆 <span class="gold-text">選購方式</span></h3>
-                    <p class="text-sm" style="color:rgba(255,255,255,0.5);">單支 · 套組任選，閃耀程度自己決定</p>
-                    <div class="spec-cards">
-                        <div class="spec-card">
-                            <div class="spec-icon">✨</div>
-                            <div class="spec-name">單支選購</div>
-                            <div class="spec-desc">自由挑選喜愛的閃亮色彩，打造專屬配色組合</div>
-                            <div class="spec-badge">單支</div>
-                        </div>
-                        <div class="spec-card">
-                            <div class="spec-icon">🎁</div>
-                            <div class="spec-name">12 色套組</div>
-                            <div class="spec-desc">精選 12 種閃亮色彩，禮盒包裝，送禮自用兩相宜</div>
-                            <div class="spec-badge">12 色組</div>
-                        </div>
-                        <div class="spec-card">
-                            <div class="spec-icon">🌈</div>
-                            <div class="spec-name">24 色套組</div>
-                            <div class="spec-desc">豐富 24 色閃粉顏料，涵蓋金、銀、彩虹系閃色</div>
-                            <div class="spec-badge">24 色組</div>
-                        </div>
-                        <div class="spec-card">
-                            <div class="spec-icon">💫</div>
-                            <div class="spec-name">80 色套組</div>
-                            <div class="spec-desc">終極收藏版，80 種閃亮色彩，創作無極限</div>
-                            <div class="spec-badge">80 色組</div>
-                        </div>
-                    </div>
-                    <div class="text-center mt-8">
-                        <a href="https://shopee.tw/search?keyword=%E6%81%A9%E7%B1%B3%E7%88%86%E9%96%83%E7%AD%86" target="_blank" rel="noopener noreferrer" class="buy-btn">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M7 4V2H17V4H20C20.5523 4 21 4.44772 21 5V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V5C3 4.44772 3.44772 4 4 4H7ZM7 6H5V20H19V6H17V8H7V6ZM9 6V4H15V6H9Z"/></svg>
-                            前往蝦皮選購爆閃筆
-                        </a>
-                    </div>
+
+            <div class="spec-grid fade-in" style="transition-delay:0.2s;">
+                <div class="spec-card">
+                    <div class="spec-number">1<span class="spec-unit">支</span></div>
+                    <div class="spec-name">單支選購</div>
+                    <div class="spec-desc">自由挑選喜愛的閃亮色彩，打造專屬配色組合</div>
                 </div>
+                <div class="spec-card">
+                    <div class="spec-number">12<span class="spec-unit">色</span></div>
+                    <div class="spec-name">12 色套組</div>
+                    <div class="spec-desc">精選 12 種閃亮色彩，禮盒包裝，送禮自用兩相宜</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-number">24<span class="spec-unit">色</span></div>
+                    <div class="spec-name">24 色套組</div>
+                    <div class="spec-desc">豐富 24 色閃粉顏料，涵蓋金、銀、彩虹系閃色</div>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-number">80<span class="spec-unit">色</span></div>
+                    <div class="spec-name">80 色套組</div>
+                    <div class="spec-desc">終極收藏版，80 種閃亮色彩，創作無極限</div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 fade-in" style="transition-delay:0.3s;">
+                <a href="https://shopee.tw/search?keyword=%E6%81%A9%E7%B1%B3%E7%88%86%E9%96%83%E7%AD%86" target="_blank" rel="noopener noreferrer" class="buy-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M7 4V2H17V4H20C20.5523 4 21 4.44772 21 5V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V5C3 4.44772 3.44772 4 4 4H7ZM7 6H5V20H19V6H17V8H7V6ZM9 6V4H15V6H9Z"/></svg>
+                    前往蝦皮選購爆閃筆
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ══ 全球官方 IG ══ -->
-    <section id="global-ig" class="py-20 px-6" style="background: #fdf8f3;">
+    <!-- ══ 全球官方帳號 ══ -->
+    <section id="global-ig" class="py-24 px-6" style="background:#fdf8f3;">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12 fade-in">
-                <p class="handwritten text-amber-600 text-base tracking-widest mb-2">Official Accounts</p>
-                <h2 class="serif-font text-4xl font-bold text-stone-800 mb-4">ENMY 官方帳號</h2>
+            <div class="text-center mb-14 fade-in">
+                <p class="section-label">Official Accounts</p>
+                <h2 class="section-title mx-auto" style="text-align:center;">ENMY 官方帳號</h2>
                 <div class="divider"></div>
-                <p class="text-stone-500 max-w-xl mx-auto leading-relaxed">
+                <p class="section-desc mx-auto" style="text-align:center; max-width:520px;">
                     追蹤 ENMY 全球官方 Instagram，掌握最新產品資訊、創作靈感與全球活動。
                 </p>
             </div>
 
             <!-- 全球官方大卡片 -->
-            <a href="https://www.instagram.com/enmy__official/" target="_blank" rel="noopener noreferrer" class="global-official-card fade-in" style="margin-bottom: 2rem; display: flex;">
-                <div class="official-icon">🌎</div>
+            <a href="https://www.instagram.com/enmy__official/" target="_blank" rel="noopener noreferrer" class="official-card fade-in" style="margin-bottom:2rem;">
+                <div class="official-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <circle cx="12" cy="12" r="4"/>
+                        <circle cx="17.5" cy="6.5" r="1" fill="#c9a96e" stroke="none"/>
+                    </svg>
+                </div>
                 <div class="relative z-10 flex-1">
                     <div class="official-badge">GLOBAL OFFICIAL</div>
                     <div class="official-title">ENMY 全球官方</div>
                     <div class="official-handle">@enmy__official</div>
                     <div class="official-desc">ENMY 品牌全球總帳號，發布最新產品、創作靈感與全球合作資訊</div>
                 </div>
-                <div class="official-arrow">→</div>
+                <div class="official-arrow">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
             </a>
 
             <!-- 各國市場 -->
-            <h3 class="serif-font text-xl font-bold text-stone-700 mb-6 fade-in">各國官方帳號</h3>
-            <div class="markets-grid fade-in">
+            <p class="serif-font text-xl font-bold text-stone-700 mb-6 fade-in" style="transition-delay:0.1s;">各國官方帳號</p>
+            <div class="markets-grid fade-in" style="transition-delay:0.2s;">
                 <a href="https://www.instagram.com/enmy_official_jp/" target="_blank" rel="noopener noreferrer" class="market-card">
-                    <div class="market-flag">🇯🇵</div>
+                    <span class="market-flag">🇯🇵</span>
                     <div class="market-name">日本 Japan</div>
                     <div class="market-handle">@enmy_official_jp</div>
                 </a>
                 <a href="https://www.instagram.com/enmy_kr/" target="_blank" rel="noopener noreferrer" class="market-card">
-                    <div class="market-flag">🇰🇷</div>
+                    <span class="market-flag">🇰🇷</span>
                     <div class="market-name">韓國 Korea</div>
                     <div class="market-handle">@enmy_kr</div>
                 </a>
                 <a href="https://www.instagram.com/enmy_official_mx/" target="_blank" rel="noopener noreferrer" class="market-card">
-                    <div class="market-flag">🇲🇽</div>
+                    <span class="market-flag">🇲🇽</span>
                     <div class="market-name">墨西哥 Mexico</div>
                     <div class="market-handle">@enmy_official_mx</div>
                 </a>
                 <a href="https://www.instagram.com/enmy_uk/" target="_blank" rel="noopener noreferrer" class="market-card">
-                    <div class="market-flag">🇬🇧</div>
+                    <span class="market-flag">🇬🇧</span>
                     <div class="market-name">英國 UK</div>
                     <div class="market-handle">@enmy_uk</div>
                 </a>
                 <a href="https://www.instagram.com/enmy_official_ph/" target="_blank" rel="noopener noreferrer" class="market-card">
-                    <div class="market-flag">🇵🇭</div>
+                    <span class="market-flag">🇵🇭</span>
                     <div class="market-name">菲律賓 Philippines</div>
                     <div class="market-handle">@enmy_official_ph</div>
                 </a>
                 <a href="https://www.instagram.com/enmy_malaysia/" target="_blank" rel="noopener noreferrer" class="market-card">
-                    <div class="market-flag">🇲🇾</div>
+                    <span class="market-flag">🇲🇾</span>
                     <div class="market-name">馬來西亞 Malaysia</div>
                     <div class="market-handle">@enmy_malaysia</div>
                 </a>
@@ -611,113 +742,124 @@
         </div>
     </section>
 
-    <!-- ══ 全球畫家 ══ -->
-    <section class="py-20 px-6" style="background: linear-gradient(180deg, #f5ede0 0%, #fdf8f3 100%);">
+    <!-- ══ 全球創作者 ══ -->
+    <section class="creators-section px-6">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12 fade-in">
-                <p class="handwritten text-amber-600 text-base tracking-widest mb-2">Global Creators</p>
-                <h2 class="serif-font text-4xl font-bold text-stone-800 mb-4">全球創作者</h2>
+            <div class="text-center mb-14 fade-in">
+                <p class="section-label">Global Creators</p>
+                <h2 class="section-title mx-auto" style="text-align:center;">全球創作者</h2>
                 <div class="divider"></div>
-                <p class="text-stone-500 max-w-xl mx-auto leading-relaxed">
+                <p class="section-desc mx-auto" style="text-align:center; max-width:520px;">
                     來自世界各地的插畫家、藝術家，用 ENMY 爆閃筆創作出屬於自己的閃亮作品。
                 </p>
             </div>
-            <div class="creators-grid fade-in">
-                <!-- 非台灣創作者 -->
+            <div class="creators-grid fade-in" style="transition-delay:0.15s;">
+
                 <div class="creator-card">
-                    <div class="creator-avatar">🎪</div>
+                    <div class="creator-initial">曹</div>
                     <div class="creator-name">@_caoxuan_</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/_caoxuan_/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
                         <a href="https://www.instagram.com/_caoxuan_/reel/DW-sjcFCe__/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
                     </div>
                 </div>
+
                 <div class="creator-card">
-                    <div class="creator-avatar">🌿</div>
+                    <div class="creator-initial">A</div>
                     <div class="creator-name">@ash_valley1020</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/ash_valley1020/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
                         <a href="https://www.instagram.com/ash_valley1020/reel/DOkaX4IEqTQ/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
                     </div>
                 </div>
+
                 <div class="creator-card">
-                    <div class="creator-avatar">🎯</div>
+                    <div class="creator-initial">B</div>
                     <div class="creator-name">@bgzini86</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/bgzini86/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
                         <a href="https://www.instagram.com/bgzini86/reel/DLKPvmTPu37/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
                     </div>
                 </div>
+
                 <div class="creator-card">
-                    <div class="creator-avatar">🍀</div>
+                    <div class="creator-initial">C</div>
                     <div class="creator-name">@coco.draw10</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/coco.draw10/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
                         <a href="https://www.instagram.com/coco.draw10/reel/DQy_8gnEhZh/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
                     </div>
                 </div>
+
                 <div class="creator-card">
-                    <div class="creator-avatar">🌙</div>
+                    <div class="creator-initial">D</div>
                     <div class="creator-name">@duo63x</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/duo63x/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
                         <a href="https://www.instagram.com/duo63x/reel/DOOAi9FCW_Y/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
                     </div>
                 </div>
+
                 <div class="creator-card">
-                    <div class="creator-avatar">🦊</div>
+                    <div class="creator-initial">F</div>
                     <div class="creator-name">@fufurensen1111</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/fufurensen1111/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
                         <a href="https://www.instagram.com/fufurensen1111/reel/DW0z5Mnj-sn/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
                     </div>
                 </div>
+
                 <div class="creator-card">
-                    <div class="creator-avatar">⭐</div>
+                    <div class="creator-initial">G</div>
                     <div class="creator-name">@getback_3000000</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/getback_3000000/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
                         <a href="https://www.instagram.com/getback_3000000/reel/DXBclhJB6_B/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
                     </div>
                 </div>
+
                 <div class="creator-card">
-                    <div class="creator-avatar">🌺</div>
+                    <div class="creator-initial">G</div>
                     <div class="creator-name">@guto_2.0</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/guto_2.0/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
                         <a href="https://www.instagram.com/guto_2.0/reel/DOVdzlfkX8n/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
                     </div>
                 </div>
+
                 <div class="creator-card">
-                    <div class="creator-avatar">🚗</div>
+                    <div class="creator-initial">H</div>
                     <div class="creator-name">@hankdopaint</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/hankdopaint/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
                         <a href="https://www.instagram.com/hankdopaint/reel/DOxsEL0AZM8/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
                     </div>
                 </div>
+
                 <div class="creator-card">
-                    <div class="creator-avatar">🌊</div>
+                    <div class="creator-initial">M</div>
                     <div class="creator-name">@merrowe_huang</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/merrowe_huang/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
                         <a href="https://www.instagram.com/merrowe_huang/reel/DX4HKLBBXrX/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
                     </div>
                 </div>
+
                 <div class="creator-card">
-                    <div class="creator-avatar">⚡</div>
+                    <div class="creator-initial">T</div>
                     <div class="creator-name">@tsun_x2</div>
                     <div class="creator-btns">
                         <a href="https://www.instagram.com/tsun_x2/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-profile">IG 主頁</a>
                         <a href="https://www.instagram.com/tsun_x2/reel/DRrlwPnAcOg/" target="_blank" rel="noopener noreferrer" class="creator-btn creator-btn-reel">▶ 觀看作品</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer id="footer">
         <div class="footer-logo">ENMY.</div>
         <div class="footer-links">
             <a href="index.html" class="footer-link">首頁</a>
@@ -729,9 +871,9 @@
         <p class="footer-copy">© 2025 ENMY Taiwan. All rights reserved.</p>
     </footer>
 
-    <!-- LINE 浮動按鈕 -->
-    <a href="https://lin.ee/your-line-link" target="_blank" rel="noopener noreferrer" class="line-float-btn" aria-label="聯絡 LINE">
-        <svg width="32" height="32" viewBox="0 0 48 48" fill="white">
+    <!-- LINE 懸浮按鈕 -->
+    <a href="https://lin.ee/your-line-link" target="_blank" rel="noopener noreferrer" class="line-chat-btn" aria-label="聯絡 LINE">
+        <svg viewBox="0 0 48 48" fill="white" width="32" height="32">
             <path d="M24 4C12.95 4 4 11.86 4 21.5c0 5.5 2.9 10.4 7.4 13.6L9 40l6.3-2.8C17.1 37.7 20.5 38 24 38c11.05 0 20-7.86 20-17.5S35.05 4 24 4z"/>
         </svg>
     </a>
@@ -741,8 +883,7 @@
         window.addEventListener('scroll', () => {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = (scrollTop / docHeight) * 100;
-            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('progress-bar').style.width = (scrollTop / docHeight * 100) + '%';
         });
 
         // 導航列滾動效果
@@ -755,22 +896,29 @@
             }
         });
 
-        // 淡入動畫
+        // 淡入動畫觀察器
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Hero 初始動畫
-        setTimeout(() => {
-            document.querySelectorAll('.hero-section .fade-in').forEach(el => {
-                el.classList.add('visible');
+        // Hero 初始淡入
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.hero-section .fade-in').forEach(el => el.classList.add('visible'));
+            }, 200);
+        });
+
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
-        }, 300);
+        });
     </script>
 </body>
 </html>
