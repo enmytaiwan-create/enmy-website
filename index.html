@@ -111,9 +111,14 @@
             position: absolute; inset: 0;
             background-image: url('enmy_home_hero.png');
             background-size: cover;
-            background-position: center;
+            background-position: center 30%;
             transform: scale(1.05);
             animation: heroZoom 20s ease-in-out infinite alternate;
+        }
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-position: 60% 20%;
+            }
         }
         @keyframes heroZoom {
             from { transform: scale(1.05); }
@@ -344,7 +349,7 @@
                 </p>
                 <h1 class="serif-font text-white font-bold leading-tight mb-6 fade-in"
                     style="font-size: clamp(2.8rem, 6vw, 5rem); transition-delay:0.2s;">
-                    每一筆，<br>
+                    每一筆<br>
                     都是一場<br>
                     <span class="gold-text">與自己的對話</span>
                 </h1>
