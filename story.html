@@ -49,28 +49,22 @@
             align-items: center;
             overflow: hidden;
         }
-        .hero-slide {
+        .hero-bg {
             position: absolute;
             inset: 0;
+            background-image: url('enmy_story_wall_hero.jpg');
             background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-            filter: brightness(0.72);
+            background-position: center 30%;
+            filter: brightness(0.82);
         }
-        .hero-slide.active {
-            opacity: 1;
-        }
-        .hero-slide-1 { background-image: url('enmy_story_wall_hero.jpg'); background-position: center 30%; }
-        .hero-slide-2 { background-image: url('enmy_story_budgie_desk.jpg'); }
         .hero-overlay {
             position: absolute;
             inset: 0;
             background: linear-gradient(
                 to right,
-                rgba(30, 20, 15, 0.75) 0%,
-                rgba(30, 20, 15, 0.4) 50%,
-                rgba(30, 20, 15, 0.1) 100%
+                rgba(30, 20, 15, 0.52) 0%,
+                rgba(30, 20, 15, 0.22) 50%,
+                rgba(30, 20, 15, 0.05) 100%
             );
         }
 
@@ -287,8 +281,7 @@
     <!-- Hero 主視覺區 -->
     <!-- ═══════════════════════════════════════ -->
     <section class="hero-section">
-        <div class="hero-slide hero-slide-1 active" id="hero-slide-1"></div>
-        <div class="hero-slide hero-slide-2" id="hero-slide-2"></div>
+        <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
 
         <!-- 裝飾星星 -->
@@ -300,7 +293,7 @@
         <div class="relative z-10 max-w-6xl mx-auto px-6 w-full">
             <div class="max-w-xl">
                 <p class="handwritten text-amber-200 text-lg mb-4 tracking-widest fade-in" style="transition-delay: 0.1s;">Brand Story</p>
-                <h1 class="serif-font text-white font-bold leading-tight mb-6 fade-in" style="font-size: clamp(2.5rem, 6vw, 4.5rem); transition-delay: 0.2s;">
+                <h1 class="serif-font font-bold leading-tight mb-6 fade-in" style="font-size: clamp(2.5rem, 6vw, 4.5rem); transition-delay: 0.2s; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.45);">
                     每一支筆<br>
                     都是一場<br>
                     <span class="gold-text">與自己的對話</span>
@@ -653,17 +646,7 @@
                 });
             }, 200);
 
-            // Hero 圖片循環輪播
-            const slides = [
-                document.getElementById('hero-slide-1'),
-                document.getElementById('hero-slide-2')
-            ];
-            let current = 0;
-            setInterval(() => {
-                slides[current].classList.remove('active');
-                current = (current + 1) % slides.length;
-                slides[current].classList.add('active');
-            }, 5000);
+
         });
 
         // 平滑滾動
